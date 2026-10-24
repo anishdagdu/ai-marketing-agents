@@ -1,0 +1,43 @@
+# ---- Edit this file with your details ----
+timezone: Asia/Kolkata
+utc_offset: "+05:30"             # used when scheduling in Postiz
+
+brand:
+  name: Your Brand
+  website: https://yourbrand.com
+  description: What you sell / do in one or two sentences
+  audience: Who you are talking to
+  tone: Friendly, expert, no jargon
+  goals: [brand awareness, website traffic, leads]
+  pages_to_analyze:              # pages of YOUR site for sentiment analysis
+    - https://yourbrand.com
+    - https://yourbrand.com/about
+  review_urls: []                # e.g. Google/Trustpilot/G2 page links
+
+competitors:
+  - name: Competitor A
+    website: https://competitor-a.com
+    handles: {instagram: "@competitor_a", x: "@competitor_a"}
+    extra_urls: []               # their review pages, blog, etc.
+  - name: Competitor B
+    website: https://competitor-b.com
+    handles: {linkedin: "company/competitor-b"}
+
+# Your social handles. postiz_integration_id is optional - the postiz-publisher agent looks it up
+handles:
+  - platform: instagram
+    posts_per_week: 4
+    postiz_integration_id: ""
+    postiz_type: instagram
+  - platform: linkedin
+    posts_per_week: 3
+    postiz_integration_id: ""
+    postiz_type: linkedin        # use linkedin-page for a company page
+  - platform: x
+    posts_per_week: 5
+    postiz_integration_id: ""
+    postiz_type: x
+    notes: include 1 thread per week
+
+content_pillars: [education, behind the scenes, customer stories, product, industry news]
+key_dates: []                    # e.g. ["2026-11-28 Black Friday sale", "2026-12-05 product launch"]
