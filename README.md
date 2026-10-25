@@ -1,8 +1,8 @@
 # AI Marketing Agents
 
-Five sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content** and **email/SMS from first-party data**.
+Six sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data** and **AI UGC video ads**.
 
-> **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, and the Klaviyo agents save flows and campaigns as drafts. They write plans and reports; a human signs off on every change.
+> **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
 | Project | What it does | Agents |
 |---|---|---|
@@ -11,6 +11,7 @@ Five sets of Claude Code agents for marketing teams, in one repo: **paid ads**, 
 | [GTM Health Agent](gtm-health-agent/) | Audits Google Tag Manager every Monday: flags tags that won't fire, explains why and recommends fixes | 1 weekly agent |
 | [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 5 agents |
 | [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 5 agents + 1 workflow |
+| [AI UGC Ad Agents](ai-ugc-ad-agents/) | AI creator video ads on Higgsfield: creators, hooks, angles and scripts, paste-ready prompts, an ad-policy check, then image and video generation | 4 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -47,12 +48,20 @@ Website + competitor sentiment → content calendar (you approve) → schedule i
 First-party data audit → segments (you approve) → revenue flows (drafts) → campaigns (drafts, you send) → weekly performance loop.
 [Read more and install →](klaviyo-1pd-agents/)
 
+## AI UGC Ad Agents
+
+![AI UGC ad agents workflow](ai-ugc-ad-agents/ai-ugc-agents-workflow.gif)
+
+Brief → creators, hooks and scripts (you approve) → Soul 2.0 + Seedance prompts → compliance check → generate on Higgsfield (you approve each credit spend).
+[Read more and install →](ai-ugc-ad-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
 - **Paid + organic:** keyword research from AI Search Everywhere feeds Google Search campaigns in AI Paid Traffic, and paid search terms show which organic pages to build.
 - **Organic social:** the content agents' competitor research shares angles with the paid-traffic research agent; winning organic posts make good Spark Ads and creative tests.
 - **First-party data:** the Klaviyo segment agent builds consented VIP and buyer seed audiences for paid-traffic lookalikes and exclusions, and GTM health keeps the onsite events Klaviyo flows trigger on firing.
+- **Creative supply:** the UGC agents turn paid-traffic research angles into AI creator videos, and the compliance check screens them before they reach Meta or TikTok ads.
 - **One Monday routine:** GTM health report, search weekly report and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
@@ -69,6 +78,7 @@ Then follow the install steps in each project's README.
 - AI Paid Traffic uses the 40 **AI for Paid Traffic** skills by HeyOz (not included)
 - GTM Health Agent needs the Google Tag Manager MCP connector
 - Content Agents can schedule through a [Postiz](https://github.com/gitroomhq/postiz-app) account (optional)
+- AI UGC Ad Agents use the 19 [Higgsfield skills](https://github.com/AKCodez/higgsfield-claude-skills) by AKCodez (not included), plus a Higgsfield account and the Playwright MCP for generation
 
 ## License
 
