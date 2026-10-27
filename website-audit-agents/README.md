@@ -2,7 +2,7 @@
 
 Ten agents that audit and optimize any company website automatically, using two free tools: **Google PageSpeed Insights** and **Ahrefs Webmaster Tools**. GitHub Actions runs them on a schedule, Claude writes the executive summary, and the results arrive as a scorecard, a GitHub Issue and Slack alerts.
 
-![Workflow](docs/workflow.gif)
+![Workflow](docs/website-audit-agents-workflow.gif)
 
 ## The 10 agents
 
@@ -63,5 +63,5 @@ agents/crawler.py       free built-in crawler
 agents/common.py        shared helpers
 data/                   optional CSV exports
 reports/                scorecards + run history (written by the workflow)
-docs/workflow.gif       infographic
+docs/website-audit-agents-workflow.gif       infographic
 ```
