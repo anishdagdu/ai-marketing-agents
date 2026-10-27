@@ -1,6 +1,6 @@
 # AI Paid Traffic: 8 Agents, One Workflow
 
-![AI Paid Traffic agent workflow](ai-paid-traffic-workflow.png)
+![AI Paid Traffic agent workflow](ai-paid-traffic-workflow.gif)
 
 A team of 8 Claude Code agents that runs paid ads end to end, from research to scaling, on **Meta, Google and TikTok**.
 
