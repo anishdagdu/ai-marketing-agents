@@ -2,7 +2,7 @@
 
 Five Claude Code agents that build a social media content calendar from real sentiment research, then schedule it in [Postiz](https://github.com/gitroomhq/postiz-app), the open-source social media scheduler.
 
-![Content agents workflow](content-agents-workflow.png)
+![Content agents workflow](content-agents-workflow.gif)
 
 > **AI recommends. You approve.** Nothing is scheduled until you say yes, and the publisher always does a dry run first.
 
@@ -50,7 +50,7 @@ content-agents/
 ├── agents/                        # 5 agent files
 ├── config.yaml                    # your brand, competitors, handles
 ├── install.sh
-└── content-agents-workflow.png
+└── content-agents-workflow.gif
 ```
 
 ## Requirements
