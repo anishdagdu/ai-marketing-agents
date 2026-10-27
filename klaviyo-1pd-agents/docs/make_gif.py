@@ -1,122 +1,104 @@
+"""Renders klaviyo-agents-workflow.gif: the Klaviyo 1PD agents, animated.
+
+Story: first-party signals feed five agents; one run audits the data, proposes
+segments (you approve), drafts flows and campaigns (you send), then the weekly
+loop measures results and routes a fix back.
+
+Run: python3 klaviyo-1pd-agents/docs/make_gif.py  (needs Pillow)
+"""
+import os
 import sys
-from PIL import Image, ImageDraw, ImageFont
 
-OUT = sys.argv[1]
-W, H = 1200, 900
-BG = (14, 17, 28)
-CARD = (27, 32, 50)
-EDGE = (52, 60, 88)
-TXT = (236, 239, 247)
-MUTED = (150, 158, 184)
-ACCENTS = [(56, 189, 248), (167, 139, 250), (52, 211, 153), (251, 191, 36), (244, 114, 182)]
-DATA_C = (148, 163, 184)
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
+from gifkit import *  # noqa: E402,F403
 
-F = "/System/Library/Fonts/Avenir Next.ttc"
-def font(size, bold=False):
-    return ImageFont.truetype(F, size, index=(0 if bold else 7) if False else (2 if bold else 0))
+OUT = os.path.join(HERE, "..", "klaviyo-agents-workflow.gif")
 
-f_title = font(44, True); f_sub = font(21); f_num = font(20, True)
-f_name = font(25, True); f_body = font(18); f_tag = font(14, True); f_small = font(17)
+SIG = [("Product views", "search"), ("Cart adds", "tag"), ("Placed Order", "check"),
+       ("Email & SMS engagement", "mail"), ("Consent status", "shield")]
+SX0, SX1 = 40, 250
+SY = [168 + i * 56 for i in range(5)]
 
-STEPS = [
-    ("kl-data-foundation", "Data foundation", ["Audit events, catalog, consent", "Readiness score + setup plan"], "READ-ONLY"),
-    ("kl-segment-architect", "Segment architect", ["RFM, intent, VIP, at-risk", "Ad seed + exclusion audiences"], "CREATES ON APPROVAL"),
-    ("kl-flow-builder", "Flow builder", ["Welcome, cart, browse flows", "Post-buy, win-back, sunset"], "DRAFTS ONLY"),
-    ("kl-campaign-strategist", "Campaign strategist", ["4-week calendar per segment", "Personalised copy + A/B tests"], "DRAFTS · YOU SEND"),
-    ("kl-performance-analyst", "Performance analyst", ["Weekly RPR + deliverability", "Routes fixes to each agent"], "READ-ONLY · WEEKLY"),
+N = {
+    "n1": Node("n1", 290, 150, 600, 284, "Data foundation", "kl-data-foundation", BLUE, "db", "AGENT 1",
+               tag="READ-ONLY", lines=["Audit events, catalog, consent", "Readiness score + setup plan"]),
+    "n2": Node("n2", 630, 150, 940, 284, "Segment architect", "kl-segment-architect", VIOLET, "user", "AGENT 2",
+               tag="ON APPROVAL", lines=["RFM, intent, VIP, at-risk", "Ad seed + exclusion audiences"]),
+    "n3": Node("n3", 970, 150, 1240, 284, "Flow builder", "kl-flow-builder", GREEN, "route", "AGENT 3",
+               tag="DRAFTS", lines=["Welcome, cart, browse", "Post-buy, win-back, sunset"]),
+    "n5": Node("n5", 630, 330, 940, 464, "Performance analyst", "kl-performance-analyst", PINK, "chart",
+               "AGENT 5", tag="WEEKLY", lines=["Revenue per recipient", "Routes each fix to an agent"]),
+    "n4": Node("n4", 970, 330, 1240, 464, "Campaign strategist", "kl-campaign-strategist", AMBER, "cal",
+               "AGENT 4", tag="YOU SEND", lines=["4-week calendar per segment", "Personalised copy + A/B"]),
+}
+L = {f"s{i}>n1": (Path(curve((SX1, SY[i] + 21), N["n1"].L(-40 + i * 20))), CYAN) for i in range(5)}
+L.update({
+    "n1>n2": (Path(curve(N["n1"].R(), N["n2"].L())), VIOLET),
+    "n2>n3": (Path(curve(N["n2"].R(), N["n3"].L())), GREEN),
+    "n3>n4": (Path(curve(N["n3"].B(), N["n4"].T(), "v")), AMBER),
+    "n4>n5": (Path(curve(N["n4"].L(), N["n5"].R())), PINK),
+    "n5>n2": (Path(curve(N["n5"].T(-60), N["n2"].B(-60), "v")), VIOLET),
+    "n5>n1": (Path(curve(N["n5"].L(), N["n1"].B(40), "h", 0.7)), BLUE),
+})
+APPEAR = {f"s{i}": 0.15 + 0.08 * i for i in range(5)}
+APPEAR.update(n1=0.7, n2=0.95, n3=1.2, n4=1.45, n5=1.7, band=1.95)
+GUARD = ["Every write needs your OK", "Flows saved as drafts", "Never sends campaigns",
+         "Consented profiles only", "Never deletes or suppresses", "Assets labelled “AI ·”"]
+
+
+def under(c, t, state):
+    st = state["st"]
+    section_label(c, SX0, 128, "Your Klaviyo data", a=window(t, 0.05, 0.4))
+    section_label(c, 290, 128, "Five agents · one workflow", a=window(t, 0.6, 0.9))
+    for i, (lab, ic) in enumerate(SIG):
+        on = 1.0 if (st and st["st"].link == f"s{i}>n1" and st["phase"] == "travel") else 0.0
+        chip(c, SX0, SY[i], SX1, SY[i] + 42, lab, ic, CYAN, window(t, APPEAR[f"s{i}"], APPEAR[f"s{i}"] + 0.4), on, 12.5)
+    # guardrails band
+    a = window(t, APPEAR["band"], APPEAR["band"] + 0.5)
+    band(c, 40, 500, 1240, 626, "AI recommends · you approve", GREEN, a)
+    for i, g in enumerate(GUARD):
+        x = 60 + (i % 3) * 400
+        y = 540 + (i // 3) * 40
+        c.circle(x + 10, y + 10, 10, fill=GREEN, a=a)
+        icon(c, "check", x + 10, y + 10, WHITE, size=9, a=a)
+        c.text(x + 28, y + 10, g, 14, "demi", INK, anchor="lm", a=a)
+
+
+def approve(text, color=GREEN):
+    def fn(c, u):
+        k = window(u, 0.45, 0.7)
+        if k > 0:
+            c.pill(N["n2"].x0 + 14, N["n2"].y1 + 8, text, color, size=12, weight="bold", solid=True, h=24, a=k)
+    return fn
+
+
+def drafts(node, text, color):
+    def fn(c, u):
+        n = N[node]
+        c.pill(n.x0 + 14, n.y1 + 8, text, color, size=12, weight="bold", solid=True, h=24, a=window(u, 0.4, 0.65))
+    return fn
+
+
+SC = [
+    Scenario("This week", "Grow repeat revenue from first-party data", VIOLET, [
+        Step("s2>n1", "n1", 0.5, 1.2, "Readiness 82/100", "Placed Order, product views and consent all firing", BLUE),
+        Step("n1>n2", "n2", 0.45, 1.5, "6 segments proposed", "VIP · at-risk · hot browsers · cart abandoners …", VIOLET,
+             extra=approve("You approved all 6 · created in Klaviyo")),
+        Step("n2>n3", "n3", 0.45, 1.3, "3 flows drafted", "Abandoned checkout · win-back · post-purchase", GREEN,
+             extra=drafts("n3", "Saved as drafts · you switch on", GREEN)),
+        Step("n3>n4", "n4", 0.45, 1.3, "4-week calendar", "One segment per send · subject-line A/B test", AMBER,
+             side="bottom", extra=drafts("n4", "Drafts · you press send", AMBER)),
+        Step("n4>n5", "n5", 0.45, 1.3, "Monday readout", "Revenue per recipient +18% · spam 0.03%", PINK, side="bottom"),
+        Step("n5>n1", "n1", 0.55, 1.2, "Fix routed", "Unengaged 180-day profiles grew → sunset flow", BLUE),
+    ], label=""),
 ]
-# card boxes (x0, y0, x1, y1)
-BOX = [(60, 200, 380, 420), (440, 200, 760, 420), (820, 200, 1140, 420),
-       (820, 480, 1140, 700), (440, 480, 760, 700)]
-DATA = (60, 480, 380, 700)
-# paths: into step i from previous node
-PATHS = [
-    [(220, 480), (220, 420)],             # data -> 1
-    [(380, 310), (440, 310)],             # 1 -> 2
-    [(760, 310), (820, 310)],             # 2 -> 3
-    [(980, 420), (980, 480)],             # 3 -> 4
-    [(820, 590), (760, 590)],             # 4 -> 5
-]
-LOOP = [(440, 590), (380, 590)]           # 5 -> data
 
-def lerp_path(pts, t):
-    (x0, y0), (x1, y1) = pts
-    return (x0 + (x1 - x0) * t, y0 + (y1 - y0) * t)
-
-def mix(c, k):
-    return tuple(int(BG[i] + (c[i] - BG[i]) * k) for i in range(3))
-
-def arrow(d, pts, col, w=4):
-    d.line(pts, fill=col, width=w)
-    (x0, y0), (x1, y1) = pts
-    if x1 == x0:
-        s = 1 if y1 > y0 else -1
-        d.polygon([(x1, y1), (x1 - 9, y1 - 14 * s), (x1 + 9, y1 - 14 * s)], fill=col)
-    else:
-        s = 1 if x1 > x0 else -1
-        d.polygon([(x1, y1), (x1 - 14 * s, y1 - 9), (x1 - 14 * s, y1 + 9)], fill=col)
-
-def frame(lit, active=None, dot=None):
-    im = Image.new("RGB", (W, H), BG)
-    d = ImageDraw.Draw(im)
-    d.text((60, 48), "Klaviyo 1PD AI Agents", font=f_title, fill=TXT)
-    d.text((60, 110), "First-party data  >  segments  >  flows  >  campaigns  >  weekly loop", font=f_sub, fill=MUTED)
-    d.text((1140, 62), "5 agents · 1 workflow", font=f_small, fill=MUTED, anchor="ra")
-
-    # connectors
-    for i, p in enumerate(PATHS):
-        arrow(d, p, ACCENTS[i] if i in lit else EDGE)
-    arrow(d, LOOP, ACCENTS[4] if 4 in lit and len(lit) == 5 else EDGE)
-
-    # data box
-    x0, y0, x1, y1 = DATA
-    d.rounded_rectangle(DATA, 18, fill=CARD, outline=DATA_C if 0 in lit else EDGE, width=2)
-    d.text((x0 + 24, y0 + 22), "YOUR KLAVIYO DATA", font=f_tag, fill=DATA_C)
-    d.text((x0 + 24, y0 + 50), "First-party signals", font=f_name, fill=TXT)
-    for j, l in enumerate(["Product views · cart adds", "Placed Order · email + SMS", "Form answers (zero-party)", "Consent status"]):
-        d.text((x0 + 24, y0 + 94 + j * 26), "· " + l, font=f_body, fill=MUTED)
-
-    for i, (agent, name, lines, tag) in enumerate(STEPS):
-        x0, y0, x1, y1 = BOX[i]
-        on = i in lit
-        c = ACCENTS[i]
-        if i == active:
-            for g in range(10, 0, -2):
-                d.rounded_rectangle((x0 - g, y0 - g, x1 + g, y1 + g), 18 + g, outline=mix(c, 0.10 + (10 - g) * 0.03), width=2)
-        d.rounded_rectangle(BOX[i], 18, fill=CARD if on else mix(CARD, 0.6), outline=c if on else EDGE, width=3 if i == active else 2)
-        d.ellipse((x0 + 22, y0 + 20, x0 + 56, y0 + 54), fill=c if on else EDGE)
-        d.text((x0 + 39, y0 + 37), str(i + 1), font=f_num, fill=BG, anchor="mm")
-        d.text((x0 + 70, y0 + 24), name, font=f_name, fill=TXT if on else MUTED)
-        d.text((x0 + 24, y0 + 72), agent, font=f_small, fill=c if on else EDGE)
-        for j, l in enumerate(lines):
-            d.text((x0 + 24, y0 + 108 + j * 28), "· " + l, font=f_body, fill=TXT if on else MUTED)
-        tw = d.textlength(tag, font=f_tag)
-        d.rounded_rectangle((x0 + 24, y1 - 44, x0 + 44 + tw, y1 - 18), 8, fill=mix(c, 0.25) if on else EDGE)
-        d.text((x0 + 34, y1 - 31), tag, font=f_tag, fill=c if on else MUTED, anchor="lm")
-
-    if dot:
-        x, y, col = dot
-        d.ellipse((x - 9, y - 9, x + 9, y + 9), fill=col)
-
-    # guardrails
-    d.rounded_rectangle((60, 740, 1140, 860), 18, fill=CARD, outline=EDGE, width=2)
-    d.text((84, 758), "AI RECOMMENDS. YOU APPROVE.", font=f_tag, fill=ACCENTS[2])
-    rules = ["Every write needs your OK", "Flows saved as drafts", "Never sends campaigns",
-             "Never suppresses or deletes", "Consented profiles only", "Assets labelled  AI ·"]
-    for j, r in enumerate(rules):
-        cx = 84 + (j % 3) * 352
-        cy = 790 + (j // 3) * 32
-        d.line([(cx, cy + 13), (cx + 6, cy + 19), (cx + 17, cy + 5)], fill=ACCENTS[2], width=3)
-        d.text((cx + 28, cy), r, font=f_body, fill=TXT)
-    return im.quantize(colors=32, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
-
-frames, durs = [], []
-frames.append(frame(set())); durs.append(900)
-lit = set()
-for i in range(5):
-    lit = lit | {i}
-    frames.append(frame(lit, i)); durs.append(1300)
-frames.append(frame(lit)); durs.append(3200)
-
-frames[0].save(OUT, save_all=True, append_images=frames[1:], duration=durs, loop=0, optimize=True, disposal=1)
-print(OUT, len(frames))
+if __name__ == "__main__":
+    run_scene(out=OUT, accent=VIOLET, kicker="KLAVIYO 1PD AGENTS", title="Email & SMS from first-party data",
+              sub="Data audit → segments → flows → campaigns → weekly performance loop",
+              right=[("5 agents", VIOLET), ("1 workflow", GREEN), ("Drafts only", AMBER)],
+              nodes=N, links=L, appear=APPEAR, scenarios=SC, build_end=2.8, under=under,
+              build_caption=("WORKFLOW", "Five agents turn site behaviour, orders and consent into revenue", VIOLET),
+              outro_caption=("SAFE BY DEFAULT", "Nothing is created without your OK · campaigns are never sent for you", GREEN),
+              dash_links=("n5>n2", "n5>n1"))
