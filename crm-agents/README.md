@@ -1,6 +1,6 @@
 # CRM Agents: Lottery & Gaming CRM with Responsible-Gaming Guardrails
 
-![CRM Agents architecture](docs/crm-agents-architecture.gif)
+![CRM Agents architecture](crm-agents-architecture.gif)
 
 Ten Claude Code agents, five skills and one workflow skill for Optimove-style CRM. They share one data layer (gaming platform, retail loyalty card, app/web events, payments and RG limits) and follow one rule: **the Responsible Gaming Guardian can stop any message before it is sent.**
 
@@ -72,5 +72,5 @@ python3 simulator/crm_agents.py
 - `skills/`: the 5 shared skills (`uplift-readout` includes `scripts/uplift.py`)
 - `workflow/crm-agents-workflow/SKILL.md`: the orchestrator skill
 - `simulator/crm_agents.py`: runnable demo of the whole system
-- `docs/crm-agents-architecture.gif`: architecture animation
+- `crm-agents-architecture.gif`: architecture animation
 - `docs/make_gif.py`: regenerates the GIF (needs Pillow)
