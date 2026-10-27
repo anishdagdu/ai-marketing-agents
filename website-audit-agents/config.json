@@ -1,0 +1,17 @@
+{
+  "site": "https://example.com",
+  "revenue_pages": [
+    "https://example.com/"
+  ],
+  "country": "us",
+  "max_crawl_pages": 200,
+  "striking_distance": [4, 15],
+  "claude_model": "claude-sonnet-5-5",
+  "data_dir": "data",
+  "exports": {
+    "ahrefs_site_audit": "ahrefs_site_audit.csv",
+    "ahrefs_organic_keywords": "ahrefs_organic_keywords.csv",
+    "ahrefs_referring_domains": "ahrefs_referring_domains.csv",
+    "gsc_queries": "gsc_queries.csv"
+  }
+}
