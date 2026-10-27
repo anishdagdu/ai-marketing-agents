@@ -17,14 +17,14 @@ Eight sets of Claude Code agents for marketing teams, in one repo: **paid ads**,
 
 ## AI Paid Traffic
 
-![AI Paid Traffic workflow](ai-paid-traffic-agents/ai-paid-traffic-workflow.png)
+![AI Paid Traffic workflow](ai-paid-traffic-agents/ai-paid-traffic-workflow.gif)
 
 Research → Strategy (you approve) → Creative → Meta / Google / TikTok in parallel → Tracking → Scale.
 [Read more and install →](ai-paid-traffic-agents/)
 
 ## AI Search Everywhere
 
-![AI Search Everywhere workflow](ai-search-everywhere-agents/docs/ai-search-workflow-infographic.png)
+![AI Search Everywhere workflow](ai-search-everywhere-agents/docs/ai-search-workflow.gif)
 
 SEO + AIO → AEO + GEO → SXO → Rankings → weekly report every Monday.
 [Read more and install →](ai-search-everywhere-agents/)
@@ -38,7 +38,7 @@ Weekly read-only GTM audit: 30+ checks, P0–P3 severity, health score per conta
 
 ## Content Agents
 
-![Content Agents workflow](content-agents/content-agents-workflow.png)
+![Content Agents workflow](content-agents/content-agents-workflow.gif)
 
 Website + competitor sentiment → content calendar (you approve) → schedule in Postiz.
 [Read more and install →](content-agents/)
