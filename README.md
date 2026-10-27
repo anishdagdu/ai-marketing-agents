@@ -58,7 +58,7 @@ Brief → creators, hooks and scripts (you approve) → Soul 2.0 + Seedance prom
 
 ## Website Audit Agents
 
-![Website audit agents workflow](website-audit-agents/docs/workflow.gif)
+![Website audit agents workflow](website-audit-agents/docs/website-audit-agents-workflow.gif)
 
 Weekly speed check + monthly full audit → 10 agents (Core Web Vitals, slow revenue pages, speed backlog, tag bloat, accessibility, site health, broken links, striking-distance keywords, backlinks, alerts) → Claude summary → scorecard, GitHub Issue and Slack alerts. Read-only: it reports, your team fixes.
 [Read more and set up →](website-audit-agents/)
