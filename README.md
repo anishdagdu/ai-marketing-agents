@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Six sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data** and **AI UGC video ads**.
+Seven sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads** and **website speed and site health audits**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -12,6 +12,7 @@ Six sets of Claude Code agents for marketing teams, in one repo: **paid ads**, *
 | [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 5 agents |
 | [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 5 agents + 1 workflow |
 | [AI UGC Ad Agents](ai-ugc-ad-agents/) | AI creator video ads on Higgsfield: creators, hooks, angles and scripts, paste-ready prompts, an ad-policy check, then image and video generation | 4 agents + 1 workflow |
+| [Website Audit Agents](website-audit-agents/) | Audits site speed, Core Web Vitals, accessibility, technical SEO, keywords and backlinks with free PageSpeed Insights + Ahrefs Webmaster Tools, weekly and monthly via GitHub Actions | 10 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -55,6 +56,13 @@ First-party data audit → segments (you approve) → revenue flows (drafts) →
 Brief → creators, hooks and scripts (you approve) → Soul 2.0 + Seedance prompts → compliance check → generate on Higgsfield (you approve each credit spend).
 [Read more and install →](ai-ugc-ad-agents/)
 
+## Website Audit Agents
+
+![Website audit agents workflow](website-audit-agents/docs/workflow.gif)
+
+Weekly speed check + monthly full audit → 10 agents (Core Web Vitals, slow revenue pages, speed backlog, tag bloat, accessibility, site health, broken links, striking-distance keywords, backlinks, alerts) → Claude summary → scorecard, GitHub Issue and Slack alerts. Read-only: it reports, your team fixes.
+[Read more and set up →](website-audit-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
@@ -62,7 +70,8 @@ Brief → creators, hooks and scripts (you approve) → Soul 2.0 + Seedance prom
 - **Organic social:** the content agents' competitor research shares angles with the paid-traffic research agent; winning organic posts make good Spark Ads and creative tests.
 - **First-party data:** the Klaviyo segment agent builds consented VIP and buyer seed audiences for paid-traffic lookalikes and exclusions, and GTM health keeps the onsite events Klaviyo flows trigger on firing.
 - **Creative supply:** the UGC agents turn paid-traffic research angles into AI creator videos, and the compliance check screens them before they reach Meta or TikTok ads.
-- **One Monday routine:** GTM health report, search weekly report and paid-traffic Optimize mode can all run at the start of the week.
+- **Site speed feeds conversion:** the website audit agents flag slow revenue pages and tag bloat that hurt paid-traffic landing pages, and their striking-distance keywords feed AI Search Everywhere.
+- **One Monday routine:** GTM health report, search weekly report, website speed check and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
 
@@ -79,6 +88,7 @@ Then follow the install steps in each project's README.
 - GTM Health Agent needs the Google Tag Manager MCP connector
 - Content Agents can schedule through a [Postiz](https://github.com/gitroomhq/postiz-app) account (optional)
 - AI UGC Ad Agents use the 19 [Higgsfield skills](https://github.com/AKCodez/higgsfield-claude-skills) by AKCodez (not included), plus a Higgsfield account and the Playwright MCP for generation
+- Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
 
