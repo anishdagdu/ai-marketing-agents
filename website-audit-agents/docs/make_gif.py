@@ -1,134 +1,111 @@
-"""Renders docs/workflow.gif - the animated infographic of the agent workflow.
-    pip install pillow && python docs/make_gif.py
+"""Renders website-audit-agents-workflow.gif: the website audit agents, animated.
+
+Story: GitHub Actions starts the Monday speed check, PageSpeed data flows into
+the 10 agents (each lights up pass / warn / fail / skipped), Claude summarises
+the regressions, and the scorecard, GitHub Issue and Slack alert go out.
+
+Run: python3 website-audit-agents/docs/make_gif.py  (needs Pillow; not needed by run.py)
 """
 import os
-from PIL import Image, ImageDraw, ImageFont
+import sys
 
-W, H = 1200, 820
-BG, INK, MUTED, LINE = (15, 23, 42), (241, 245, 249), (148, 163, 184), (51, 65, 85)
-BLUE, GREEN, AMBER, PURPLE, PINK = (59, 130, 246), (34, 197, 94), (245, 158, 11), (168, 85, 247), (236, 72, 153)
-OUT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "workflow.gif")
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
+from gifkit import *  # noqa: E402,F403
+
+OUT = os.path.join(HERE, "website-audit-agents-workflow.gif")
+
+N = {
+    "trig": Node("trig", 40, 150, 250, 300, "Trigger", "GitHub Actions", BLUE, "clock", "STEP 1",
+                 lines=["Mon 06:00 · speed check", "1st of month · full audit", "Or run manually"]),
+    "comb": Node("comb", 990, 150, 1240, 284, "Combine", "run.py + Claude", VIOLET, "spark", "STEP 4",
+                 lines=["Compare with last run", "Summary for leadership"]),
+}
+DATA = [("PageSpeed Insights", "speed"), ("Ahrefs Webmaster", "chart"), ("Search Console", "search"),
+        ("Built-in crawler", "route")]
+DX0, DX1 = 285, 480
+DY = [160 + i * 58 for i in range(4)]
+PX0, PY0, PX1, PY1 = 515, 140, 955, 470
+AG = [("1 Core Web Vitals", GREEN), ("2 Conversion leakage", RED), ("3 Speed fix backlog", AMBER),
+      ("4 Marketing tag bloat", RED), ("5 Accessibility", GREEN), ("6 Site health", None),
+      ("7 Crawl & links", None), ("8 Striking keywords", None), ("9 Backlinks", None), ("10 Early warning", RED)]
+AX = [530, 745]
+AY = [176 + i * 56 for i in range(5)]
+OUTS = [("Scorecard in reports/", "doc"), ("GitHub Issue + checklist", "check"), ("Slack regression alert", "bolt")]
+OX0, OX1 = 990, 1240
+OY = [330 + i * 50 for i in range(3)]
+
+L = {f"trig>d{i}": (Path(curve(N["trig"].R(-30 + i * 20), (DX0, DY[i] + 22))), BLUE) for i in range(4)}
+L.update({f"d{i}>panel": (Path(curve((DX1, DY[i] + 22), (PX0, 250 + i * 20))), CYAN) for i in range(4)})
+L["panel>comb"] = (Path(curve((PX1, 250), N["comb"].L())), VIOLET)
+L["comb>out"] = (Path(curve(N["comb"].B(), ((OX0 + OX1) / 2, OY[0]), "v")), GREEN)
+
+APPEAR = {"trig": 0.2, "panel": 0.95, "comb": 1.6, "out": 1.8, "band": 2.0}
+APPEAR.update({f"d{i}": 0.45 + 0.1 * i for i in range(4)})
+KPIS = ["CWV pass ≥ 75%", "LCP < 2.5 s", "Tags < 250 ms", "A11y ≥ 90", "Health ≥ 90", "0 broken pages",
+        "+5 keywords to top 3", "Net new ref. domains"]
+
+STATUS_T = (6.0, 7.8)   # agents light up during the panel step (see --preview timings)
+OUT_T = (10.6, 11.6)    # outputs light up during the deliver step
+SKIP = mix(LINE, DIM, 0.4)
 
 
-def font(size, bold=False):
-    for p in (["/System/Library/Fonts/Supplemental/Arial Bold.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"]
-              if bold else ["/System/Library/Fonts/Supplemental/Arial.ttf", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"]):
-        if os.path.exists(p):
-            return ImageFont.truetype(p, size)
-    return ImageFont.load_default()
+def under(c, t, state):
+    act = state["act"]
+    st = state["st"]
+    section_label(c, DX0, 128, "Free data", a=window(t, 0.4, 0.8))
+    section_label(c, OX0, 304, "Deliver", a=window(t, APPEAR["out"], APPEAR["out"] + 0.4))
+    for i, (lab, ic) in enumerate(DATA):
+        on = 1.0 if (st and st["st"].link in (f"trig>d{i}",) and st["phase"] == "travel") or act == f"d{i}" else 0.0
+        chip(c, DX0, DY[i], DX1, DY[i] + 44, lab, ic, CYAN, window(t, APPEAR[f"d{i}"], APPEAR[f"d{i}"] + 0.4), on, 13)
+    pa = window(t, APPEAR["panel"], APPEAR["panel"] + 0.5)
+    if act == "panel":
+        c.glow(PX0, PY0, PX1, PY1, AMBER, 0.7 * state["amt"])
+    band(c, PX0, PY0, PX1, PY1, "Step 3 · run 10 AI agents", AMBER, pa)
+    for i, (lab, col) in enumerate(AG):
+        x = AX[i // 5]
+        y = AY[i % 5]
+        k = window(t, STATUS_T[0] + i * 0.15, STATUS_T[0] + i * 0.15 + 0.3)
+        if t > STATUS_T[1] + 4:   # keep statuses through the outro
+            k = 1.0
+        status = ((col or SKIP), k)
+        chip(c, x, y, x + 200, y + 44, lab, None, col or DIM,
+             window(t, APPEAR["panel"] + 0.1 + i * 0.05, APPEAR["panel"] + 0.5 + i * 0.05), 0.0, 12.5, status)
+    for i, (lab, ic) in enumerate(OUTS):
+        on = window(t, OUT_T[0] + i * 0.3, OUT_T[0] + i * 0.3 + 0.25) if OUT_T[0] <= t < OUT_T[1] + 0.8 else 0.0
+        chip(c, OX0, OY[i], OX1, OY[i] + 40, lab, ic, GREEN, window(t, APPEAR["out"] + i * 0.08, APPEAR["out"] + 0.4 + i * 0.08), on, 12.5)
+    # legend + KPIs
+    a = window(t, APPEAR["band"], APPEAR["band"] + 0.5)
+    band(c, 40, 500, 1240, 626, "KPIs tracked every run", BLUE, a)
+    x = 60
+    for kpi in KPIS:
+        w = c.pill(x, 538, kpi, BLUE, size=12.5, weight="demi", a=a, h=28)
+        x += w + 10
+    x = 60
+    for lab, col in [("Pass", GREEN), ("Warn", AMBER), ("Fail", RED), ("Skipped this run", SKIP)]:
+        c.circle(x + 7, 590, 7, fill=col, a=a)
+        c.text(x + 20, 590, lab, 13, "demi", INK, anchor="lm", a=a)
+        x += c.text_w(lab, 13, "demi") + 50
 
 
-F_T, F_H, F_B, F_S = font(34, True), font(19, True), font(16), font(14)
-
-STAGES = [  # (label, x, color, items)
-    ("1  TRIGGER", 30, BLUE, ["GitHub Actions", "Weekly: Mon 06:00", "  speed agents", "Monthly: 1st", "  full audit", "Manual run"]),
-    ("2  DATA (free)", 240, AMBER, ["PageSpeed Insights", "  API (Google)", "Ahrefs Webmaster", "  Tools exports", "Search Console", "Built-in crawler"]),
-    ("4  COMBINE", 790, PURPLE, ["run.py collects", "  all 10 results", "Compares with", "  last run", "Claude writes", "  exec summary"]),
-    ("5  DELIVER", 1000, GREEN, ["Scorecard (.md)", "GitHub Issue", "Slack alerts", "Owner tasks", "History saved", ""]),
+SC = [
+    Scenario("Monday 06:00", "The weekly speed check runs itself on GitHub Actions", BLUE, [
+        Step(None, "trig", 0, 1.0, "Run started", "Speed agents 1–5 and early-warning 10", BLUE),
+        Step("trig>d0", "d0", 0.45, 1.1, "PageSpeed Insights", "6 revenue pages · mobile and desktop", CYAN,
+             callout_xy=((DX0 + DX1) / 2, DY[0])),
+        Step("d0>panel", "panel", 0.45, 2.3, "Agents report", "Status · KPI vs target · next action · owner", AMBER,
+             side="bottom", callout_xy=((PX0 + PX1) / 2, PY1)),
+        Step("panel>comb", "comb", 0.45, 1.4, "Claude summary", "Checkout LCP 3.4 s (+0.9 s) · tags 410 ms", VIOLET,
+             callout_xy=(1080, 150)),
+        Step("comb>out", "out", 0.45, 1.6, "Delivered", "Scorecard committed · Issue opened · Slack alerted", GREEN,
+             side="bottom", callout_xy=(1100, OY[2] + 40)),
+    ], label=""),
 ]
-AGENTS = [
-    ("1", "Core Web Vitals baseline", BLUE), ("2", "Conversion leakage (LCP)", BLUE),
-    ("3", "Speed fix backlog", BLUE), ("4", "Marketing tag bloat", BLUE),
-    ("5", "Accessibility & compliance", BLUE), ("6", "Site health score", PINK),
-    ("7", "Crawl budget & link equity", PINK), ("8", "Striking-distance keywords", PINK),
-    ("9", "Backlink authority", PINK), ("10", "Early-warning alerts", PINK),
-]
-TOP, BOT = 150, 640
-
-
-def dim(c, a):
-    return tuple(int(BG[i] + (c[i] - BG[i]) * a) for i in range(3))
-
-
-def stage_box(d, label, x, color, items, on, w=170):
-    a = 1.0 if on else 0.28
-    d.rounded_rectangle([x, TOP, x + w, BOT], 14, fill=dim(color, 0.12 * a + 0.04), outline=dim(color, a), width=3 if on else 1)
-    d.text((x + 14, TOP + 16), label, font=F_H, fill=dim(color, a))
-    y = TOP + 64
-    for it in items:
-        d.text((x + 14, y), it, font=F_B if not it.startswith("  ") else F_S,
-               fill=dim(INK if not it.startswith("  ") else MUTED, a))
-        y += 34 if not it.startswith("  ") else 40
-
-
-def arrow(d, x1, x2, y, on):
-    c = INK if on else LINE
-    d.line([x1, y, x2 - 10, y], fill=c, width=4)
-    d.polygon([(x2, y), (x2 - 14, y - 9), (x2 - 14, y + 9)], fill=c)
-
-
-def frame(step, active_agent=-1):
-    im = Image.new("RGB", (W, H), BG)
-    d = ImageDraw.Draw(im)
-    d.text((30, 26), "AI Website Audit Agents", font=F_T, fill=INK)
-    d.text((30, 74), "10 agents  ·  PageSpeed Insights + Ahrefs Webmaster Tools  ·  fully automated with GitHub Actions + Claude",
-           font=F_B, fill=MUTED)
-    d.line([30, 118, W - 30, 118], fill=LINE, width=1)
-    for i, (label, x, color, items) in enumerate(STAGES[:2]):
-        stage_box(d, label, x, color, items, step >= i)
-    # agent grid
-    on = step >= 2
-    gx, gw = 450, 310
-    d.rounded_rectangle([gx, TOP, gx + gw, BOT], 14, fill=dim(PINK, 0.06 if on else 0.02),
-                        outline=INK if on else LINE, width=3 if on else 1)
-    d.text((gx + 14, TOP + 16), "3  RUN 10 AI AGENTS", font=F_H, fill=INK if on else MUTED)
-    for i, (n, name, color) in enumerate(AGENTS):
-        y = TOP + 58 + i * 42
-        lit = on and (active_agent < 0 or i <= active_agent)
-        hot = i == active_agent
-        d.rounded_rectangle([gx + 12, y, gx + gw - 12, y + 34], 8,
-                            fill=dim(color, 0.55 if hot else (0.22 if lit else 0.06)),
-                            outline=dim(color, 1 if lit else 0.3), width=2 if hot else 1)
-        d.ellipse([gx + 20, y + 5, gx + 44, y + 29], fill=dim(color, 1 if lit else 0.3))
-        d.text((gx + 32, y + 17), n, font=F_S, fill=BG, anchor="mm")
-        d.text((gx + 54, y + 8), name, font=F_B, fill=dim(INK, 1 if lit else 0.35))
-    for i, (label, x, color, items) in enumerate(STAGES[2:]):
-        stage_box(d, label, x, color, items, step >= 3 + i)
-    mid = (TOP + BOT) // 2
-    arrow(d, 202, 238, mid, step >= 1)
-    arrow(d, 412, 448, mid, step >= 2)
-    arrow(d, 762, 788, mid, step >= 3)
-    arrow(d, 962, 998, mid, step >= 4)
-    # legend + KPI band
-    d.text((30, 668), "Speed & experience (PageSpeed)", font=F_S, fill=BLUE)
-    d.text((300, 668), "Search visibility & health (Ahrefs / crawler)", font=F_S, fill=PINK)
-    d.rounded_rectangle([30, 700, W - 30, 790], 12, fill=(30, 41, 59))
-    kpis = ["CWV pass ≥75%", "LCP < 2.5s", "Tags < 250ms", "A11y ≥ 90", "Health ≥ 90", "0 broken pages", "+ top-3 keywords", "+ ref. domains"]
-    d.text((50, 712), "KPIs tracked every run", font=F_H, fill=INK if step >= 4 else MUTED)
-    x = 50
-    for k in kpis:
-        tw = d.textlength(k, font=F_S) + 22
-        d.rounded_rectangle([x, 748, x + tw, 776], 14, fill=dim(GREEN, 0.25 if step >= 4 else 0.08))
-        d.text((x + 11, 754), k, font=F_S, fill=INK if step >= 4 else MUTED)
-        x += tw + 10
-    return im
-
-
-def _palette():
-    """Fixed palette built from the design colors, so brand colors stay exact and the file stays small."""
-    cols = []
-    for c in (INK, MUTED, BLUE, GREEN, AMBER, PURPLE, PINK, (30, 41, 59), LINE):
-        for a in (0, .06, .12, .2, .28, .4, .55, .7, .85, 1):
-            cols.append(dim(c, a))
-    flat = [v for c in dict.fromkeys(cols) for v in c]
-    pal = Image.new("P", (1, 1))
-    pal.putpalette(flat + [0] * (768 - len(flat)))
-    return pal
-
-
-def main(full="--full" in __import__("sys").argv):
-    """Default: 6-frame GIF (~100KB). --full: 15 frames, agents light up one by one (~500KB)."""
-    if full:
-        frames = [frame(0), frame(1)] + [frame(2, i) for i in range(10)] + [frame(2), frame(3), frame(4), frame(5)]
-        durs = [900, 900] + [380] * 10 + [600, 900, 900, 3500]
-    else:
-        frames = [frame(0), frame(1), frame(2, 4), frame(2), frame(3), frame(5)]
-        durs = [1000, 1000, 1200, 1200, 1000, 3500]
-    pal = _palette()
-    out = [f.quantize(palette=pal, dither=Image.NONE) for f in frames]
-    out[0].save(OUT, save_all=True, append_images=out[1:], duration=durs, loop=0, optimize=True)
-    print("Saved", OUT, "({} frames)".format(len(frames)))
-
 
 if __name__ == "__main__":
-    main()
+    run_scene(out=OUT, accent=BLUE, kicker="WEBSITE AUDIT AGENTS", title="Website speed & site health audit",
+              sub="Trigger → free data → 10 agents → combine → deliver",
+              right=[("10 agents", AMBER), ("GitHub Actions", BLUE), ("Read-only", GREEN)],
+              nodes=N, links=L, appear=APPEAR, scenarios=SC, build_end=2.9, under=under,
+              build_caption=("WORKFLOW", "Weekly speed check + monthly full audit, fully automated", BLUE),
+              outro_caption=("READ-ONLY", "It reports and opens tickets · your team makes the fixes", GREEN))
