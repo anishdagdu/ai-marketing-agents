@@ -1,0 +1,65 @@
+name: Website audit agents
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Weekly speed check - every Monday 06:00 UTC (agents 1-5 + 10)
+    - cron: "0 7 1 * *"   # Monthly full audit - 1st of the month 07:00 UTC (all 10 agents)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "weekly (speed) or monthly (full audit)"
+        default: monthly
+        type: choice
+        options: [weekly, monthly]
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: website-audit-agents
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pick mode
+        id: mode
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "mode=${{ inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 7 1 * *" ]; then
+            echo "mode=monthly" >> "$GITHUB_OUTPUT"
+          else
+            echo "mode=weekly" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run agents
+        env:
+          PAGESPEED_API_KEY: ${{ secrets.PAGESPEED_API_KEY }}
+          AHREFS_API_TOKEN: ${{ secrets.AHREFS_API_TOKEN }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: python run.py --mode ${{ steps.mode.outputs.mode }}
+
+      - name: Save report to the repo
+        run: |
+          git config user.name "website-audit-bot"
+          git config user.email "website-audit-bot@users.noreply.github.com"
+          git add reports
+          git diff --cached --quiet || git commit -m "Audit report: ${{ steps.mode.outputs.mode }} $(date +%F)"
+          git push
+
+      - name: Open a GitHub issue with the scorecard
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "Website audit (${{ steps.mode.outputs.mode }}) - $(date +%F)" \
+            --body-file reports/latest.md
