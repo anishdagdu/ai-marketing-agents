@@ -123,6 +123,6 @@ frames.append(frame(shown, active="a8",
                     caption="People approve journeys & RG thresholds · every decision logged (GDPR)"))
 durations.append(2500)
 
-frames[0].save(__import__("os").path.join(__import__("os").path.dirname(__file__), "crm-agents-architecture.gif"), save_all=True, append_images=frames[1:],
+frames[0].save(__import__("os").path.join(__import__("os").path.dirname(__import__("os").path.dirname(__import__("os").path.abspath(__file__))), "crm-agents-architecture.gif"), save_all=True, append_images=frames[1:],
                duration=durations, loop=0, optimize=True)
 print(f"{len(frames)} frames written")
