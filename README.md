@@ -66,7 +66,7 @@ Weekly speed check + monthly full audit → 10 agents (Core Web Vitals, slow rev
 
 ## CRM Agents
 
-![CRM Agents architecture](crm-agents/docs/crm-agents-architecture.gif)
+![CRM Agents architecture](crm-agents/crm-agents-architecture.gif)
 
 Data layer → Player 360 → scoring → journeys + real-time triggers → RG Guardian (veto) → contact policy → personalisation → uplift, testing and insights loop. Every decision is logged. You approve journeys; the agents never send.
 [Read more and install →](crm-agents/)
