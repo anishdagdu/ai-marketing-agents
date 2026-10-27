@@ -1,6 +1,6 @@
 # AI Search Everywhere · 8 Claude skills + 7 agents
 
-![AI search workflow](docs/ai-search-workflow-infographic.png)
+![AI search workflow](docs/ai-search-workflow.gif)
 
 Search visibility across Google and AI answer engines: SEO, AEO, GEO, AIO and SXO, plus keyword ranking targets (top 5 in 2-3 months, top 3 in 6 months) and a one-page weekly report.
 
@@ -20,7 +20,7 @@ Copy the folders from `skills/` into `~/.claude/skills/` (or your project's `.cl
 - `skills/` - the same skills as folders (Claude Code)
 - `agents/` - 7 Claude Code subagents
 - `tools/` - citability scorer + requirements (also bundled inside the AEO and GEO skills)
-- `docs/` - workflow infographic
+- `docs/` - workflow GIF and the script that builds it
 - `RESEARCH.md`, `THIRD_PARTY_NOTICES.md`, `LICENSE` (MIT)
 
 Menu names can change between app versions. If you can't find them, search Claude's help centre for "skills".
