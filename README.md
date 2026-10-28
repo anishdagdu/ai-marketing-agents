@@ -11,6 +11,7 @@ Five sets of Claude Code agents for marketing teams, in one repo: **paid ads**, 
 | [GTM Health Agent](gtm-health-agent/) | Audits Google Tag Manager every Monday: flags tags that won't fire, explains why and recommends fixes | 1 weekly agent |
 | [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 5 agents |
 | [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 5 agents + 1 workflow |
+| [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -47,12 +48,20 @@ Website + competitor sentiment → content calendar (you approve) → schedule i
 First-party data audit → segments (you approve) → revenue flows (drafts) → campaigns (drafts, you send) → weekly performance loop.
 [Read more and install →](klaviyo-1pd-agents/)
 
+## Shopify Agents
+
+![Shopify agents workflow](shopify-agents/shopify-agents-workflow.gif)
+
+Orchestrator finds the biggest revenue leak → fix the store → convert → bring traffic → bring them back → measure and protect profit, every week.
+[Read more and install →](shopify-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
 - **Paid + organic:** keyword research from AI Search Everywhere feeds Google Search campaigns in AI Paid Traffic, and paid search terms show which organic pages to build.
 - **Organic social:** the content agents' competitor research shares angles with the paid-traffic research agent; winning organic posts make good Spark Ads and creative tests.
 - **First-party data:** the Klaviyo segment agent builds consented VIP and buyer seed audiences for paid-traffic lookalikes and exclusions, and GTM health keeps the onsite events Klaviyo flows trigger on firing.
+- **Shopify hub:** the Shopify orchestrator hands paid work to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents, email to Klaviyo 1PD Agents and tag checks to the GTM Health Agent.
 - **One Monday routine:** GTM health report, search weekly report and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
@@ -68,6 +77,7 @@ Then follow the install steps in each project's README.
 - [Claude Code](https://claude.com/claude-code)
 - AI Paid Traffic uses the 40 **AI for Paid Traffic** skills by HeyOz (not included)
 - GTM Health Agent needs the Google Tag Manager MCP connector
+- Shopify Agents need the Shopify MCP connector
 - Content Agents can schedule through a [Postiz](https://github.com/gitroomhq/postiz-app) account (optional)
 
 ## License
