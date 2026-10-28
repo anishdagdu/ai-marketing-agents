@@ -1,110 +1,114 @@
+"""Renders shopify-agents-workflow.gif: the 15 Shopify agents, animated.
+
+Story: the orchestrator finds the biggest revenue leak, a token travels through the five
+stages (fix the store -> convert -> bring traffic -> bring them back -> measure + profit),
+each stage's agents light up, and a ranked action list comes out for you to approve.
+
+Run: python3 shopify-agents/docs/make_gif.py  (needs Pillow and tools/gifkit.py)
+"""
+import os
 import sys
-from PIL import Image, ImageDraw, ImageFont
 
-OUT = sys.argv[1]
-W, H = 1200, 900
-BG = (14, 17, 28)
-CARD = (27, 32, 50)
-CHIP = (35, 41, 63)
-EDGE = (52, 60, 88)
-TXT = (236, 239, 247)
-MUTED = (150, 158, 184)
-ACCENTS = [(56, 189, 248), (167, 139, 250), (52, 211, 153), (251, 191, 36), (244, 114, 182)]
-LEAD = (149, 191, 71)  # Shopify green
+HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
+from gifkit import *  # noqa: E402,F403
 
-F = "/System/Library/Fonts/Avenir Next.ttc"
-def font(size, bold=False):
-    return ImageFont.truetype(F, size, index=2 if bold else 0)
+OUT = os.path.join(HERE, "..", "shopify-agents-workflow.gif")
 
-f_title = font(44, True); f_sub = font(21); f_num = font(18, True); f_stage = font(16, True); f_lead = font(20, True)
-f_agent = font(15, True); f_desc = font(14); f_tag = font(14, True); f_small = font(17); f_body = font(18)
+N = {
+    "orch": Node("orch", 40, 150, 260, 330, "Orchestrator", "sh-orchestrator", GREEN, "spark", "LEAD",
+                 lines=["Finds the biggest leak", "Briefs 1–4 specialists", "Ranks every action"]),
+}
+DATA = [("Shopify store", "tag"), ("GA4 + ad platforms", "chart"), ("Klaviyo", "mail")]
+DY = [368 + i * 40 for i in range(3)]
 
 STAGES = [
-    ("Fix the store", [("sh-store-setup", "Settings, theme, apps"), ("sh-debugger", "Root cause + fix"),
-                       ("sh-catalog", "Products + feed"), ("sh-inventory", "Stockout risk")]),
-    ("Convert", [("sh-conversion", "Pages, cart, checkout"), ("sh-support", "FAQs + chatbot"),
-                 ("sh-shipping-returns", "Costs + returns")]),
-    ("Bring traffic", [("sh-seo", "Google + AI search"), ("sh-content-social", "Organic calendar"),
-                       ("sh-paid-ads", "Meta, Google, TikTok")]),
-    ("Bring them back", [("sh-email-sms", "Klaviyo flows (drafts)"), ("sh-retention-reviews", "LTV, loyalty, reviews")]),
-    ("Measure + profit", [("sh-analytics-tracking", "Weekly readout"), ("sh-profit-pricing", "Margin + break-even")]),
+    ("1 · Fix the store", BLUE, ["Store setup", "Debugger", "Catalog", "Inventory"]),
+    ("2 · Convert", VIOLET, ["Conversion", "Support", "Shipping & returns"]),
+    ("3 · Bring traffic", AMBER, ["SEO + AI search", "Content & social", "Paid ads"]),
+    ("4 · Bring back", PINK, ["Email & SMS", "Retention"]),
+    ("5 · Measure", TEAL, ["Analytics", "Profit & pricing"]),
 ]
-COL_W, GAP, X0, Y0, Y1 = 200, 20, 60, 300, 690
-COLS = [(X0 + i * (COL_W + GAP), Y0, X0 + i * (COL_W + GAP) + COL_W, Y1) for i in range(5)]
-ORCH = (60, 170, 1140, 250)
+SX0, SW, SG, SY0, SY1 = 290, 144, 10, 140, 470
+SX = [SX0 + i * (SW + SG) for i in range(5)]
+OX0, OX1 = 1070, 1240
+OUTS = [("Ranked actions", "check"), ("Weekly readout", "doc"), ("Drafts to approve", "shield")]
+OY = [200 + i * 54 for i in range(3)]
 
-def mix(c, k):
-    return tuple(int(BG[i] + (c[i] - BG[i]) * k) for i in range(3))
+L = {"orch>s0": (Path(curve(N["orch"].R(-30), (SX[0], 210))), GREEN)}
+for i in range(4):
+    L[f"s{i}>s{i+1}"] = (Path(curve((SX[i] + SW, 300), (SX[i + 1], 300))), STAGES[i + 1][1])
+L["s4>out"] = (Path(curve((SX[4] + SW, 300), (OX0, OY[1] + 20))), GREEN)
+L["out>orch"] = (Path(poly(((OX0 + OX1) / 2, OY[2] + 44), ((OX0 + OX1) / 2, 490), (275, 490), (275, 290),
+                           (262, 290))), GREEN)
+L["d0>orch"] = (Path(curve((150, DY[0]), (150, 332), "v")), CYAN)
 
-def arrow_r(d, x0, x1, y, col):
-    d.line([(x0, y), (x1, y)], fill=col, width=4)
-    d.polygon([(x1, y), (x1 - 12, y - 8), (x1 - 12, y + 8)], fill=col)
+APPEAR = {"orch": 0.2, "out": 1.9, "band": 2.2}
+APPEAR.update({f"s{i}": 0.75 + 0.2 * i for i in range(5)})
+APPEAR.update({f"d{i}": 0.4 + 0.1 * i for i in range(3)})
+RULES = ["Every write needs your OK", "Drafts + duplicate theme", "Never changes ad budgets",
+         "Never sends emails or SMS", "Never deletes data", "Assets labelled AI ·"]
+HANDOFF = [("AI Paid Traffic", AMBER), ("AI Search Everywhere", BLUE), ("Content Agents", PINK),
+           ("Klaviyo 1PD", VIOLET), ("GTM Health", TEAL)]
 
-def arrow_d(d, x, y0, y1, col):
-    d.line([(x, y0), (x, y1)], fill=col, width=4)
-    d.polygon([(x, y1), (x - 8, y1 - 12), (x + 8, y1 - 12)], fill=col)
 
-def frame(lit, active=None, loop=False):
-    im = Image.new("RGB", (W, H), BG)
-    d = ImageDraw.Draw(im)
-    d.text((60, 48), "Shopify AI Agents", font=f_title, fill=TXT)
-    d.text((60, 110), "Fix the store  >  convert  >  bring traffic  >  bring them back  >  measure + profit", font=f_sub, fill=MUTED)
-    d.text((1140, 62), "15 agents · 1 workflow", font=f_small, fill=MUTED, anchor="ra")
+def under(c, t, state):
+    act = state["act"]
+    section_label(c, 170, 342, "Data", a=window(t, 0.35, 0.7))
+    for i, (lab, ic) in enumerate(DATA):
+        chip(c, 40, DY[i], 260, DY[i] + 34, lab, ic, CYAN, window(t, APPEAR[f"d{i}"], APPEAR[f"d{i}"] + 0.4), 0.0, 13)
+    for i, (lab, col, agents) in enumerate(STAGES):
+        key = f"s{i}"
+        x0, x1 = SX[i], SX[i] + SW
+        on = state["amt"] if act == key else 0.0
+        if on:
+            c.glow(x0, SY0, x1, SY1, col, 0.7 * on)
+        band(c, x0, SY0, x1, SY1, lab, col, window(t, APPEAR[key], APPEAR[key] + 0.5))
+        for j, ag in enumerate(agents):
+            y = SY0 + 36 + j * 52
+            chip(c, x0 + 8, y, x1 - 8, y + 42, ag, None, col,
+                 window(t, APPEAR[key] + 0.1 + j * 0.06, APPEAR[key] + 0.5 + j * 0.06), on, 12.5)
+    section_label(c, OX0, 172, "You approve", a=window(t, APPEAR["out"], APPEAR["out"] + 0.4))
+    for i, (lab, ic) in enumerate(OUTS):
+        on = state["amt"] if act == "out" else 0.0
+        chip(c, OX0, OY[i], OX1, OY[i] + 44, lab, ic, GREEN,
+             window(t, APPEAR["out"] + i * 0.08, APPEAR["out"] + 0.4 + i * 0.08), on, 12.5)
+    c.text(620, 497, "weekly loop", 12, "bold", GREEN, anchor="mm", a=window(t, 2.3, 2.7))
+    a = window(t, APPEAR["band"], APPEAR["band"] + 0.5)
+    band(c, 40, 512, 1240, 632, "Guardrails in every agent", GREEN, a)
+    x = 60
+    for r in RULES:
+        x += c.pill(x, 540, r, GREEN, size=12.5, weight="demi", a=a, h=28) + 10
+    c.text(60, 594, "Hands off to:", 13, "demi", INK, anchor="lm", a=a)
+    x = 60 + c.text_w("Hands off to:", 13, "demi") + 12
+    for lab, col in HANDOFF:
+        x += c.pill(x, 580, lab, col, size=12.5, weight="demi", a=a, h=28) + 10
 
-    # orchestrator
-    on = bool(lit) or active == -1
-    d.rounded_rectangle(ORCH, 18, fill=CARD, outline=LEAD if on else EDGE, width=3 if active == -1 else 2)
-    d.ellipse((84, 192, 118, 226), fill=LEAD if on else EDGE)
-    d.text((101, 209), "AI", font=f_tag, fill=BG, anchor="mm")
-    d.text((134, 186), "sh-orchestrator", font=f_lead, fill=TXT if on else MUTED)
-    d.text((134, 214), "Finds the biggest revenue leak, briefs the right agents, ranks every action", font=f_desc, fill=LEAD if on else MUTED)
-    d.text((1116, 210), "SHOPIFY STORE DATA", font=f_tag, fill=LEAD if on else MUTED, anchor="rm")
 
-    # orchestrator -> stage 1, stage arrows, loop back
-    arrow_d(d, 160, 250, 296, ACCENTS[0] if 0 in lit else EDGE)
-    for i in range(4):
-        arrow_r(d, COLS[i][2] + 2, COLS[i + 1][0] - 2, 330, ACCENTS[i + 1] if i + 1 in lit else EDGE)
-    lc = LEAD if loop else EDGE
-    d.line([(1040, 296), (1040, 270), (1090, 270), (1090, 254)], fill=lc, width=4)
-    d.polygon([(1090, 252), (1082, 264), (1098, 264)], fill=lc)
-    d.text((1100, 274), "weekly", font=f_desc, fill=lc)
+SC = [
+    Scenario("Weekly check", "The orchestrator finds the biggest revenue leak and sends the right agents", GREEN, [
+        Step(None, "orch", 0, 1.1, "Leak found", "Traffic is fine · conversion is the gap", GREEN, side="top",
+             callout_xy=(150, 150)),
+        Step("orch>s0", "s0", 0.45, 1.2, "Fix the store", "Checkout app conflict · fix on duplicate theme", BLUE,
+             side="bottom", callout_xy=(SX[0] + SW / 2 + 60, SY1)),
+        Step("s0>s1", "s1", 0.4, 1.2, "Convert", "A/B test: reviews above the fold", VIOLET,
+             side="bottom", callout_xy=(SX[1] + SW / 2, SY1)),
+        Step("s1>s2", "s2", 0.4, 1.2, "Bring traffic", "Cut wasted ad spend · push in-stock winners", AMBER,
+             side="bottom", callout_xy=(SX[2] + SW / 2, SY1)),
+        Step("s2>s3", "s3", 0.4, 1.2, "Bring them back", "Abandoned-cart flow saved as a draft", PINK,
+             side="bottom", callout_xy=(SX[3] + SW / 2, SY1)),
+        Step("s3>s4", "s4", 0.4, 1.2, "Measure + profit", "Weekly readout · break-even ROAS check", TEAL,
+             side="bottom", callout_xy=(SX[4] + SW / 2 - 40, SY1)),
+        Step("s4>out", "out", 0.45, 1.6, "Your call", "Ranked actions · nothing goes live without your OK", GREEN,
+             side="bottom", callout_xy=(1080, OY[2] + 44)),
+    ], label=""),
+]
 
-    for i, (stage, agents) in enumerate(STAGES):
-        x0, y0, x1, y1 = COLS[i]
-        c = ACCENTS[i]
-        on = i in lit
-        if i == active:
-            for g in range(10, 0, -2):
-                d.rounded_rectangle((x0 - g, y0 - g, x1 + g, y1 + g), 18 + g, outline=mix(c, 0.10 + (10 - g) * 0.03), width=2)
-        d.rounded_rectangle(COLS[i], 18, fill=CARD if on else mix(CARD, 0.6), outline=c if on else EDGE, width=3 if i == active else 2)
-        d.ellipse((x0 + 14, y0 + 18, x0 + 40, y0 + 44), fill=c if on else EDGE)
-        d.text((x0 + 27, y0 + 31), str(i + 1), font=f_num, fill=BG, anchor="mm")
-        d.text((x0 + 48, y0 + 31), stage, font=f_stage, fill=TXT if on else MUTED, anchor="lm")
-        for j, (agent, desc) in enumerate(agents):
-            cy = y0 + 64 + j * 78
-            d.rounded_rectangle((x0 + 12, cy, x1 - 12, cy + 66), 12, fill=CHIP if on else mix(CHIP, 0.6), outline=mix(c, 0.5) if on else EDGE, width=1)
-            d.text((x0 + 24, cy + 12), agent, font=f_agent, fill=c if on else MUTED)
-            d.text((x0 + 24, cy + 36), desc, font=f_desc, fill=TXT if on else MUTED)
-
-    # guardrails
-    d.rounded_rectangle((60, 730, 1140, 860), 18, fill=CARD, outline=EDGE, width=2)
-    d.text((84, 748), "AI RECOMMENDS. YOU APPROVE.", font=f_tag, fill=ACCENTS[2])
-    rules = ["Every write needs your OK", "Drafts + duplicate theme", "Never changes ad budgets",
-             "Never sends emails or SMS", "Never deletes data", "Assets labelled  AI ·"]
-    for j, r in enumerate(rules):
-        cx = 84 + (j % 3) * 352
-        cy = 782 + (j // 3) * 34
-        d.line([(cx, cy + 13), (cx + 6, cy + 19), (cx + 17, cy + 5)], fill=ACCENTS[2], width=3)
-        d.text((cx + 28, cy), r, font=f_body, fill=TXT)
-    return im.quantize(colors=48, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE)
-
-frames, durs = [frame(set())], [900]
-frames.append(frame(set(), -1)); durs.append(1300)
-lit = set()
-for i in range(5):
-    lit = lit | {i}
-    frames.append(frame(lit, i)); durs.append(1300)
-frames.append(frame(lit, loop=True)); durs.append(3200)
-
-frames[0].save(OUT, save_all=True, append_images=frames[1:], duration=durs, loop=0, optimize=True, disposal=1)
-print(OUT, len(frames))
+if __name__ == "__main__":
+    run_scene(out=OUT, accent=GREEN, kicker="SHOPIFY AGENTS", title="An AI team for your whole Shopify store",
+              sub="Orchestrator → fix the store → convert → bring traffic → bring them back → measure",
+              right=[("15 agents", AMBER), ("Shopify MCP", GREEN), ("You approve", BLUE)],
+              nodes=N, links=L, appear=APPEAR, scenarios=SC, build_end=3.0, under=under,
+              dash_links=("out>orch",),
+              build_caption=("WORKFLOW", "15 agents in 5 stages, led by one orchestrator", GREEN),
+              outro_caption=("YOU APPROVE", "Drafts and recommendations only · you publish, send and change budgets", GREEN))
