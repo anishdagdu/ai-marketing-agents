@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Eight sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits** and **CRM with responsible-gaming guardrails**.
+Nine sets of Claude Code agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits** **CRM with responsible-gaming guardrails** and **whole-store Shopify operations**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -14,6 +14,7 @@ Eight sets of Claude Code agents for marketing teams, in one repo: **paid ads**,
 | [AI UGC Ad Agents](ai-ugc-ad-agents/) | AI creator video ads on Higgsfield: creators, hooks, angles and scripts, paste-ready prompts, an ad-policy check, then image and video generation | 4 agents + 1 workflow |
 | [Website Audit Agents](website-audit-agents/) | Audits site speed, Core Web Vitals, accessibility, technical SEO, keywords and backlinks with free PageSpeed Insights + Ahrefs Webmaster Tools, weekly and monthly via GitHub Actions | 10 agents + 1 workflow |
 | [CRM Agents](crm-agents/) | Player 360, churn and LTV scoring, journeys, real-time triggers, uplift with control groups and bandit tests, with a Responsible Gaming Guardian that can veto any message | 10 agents + 5 skills + 1 workflow |
+| [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -71,6 +72,13 @@ Weekly speed check + monthly full audit → 10 agents (Core Web Vitals, slow rev
 Data layer → Player 360 → scoring → journeys + real-time triggers → RG Guardian (veto) → contact policy → personalisation → uplift, testing and insights loop. Every decision is logged. You approve journeys; the agents never send.
 [Read more and install →](crm-agents/)
 
+## Shopify Agents
+
+![Shopify agents workflow](shopify-agents/shopify-agents-workflow.gif)
+
+Orchestrator finds the biggest revenue leak → fix the store → convert → bring traffic → bring them back → measure and protect profit, every week.
+[Read more and install →](shopify-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
@@ -80,6 +88,7 @@ Data layer → Player 360 → scoring → journeys + real-time triggers → RG G
 - **Creative supply:** the UGC agents turn paid-traffic research angles into AI creator videos, and the compliance check screens them before they reach Meta or TikTok ads.
 - **Site speed feeds conversion:** the website audit agents flag slow revenue pages and tag bloat that hurt paid-traffic landing pages, and their striking-distance keywords feed AI Search Everywhere.
 - **Retention:** the CRM agents' uplift results show which journeys add revenue, and their segments sit alongside the Klaviyo 1PD segments for lifecycle messaging.
+- **Shopify hub:** the Shopify orchestrator hands paid work to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents, email to Klaviyo 1PD Agents and tag checks to the GTM Health Agent.
 - **One Monday routine:** GTM health report, search weekly report, website speed check and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
@@ -98,6 +107,7 @@ Then follow the install steps in each project's README.
 - Content Agents can schedule through a [Postiz](https://github.com/gitroomhq/postiz-app) account (optional)
 - AI UGC Ad Agents use the 19 [Higgsfield skills](https://github.com/AKCodez/higgsfield-claude-skills) by AKCodez (not included), plus a Higgsfield account and the Playwright MCP for generation
 - CRM Agents need player, payment and RG-limit data exports (a simulator is included to try it without data)
+- Shopify Agents need the Shopify MCP connector
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
