@@ -2,7 +2,7 @@
 
 ![AI UGC ad agents workflow](ai-ugc-agents-workflow.gif)
 
-Four Claude Code agents and one workflow skill. They turn a product brief into AI UGC video ads: creators, hooks, angles, formats and scripts, then paste-ready prompts, a policy check, and finally the image and video on [Higgsfield](https://higgsfield.ai) (Soul 2.0 image → Seedance 2.0 video).
+Four AI agents and one workflow skill. They turn a product brief into AI UGC video ads: creators, hooks, angles, formats and scripts, then paste-ready prompts, a policy check, and finally the image and video on [Higgsfield](https://higgsfield.ai) (Soul 2.0 image → Seedance 2.0 video).
 
 > **AI recommends. You approve.** Nothing is generated until the compliance check passes, and the browser agent stops before every Generate click to show you the credit cost and a screenshot. It never clicks Generate without your OK in chat.
 
