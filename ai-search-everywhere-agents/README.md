@@ -18,7 +18,7 @@ Copy the folders from `skills/` into `~/.claude/skills/` (or your project's `.cl
 ## Files
 - `upload-to-claude/` - 8 numbered skill zips for upload
 - `skills/` - the same skills as folders (Claude Code)
-- `agents/` - 7 Claude Code subagents
+- `agents/` - 7 AI agents
 - `tools/` - citability scorer + requirements (also bundled inside the AEO and GEO skills)
 - `docs/` - workflow GIF and the script that builds it
 - `RESEARCH.md`, `THIRD_PARTY_NOTICES.md`, `LICENSE` (MIT)
