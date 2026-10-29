@@ -1,0 +1,11 @@
+{
+  "market": "FI",
+  "timezone": "Europe/Helsinki",
+  "languages": { "publish": "fi", "review": "en" },
+  "tone": "sinä",
+  "formats": { "currency": "29,90 €", "percent": "20 %", "date": "dd.mm.yyyy", "csv_separator": ";" },
+  "platforms": ["google_ads", "meta", "linkedin", "snapchat"],
+  "calendar": { "default_period_weeks": 4, "start": "next_monday" },
+  "approval_gates": true,
+  "qa": { "max_fix_rounds": 2, "char_check": "python3 src/utils/char_count.py" }
+}
