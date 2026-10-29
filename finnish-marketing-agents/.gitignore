@@ -1,0 +1,6 @@
+CLAUDE.local.md
+.env
+.claude/settings.local.json
+data/output/**
+!data/output/**/.gitkeep
+.DS_Store
