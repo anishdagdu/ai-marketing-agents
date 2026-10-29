@@ -2,7 +2,7 @@
 
 ![CRM Agents architecture](crm-agents-architecture.gif)
 
-Ten Claude Code agents, five skills and one workflow skill for Optimove-style CRM. They share one data layer (gaming platform, retail loyalty card, app/web events, payments and RG limits) and follow one rule: **the Responsible Gaming Guardian can stop any message before it is sent.**
+Ten AI agents, five skills and one workflow skill for Optimove-style CRM. They share one data layer (gaming platform, retail loyalty card, app/web events, payments and RG limits) and follow one rule: **the Responsible Gaming Guardian can stop any message before it is sent.**
 
 > **AI recommends. You approve.** The agents write journeys, triggers, copy and send lists as **drafts**. People approve new journeys and any change to RG thresholds or caps. The agents never send messages themselves: the final send list goes to your CRM or ESP platform. Every decision is logged with a reason, for the gambling regulator and GDPR.
 
