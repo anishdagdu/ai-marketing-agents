@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Ten sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations** and **Finnish-language ads and content calendars**.
+Eleven sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **Finnish-language ads and content calendars** and **Amazon Ads setup and optimization**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -16,6 +16,7 @@ Ten sets of AI agents for marketing teams, in one repo: **paid ads**, **search v
 | [CRM Agents](crm-agents/) | Player 360, churn and LTV scoring, journeys, real-time triggers, uplift with control groups and bandit tests, with a Responsible Gaming Guardian that can veto any message | 10 agents + 5 skills + 1 workflow |
 | [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
 | [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 3 agents + 1 workflow |
+| [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 12 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -87,6 +88,13 @@ Orchestrator finds the biggest revenue leak → fix the store → convert → br
 Brief → research: website, competitor sentiment and Meta Ad Library (you approve) → strategy (you approve) → content calendar in Finnish + English (you approve) → ad copy for Google, Meta, LinkedIn and Snapchat → translation and QA → you approve → measure.
 [Read more and install →](finnish-marketing-agents/)
 
+## Amazon Ads Agents
+
+![Amazon Ads agents workflow](amazon-ads-agents/amazon-ads-agents-workflow.gif)
+
+Unit economics → keywords + competitors → listing gate → account build (SP, SB, SD/DSP) → you approve and upload → every Monday: harvest search terms, tune bids, pace budgets, report.
+[Read more and install →](amazon-ads-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
@@ -98,7 +106,8 @@ Brief → research: website, competitor sentiment and Meta Ad Library (you appro
 - **Retention:** the CRM agents' uplift results show which journeys add revenue, and their segments sit alongside the Klaviyo 1PD segments for lifecycle messaging.
 - **Shopify hub:** the Shopify orchestrator hands paid work to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents, email to Klaviyo 1PD Agents and tag checks to the GTM Health Agent.
 - **Finnish market:** the Finnish marketing agents write native Finnish copy for the campaigns AI Paid Traffic plans, and their Meta Ad Library scan shares competitor angles with the content and paid-traffic research agents.
-- **One Monday routine:** GTM health report, search weekly report, website speed check and paid-traffic Optimize mode can all run at the start of the week.
+- **Amazon:** the Amazon Ads agents share break-even math with the Shopify profit agent, and AI Search Everywhere keyword research seeds Amazon keyword clusters.
+- **One Monday routine:** GTM health report, search weekly report, website speed check, Amazon Ads optimize loop and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
 
@@ -117,6 +126,7 @@ Then follow the install steps in each project's README.
 - AI UGC Ad Agents use the 19 [Higgsfield skills](https://github.com/AKCodez/higgsfield-claude-skills) by AKCodez (not included), plus a Higgsfield account and the Playwright MCP for generation
 - CRM Agents need player, payment and RG-limit data exports (a simulator is included to try it without data)
 - Shopify Agents need the Shopify MCP connector
+- Amazon Ads Agents need Amazon Ads report exports (bulk sheet, Search Term, Targeting, Placement); Windsor.ai is optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
