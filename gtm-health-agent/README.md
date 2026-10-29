@@ -2,7 +2,7 @@
 
 ![GTM Health Agent workflow](gtm-agent-workflow.gif)
 
-A Claude Code agent that audits **Google Tag Manager** every Monday. It flags tags, triggers, variables and containers that won't fire, explains the likely cause, and writes a fix list for the team.
+An AI agent that audits **Google Tag Manager** every Monday. It flags tags, triggers, variables and containers that won't fire, explains the likely cause, and writes a fix list for the team.
 
 > **Read-only.** The agent never creates, edits, pauses or publishes anything in GTM. It recommends; a human makes every change.
 
