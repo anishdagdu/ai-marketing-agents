@@ -2,7 +2,7 @@
 
 ![Shopify agents workflow](shopify-agents-workflow.gif)
 
-Fifteen Claude Code agents and one workflow skill. Together they look after the entire Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email and SMS, tracking, profit, support, shipping and retention. An orchestrator finds the biggest revenue leak each week and sends the right specialists after it.
+Fifteen AI agents and one workflow skill. Together they look after the entire Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email and SMS, tracking, profit, support, shipping and retention. An orchestrator finds the biggest revenue leak each week and sends the right specialists after it.
 
 > **AI recommends. You approve.** Nothing changes in your store without your OK in chat. New content, discounts, campaigns and theme edits are saved as **drafts** or on a duplicate theme. The agents never change ad budgets, never send emails, never enter payment details and never delete data.
 
