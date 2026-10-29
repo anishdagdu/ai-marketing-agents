@@ -2,7 +2,7 @@
 
 ![Klaviyo 1PD agents workflow](klaviyo-agents-workflow.gif)
 
-Five Claude Code agents and one workflow skill. They turn your Klaviyo **first-party data** (site behaviour, orders, consent, form answers) into segments, revenue flows and campaigns, then measure the results every week and feed them back in.
+Five AI agents and one workflow skill. They turn your Klaviyo **first-party data** (site behaviour, orders, consent, form answers) into segments, revenue flows and campaigns, then measure the results every week and feed them back in.
 
 > **AI recommends. You approve.** Nothing is created in Klaviyo without your OK in chat. New flows and campaigns are saved as **drafts**. The agents never send campaigns, never turn flows on, and never suppress, delete or merge profiles.
 
