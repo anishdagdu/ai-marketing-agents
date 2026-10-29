@@ -1,6 +1,6 @@
 # Content Agents
 
-Five Claude Code agents that build a social media content calendar from real sentiment research, then schedule it in [Postiz](https://github.com/gitroomhq/postiz-app), the open-source social media scheduler.
+Five AI agents that build a social media content calendar from real sentiment research, then schedule it in [Postiz](https://github.com/gitroomhq/postiz-app), the open-source social media scheduler.
 
 ![Content agents workflow](content-agents-workflow.gif)
 
