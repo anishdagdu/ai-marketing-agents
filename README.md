@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Twelve sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars** and **Amazon Ads setup and optimization**.
+Thirteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization** and **mobile app measurement with AppsFlyer, Adjust and other MMPs**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -18,6 +18,7 @@ Twelve sets of AI agents for marketing teams, in one repo: **paid ads**, **searc
 | [HubSpot Agents](hubspot-agents/) | An AI team for the whole HubSpot portal: CRM setup and data hygiene, lead capture and scoring, sales pipeline, SEO/AEO, social, ads, email, workflows, help desk, reporting and Stripe revenue, connected to Shopify, Stripe and Slack | 15 agents + 1 workflow |
 | [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 3 agents + 1 workflow |
 | [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 12 agents + 1 workflow |
+| [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 21 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -103,6 +104,13 @@ Brief → research: website, competitor sentiment and Meta Ad Library (you appro
 Unit economics → keywords + competitors → listing gate → account build (SP, SB, SD/DSP) → you approve and upload → every Monday: harvest search terms, tune bids, pace budgets, report.
 [Read more and install →](amazon-ads-agents/)
 
+## MMP Agents
+
+![MMP agents workflow](mmp-agents/mmp-agents-workflow.gif)
+
+Orchestrator finds the biggest measurement gap → measure → signals → protect → analyze → activate, every week. Any change in AppsFlyer or Adjust waits for your OK.
+[Read more and install →](mmp-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
@@ -116,6 +124,7 @@ Unit economics → keywords + competitors → listing gate → account build (SP
 - **HubSpot hub:** the HubSpot agents pull Shopify orders and Stripe payments onto CRM records, post alerts and weekly summaries to Slack, and hand ads to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents and store fixes to Shopify Agents.
 - **Finnish market:** the Finnish marketing agents write native Finnish copy for the campaigns AI Paid Traffic plans, and their Meta Ad Library scan shares competitor angles with the content and paid-traffic research agents.
 - **Amazon:** the Amazon Ads agents share break-even math with the Shopify profit agent, and AI Search Everywhere keyword research seeds Amazon keyword clusters.
+- **App measurement:** the MMP agents give AI Paid Traffic deduplicated ROAS and LTV by source, send creative winners to the UGC agents and share consented app audiences with Klaviyo and CRM segments.
 - **One Monday routine:** GTM health report, search weekly report, website speed check, Amazon Ads optimize loop and paid-traffic Optimize mode can all run at the start of the week.
 
 ## Get everything
@@ -137,6 +146,7 @@ Then follow the install steps in each project's README.
 - Shopify Agents need the Shopify MCP connector
 - HubSpot Agents need the HubSpot MCP connector; Shopify, Stripe (read only) and Slack connectors are optional
 - Amazon Ads Agents need Amazon Ads report exports (bulk sheet, Search Term, Targeting, Placement); Windsor.ai is optional
+- MMP Agents need AppsFlyer or Adjust exports or API access (or the Windsor.ai connector); the AppsFlyer MCP server is optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
