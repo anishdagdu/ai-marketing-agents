@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Eleven sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **Finnish-language ads and content calendars** and **Amazon Ads setup and optimization**.
+Twelve sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars** and **Amazon Ads setup and optimization**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -15,6 +15,7 @@ Eleven sets of AI agents for marketing teams, in one repo: **paid ads**, **searc
 | [Website Audit Agents](website-audit-agents/) | Audits site speed, Core Web Vitals, accessibility, technical SEO, keywords and backlinks with free PageSpeed Insights + Ahrefs Webmaster Tools, weekly and monthly via GitHub Actions | 10 agents + 1 workflow |
 | [CRM Agents](crm-agents/) | Player 360, churn and LTV scoring, journeys, real-time triggers, uplift with control groups and bandit tests, with a Responsible Gaming Guardian that can veto any message | 10 agents + 5 skills + 1 workflow |
 | [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
+| [HubSpot Agents](hubspot-agents/) | An AI team for the whole HubSpot portal: CRM setup and data hygiene, lead capture and scoring, sales pipeline, SEO/AEO, social, ads, email, workflows, help desk, reporting and Stripe revenue, connected to Shopify, Stripe and Slack | 15 agents + 1 workflow |
 | [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 3 agents + 1 workflow |
 | [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 12 agents + 1 workflow |
 
@@ -81,6 +82,13 @@ Data layer → Player 360 → scoring → journeys + real-time triggers → RG G
 Orchestrator finds the biggest revenue leak → fix the store → convert → bring traffic → bring them back → measure and protect profit, every week.
 [Read more and install →](shopify-agents/)
 
+## HubSpot Agents
+
+![HubSpot agents workflow](hubspot-agents/hubspot-agents-workflow.gif)
+
+Orchestrator finds the biggest funnel leak → fix the CRM (with Shopify, Stripe and Slack synced) → convert → bring traffic → bring them back → measure revenue, every week.
+[Read more and install →](hubspot-agents/)
+
 ## Finnish Marketing Agents
 
 ![Finnish marketing agents workflow](finnish-marketing-agents/docs/workflow.gif)
@@ -105,6 +113,7 @@ Unit economics → keywords + competitors → listing gate → account build (SP
 - **Site speed feeds conversion:** the website audit agents flag slow revenue pages and tag bloat that hurt paid-traffic landing pages, and their striking-distance keywords feed AI Search Everywhere.
 - **Retention:** the CRM agents' uplift results show which journeys add revenue, and their segments sit alongside the Klaviyo 1PD segments for lifecycle messaging.
 - **Shopify hub:** the Shopify orchestrator hands paid work to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents, email to Klaviyo 1PD Agents and tag checks to the GTM Health Agent.
+- **HubSpot hub:** the HubSpot agents pull Shopify orders and Stripe payments onto CRM records, post alerts and weekly summaries to Slack, and hand ads to AI Paid Traffic, SEO to AI Search Everywhere, social to Content Agents and store fixes to Shopify Agents.
 - **Finnish market:** the Finnish marketing agents write native Finnish copy for the campaigns AI Paid Traffic plans, and their Meta Ad Library scan shares competitor angles with the content and paid-traffic research agents.
 - **Amazon:** the Amazon Ads agents share break-even math with the Shopify profit agent, and AI Search Everywhere keyword research seeds Amazon keyword clusters.
 - **One Monday routine:** GTM health report, search weekly report, website speed check, Amazon Ads optimize loop and paid-traffic Optimize mode can all run at the start of the week.
@@ -126,6 +135,7 @@ Then follow the install steps in each project's README.
 - AI UGC Ad Agents use the 19 [Higgsfield skills](https://github.com/AKCodez/higgsfield-claude-skills) by AKCodez (not included), plus a Higgsfield account and the Playwright MCP for generation
 - CRM Agents need player, payment and RG-limit data exports (a simulator is included to try it without data)
 - Shopify Agents need the Shopify MCP connector
+- HubSpot Agents need the HubSpot MCP connector; Shopify, Stripe (read only) and Slack connectors are optional
 - Amazon Ads Agents need Amazon Ads report exports (bulk sheet, Search Term, Targeting, Placement); Windsor.ai is optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
