@@ -1,0 +1,148 @@
+{
+ "date": "2026-11-01",
+ "mode": "monthly",
+ "site": "https://example.com",
+ "agents": [
+  {
+   "id": 1,
+   "name": "Core Web Vitals baseline",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 2,
+   "name": "Conversion leakage from slow loads",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering + Growth",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 3,
+   "name": "Speed fix backlog",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 4,
+   "name": "Marketing tag bloat",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Marketing Ops",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 5,
+   "name": "Accessibility & compliance",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Design + Engineering",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 6,
+   "name": "Site health score",
+   "status": "pass",
+   "kpi": "Health Score",
+   "value": 100,
+   "target": ">= 90",
+   "findings": [
+    "Source: built-in crawler (1 pages)",
+    "0 of 1 pages have a critical issue"
+   ],
+   "actions": [],
+   "owner": "SEO",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 7,
+   "name": "Crawl budget & link equity",
+   "status": "pass",
+   "kpi": "Broken pages + redirect chains",
+   "value": 0,
+   "target": "0",
+   "findings": [
+    "1 pages missing meta description"
+   ],
+   "actions": [],
+   "owner": "SEO + Engineering",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 8,
+   "name": "Striking-distance keywords",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "Add an Ahrefs 'Organic keywords' or Search Console 'Queries' CSV to data/ (see README)"
+   ],
+   "actions": [],
+   "owner": "SEO + Content",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 9,
+   "name": "Backlink authority",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "Add an Ahrefs 'Referring domains' CSV to data/ (see README)"
+   ],
+   "actions": [],
+   "owner": "SEO + PR",
+   "date": "2026-11-01"
+  },
+  {
+   "id": 10,
+   "name": "Early-warning alerts",
+   "status": "pass",
+   "kpi": "Open alerts",
+   "value": 1,
+   "target": "0",
+   "findings": [
+    "First run - baseline saved. Alerts start from the next run."
+   ],
+   "actions": [],
+   "owner": "Marketing Ops",
+   "date": "2026-11-01"
+  }
+ ]
+}
