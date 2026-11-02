@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Thirteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization** and **mobile app measurement with AppsFlyer, Adjust and other MMPs**.
+Fourteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs** and **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -19,6 +19,7 @@ Thirteen sets of AI agents for marketing teams, in one repo: **paid ads**, **sea
 | [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 3 agents + 1 workflow |
 | [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 12 agents + 1 workflow |
 | [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 21 agents + 1 workflow |
+| [Programmatic Agents](programmatic-ads-agents/) | An AI team for CM360, DV360 and The Trade Desk: Floodlight and verification, media planning, audiences and UID2, deals, DV360 and TTD builds, YouTube, CTV, retail media, bidding, frequency, pacing, CM360 dedup attribution and lift tests, with the JEV model router picking Haiku, Sonnet or Opus per task | 20 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -111,6 +112,13 @@ Unit economics → keywords + competitors → listing gate → account build (SP
 Orchestrator finds the biggest measurement gap → measure → signals → protect → analyze → activate, every week. Any change in AppsFlyer or Adjust waits for your OK.
 [Read more and install →](mmp-agents/)
 
+## Programmatic Agents
+
+![Programmatic agents workflow](programmatic-ads-agents/programmatic-agents-workflow.gif)
+
+Orchestrator → JEV model router (fast · standard · deep) → measure first → plan → buy on DV360 and TTD → optimise → prove with CM360 dedup and lift tests, every week. New items are built paused; you launch and change budgets.
+[Read more and install →](programmatic-ads-agents/)
+
 ## How they fit together
 
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
@@ -126,6 +134,7 @@ Orchestrator finds the biggest measurement gap → measure → signals → prote
 - **Amazon:** the Amazon Ads agents share break-even math with the Shopify profit agent, and AI Search Everywhere keyword research seeds Amazon keyword clusters.
 - **App measurement:** the MMP agents give AI Paid Traffic deduplicated ROAS and LTV by source, send creative winners to the UGC agents and share consented app audiences with Klaviyo and CRM segments.
 - **One Monday routine:** GTM health report, search weekly report, website speed check, Amazon Ads optimize loop and paid-traffic Optimize mode can all run at the start of the week.
+- **Programmatic:** the programmatic agents use CM360 as the source of truth for deduplicated conversions, take consented seed lists from the Klaviyo, HubSpot and CRM agents, and hand Floodlight container checks to the GTM Health Agent. JEV routing keeps routine checks on Haiku and saves Opus for attribution, bidding and budget decisions.
 
 ## Get everything
 
