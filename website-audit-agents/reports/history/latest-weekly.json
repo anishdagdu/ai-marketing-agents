@@ -1,0 +1,91 @@
+{
+ "date": "2026-11-02",
+ "mode": "weekly",
+ "site": "https://example.com",
+ "agents": [
+  {
+   "id": 1,
+   "name": "Core Web Vitals baseline",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering",
+   "date": "2026-11-02"
+  },
+  {
+   "id": 2,
+   "name": "Conversion leakage from slow loads",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering + Growth",
+   "date": "2026-11-02"
+  },
+  {
+   "id": 3,
+   "name": "Speed fix backlog",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Engineering",
+   "date": "2026-11-02"
+  },
+  {
+   "id": 4,
+   "name": "Marketing tag bloat",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Marketing Ops",
+   "date": "2026-11-02"
+  },
+  {
+   "id": 5,
+   "name": "Accessibility & compliance",
+   "status": "skipped",
+   "kpi": "-",
+   "value": null,
+   "target": "-",
+   "findings": [
+    "PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)"
+   ],
+   "actions": [],
+   "owner": "Design + Engineering",
+   "date": "2026-11-02"
+  },
+  {
+   "id": 10,
+   "name": "Early-warning alerts",
+   "status": "pass",
+   "kpi": "Open alerts",
+   "value": 1,
+   "target": "0",
+   "findings": [
+    "First run - baseline saved. Alerts start from the next run."
+   ],
+   "actions": [],
+   "owner": "Marketing Ops",
+   "date": "2026-11-02"
+  }
+ ]
+}
