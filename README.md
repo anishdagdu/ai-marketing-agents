@@ -116,11 +116,11 @@ Orchestrator finds the biggest measurement gap → measure → signals → prote
 
 ![Programmatic agents workflow](programmatic-ads-agents/programmatic-agents-workflow.gif)
 
-Orchestrator → JEV model router (fast · standard · deep) → measure first → plan → buy on DV360 and TTD → optimise → prove with CM360 dedup and lift tests, every week. New items are built paused; you launch and change budgets.
+Orchestrator → JEV model router (standard · medium · deep) → measure first → plan → buy on DV360 and TTD → optimise → prove with CM360 dedup and lift tests, every week. New items are built paused; you launch and change budgets.
 [Read more and install →](programmatic-ads-agents/)
 
 ## Orchestrator + JEV in every set
-Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (fast), **Sonnet** (standard) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary.
+Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (standard), **Sonnet** (medium) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary.
 
 ## How they fit together
 
