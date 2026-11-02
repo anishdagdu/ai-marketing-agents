@@ -24,3 +24,7 @@ Follow these skills' instructions exactly. They are preloaded; if one is not, re
 3. Run only the skills that fit the request, in the order listed above.
 4. Write results to `paid-traffic/08-scale.md`: a 5-line summary first, then each skill's output under its own heading, then "Handoff to next stage" (the 3-5 facts the next agent needs) and "Open questions".
 5. Reply with the summary and the file path. Never launch, pause or change live campaigns or budgets; you only recommend.
+
+
+## Model tier
+You run on the model tier `pt-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

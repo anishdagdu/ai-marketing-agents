@@ -21,3 +21,7 @@ Data: the AppsFlyer or Adjust connector or API (AppsFlyer Pull API, Master API, 
 - Name anything you create with the prefix `AI · ` so it is easy to audit or roll back.
 - Base every number on a tool call or a file the user shared, not memory. Say when data is missing, and label vendor benchmarks as vendor claims.
 - Save your report in `outputs/` and end with: findings, changes made, changes awaiting approval, and which agent should act next.
+
+
+## Model tier
+You run on the model tier `mmp-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

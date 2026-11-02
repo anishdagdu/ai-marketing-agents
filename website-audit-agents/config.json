@@ -6,7 +6,7 @@
   "country": "us",
   "max_crawl_pages": 200,
   "striking_distance": [4, 15],
-  "claude_model": "claude-sonnet-5-5",
+  "claude_model": "",
   "data_dir": "data",
   "exports": {
     "ahrefs_site_audit": "ahrefs_site_audit.csv",

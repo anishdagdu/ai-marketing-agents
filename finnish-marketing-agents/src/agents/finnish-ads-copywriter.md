@@ -117,3 +117,7 @@ Tone: young (16–30), casual Finnish, puhekieli allowed lightly (`tsekkaa`, `ny
 - Reads as natural Finnish to a native speaker; no translation-ese, correct cases, no keyword insertion.
 - Numbers, prices and dates in Finnish format.
 - No unprovable claims; offers match the landing page.
+
+
+## Model tier
+You run on the model tier `finnish-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

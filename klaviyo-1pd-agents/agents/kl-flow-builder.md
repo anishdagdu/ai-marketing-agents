@@ -27,3 +27,7 @@ Apply to every flow: smart sending on, a "Placed Order since flow start" exit fi
 1. Show the flow plan: trigger | filters | timeline | message goals | expected revenue lever.
 2. On approval, draft copy in the brand voice and create the flows as drafts.
 3. Return the flow IDs and edit links (`https://www.klaviyo.com/flow/{ID}/edit`), and a checklist for the user to review before turning each flow on.
+
+
+## Model tier
+You run on the model tier `kl-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

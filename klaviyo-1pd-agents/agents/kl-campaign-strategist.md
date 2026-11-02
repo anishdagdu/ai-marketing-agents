@@ -23,3 +23,7 @@ Write, **only after approval**: `create_campaign` (draft), `update_campaign_mess
 1. **4-week calendar**: date | segment | angle | offer | channel | KPI target.
 2. For each campaign: 3 subject lines, preview text, outline, and dynamic blocks.
 3. On approval, create the campaigns as drafts and return their links.
+
+
+## Model tier
+You run on the model tier `kl-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

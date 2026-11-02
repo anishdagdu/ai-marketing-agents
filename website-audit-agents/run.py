@@ -12,7 +12,7 @@ from datetime import date
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from agents.common import ROOT, load_config, http_post_json  # noqa: E402
-from agents import speed_agents, search_agents  # noqa: E402
+from agents import speed_agents, search_agents, jev_router  # noqa: E402
 
 ICON = {"pass": "🟢", "warn": "🟡", "fail": "🔴", "skipped": "⚪"}
 
@@ -33,7 +33,7 @@ def run_agents(cfg, mode, prev):
     return out
 
 
-def claude_summary(cfg, results):
+def claude_summary(cfg, results, prev=None):
     """Executive summary from Claude. Skipped when ANTHROPIC_API_KEY is not set."""
     key = os.environ.get("ANTHROPIC_API_KEY")
     if not key:
@@ -46,7 +46,7 @@ def claude_summary(cfg, results):
         "under 200 words, markdown bullets.\n\n{}").format(cfg["site"], json.dumps(slim, indent=1))
     try:
         resp = http_post_json("https://api.anthropic.com/v1/messages", {
-            "model": cfg.get("claude_model", "claude-sonnet-5-5"), "max_tokens": 800,
+            "model": jev_router.choose(cfg, results, prev)[1], "max_tokens": 800,
             "messages": [{"role": "user", "content": prompt}]},
             headers={"x-api-key": key, "anthropic-version": "2023-06-01"})
         return "".join(b.get("text", "") for b in resp.get("content", []))
@@ -92,7 +92,7 @@ def main():
     prev_path = os.path.join(ROOT, "reports", "history", "latest-{}.json".format(args.mode))
     prev = json.load(open(prev_path)) if os.path.exists(prev_path) else None
     results = run_agents(cfg, args.mode, prev)
-    path = write_report(cfg, args.mode, results, claude_summary(cfg, results))
+    path = write_report(cfg, args.mode, results, claude_summary(cfg, results, prev))
     print("\nReport written:", path)
     for r in results:
         print(" {} {:>2}. {:<36} {}".format(ICON[r["status"]], r["id"], r["name"], r["value"]))

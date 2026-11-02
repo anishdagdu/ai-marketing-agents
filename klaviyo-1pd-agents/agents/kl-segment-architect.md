@@ -30,3 +30,7 @@ Never delete segments. Never suppress profiles.
 2. Propose segments as a table: name | definition (plain words + Klaviyo condition groups) | estimated size | purpose | used by which flow or campaign.
 3. Wait for approval. Then create segments with the prefix `AI · ` and tag them `ai-workflow`.
 4. Report the IDs and the Klaviyo links.
+
+
+## Model tier
+You run on the model tier `kl-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

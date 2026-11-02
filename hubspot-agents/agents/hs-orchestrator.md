@@ -21,3 +21,10 @@ Team: hs-crm-setup, hs-data-hygiene, hs-integrations, hs-forms-landing-pages, hs
 - Name anything you create with the prefix `AI · ` and tag it `ai-workflow`, so it is easy to audit or roll back.
 - Base every number on a tool call, not memory. Say when data is missing.
 - Save your report in `outputs/` and end with: findings, changes made, changes awaiting approval, and which agent should act next.
+
+## Step 0 · Route with JEV
+Before you brief any agent, list the tasks and send them to `hs-jev-router`. Start each agent with the `model` JEV picked, and re-route one tier up only when an agent reports low confidence or conflicting data. Stop and report first if contacts are not synced from Shopify/Stripe, or deal stages are missing.
+
+
+## Model tier
+You run on the model tier `hs-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

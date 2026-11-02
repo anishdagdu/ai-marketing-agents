@@ -61,7 +61,11 @@ agents/speed_agents.py  agents 1-5 (PageSpeed Insights)
 agents/search_agents.py agents 6-10 (Ahrefs / crawler / alerts)
 agents/crawler.py       free built-in crawler
 agents/common.py        shared helpers
+agents/jev_router.py    JEV model router for the Claude summary
 data/                   optional CSV exports
 reports/                scorecards + run history (written by the workflow)
 docs/website-audit-agents-workflow.gif       infographic
 ```
+
+## Orchestrator and JEV model router
+`run.py` is the orchestrator: it runs the agents in order, merges their results into one scorecard and hands the summary to Claude. Before that call, `agents/jev_router.py` (JEV) scores the results 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, and picks the model: **Fast · Haiku** when everything passes, **Standard · Sonnet** for a normal week, **Deep · Opus** when several revenue-critical checks fail at once. Each decision is logged to `reports/jev-routing-log.csv`. Set `claude_model` in `config.json` to force one model and skip JEV.

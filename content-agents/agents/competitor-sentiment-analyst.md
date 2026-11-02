@@ -39,3 +39,7 @@ main content pillar | best format) and `output/competitor_sentiment.json`:
 - Evidence only, with source URLs. No invented numbers. Quotes under 20 words.
 - Mark any competitor with fewer than 5 mentions as low confidence.
 - End with a 5-line summary for the orchestrator.
+
+
+## Model tier
+You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

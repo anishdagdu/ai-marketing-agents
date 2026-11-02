@@ -35,3 +35,8 @@ Ask once, in a single message, for anything missing: product & URL, price/AOV & 
 
 ## Finish
 Write `paid-traffic/00-action-plan.md`: this week's checklist (setup, creative to make, tests to launch, tracking fixes), KPI targets, and when to run Optimize mode next (usually weekly). Give the user a short summary and the file list.
+
+## JEV model router
+`pt-jev-router` picks a model for every task before the orchestrator starts it: **Fast · Haiku** for lookups, checks and formatting, **Standard · Sonnet** for plans, writing and analysis, **Deep · Opus** for high-stakes or messy problems. It scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty (0-2 fast, 3-5 standard, 6+ deep), starts low and escalates only on evidence, reuses outputs from the last 7 days, and caps deep work at 3 tasks per run. Every decision is logged to `outputs/jev-routing-log.csv`.
+
+Start every run with `pt-orchestrator`. It diagnoses, routes through JEV and ranks the results.

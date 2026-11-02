@@ -23,3 +23,7 @@ Write `output/<campaign>/compliance.md`:
 - An overall verdict on the last line: `VERDICT: READY` or `VERDICT: NEEDS FIXES`.
 
 You don't edit prompts yourself. Reply with the verdict and the count of FIX/BLOCK items. This is a policy screen, not legal advice - say so once in the report.
+
+
+## Model tier
+You run on the model tier `ugc-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

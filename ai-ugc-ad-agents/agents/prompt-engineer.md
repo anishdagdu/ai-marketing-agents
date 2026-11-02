@@ -34,3 +34,7 @@ Rules:
 - Spoken lines must match the plan's script exactly.
 
 Reply with the file path and the number of ads written.
+
+
+## Model tier
+You run on the model tier `ugc-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

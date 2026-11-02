@@ -53,3 +53,8 @@ Then, in a new Claude Code session, say **"run the Amazon Ads workflow"**. Or as
 - `workflow/amazon-ads-workflow/SKILL.md`: the orchestrator skill
 - `amazon-ads-agents-workflow.gif`: workflow infographic
 - `docs/make_gif.py`: regenerates the GIF (needs Pillow)
+
+## JEV model router
+`amz-jev-router` picks a model for every task before the orchestrator starts it: **Fast · Haiku** for lookups, checks and formatting, **Standard · Sonnet** for plans, writing and analysis, **Deep · Opus** for high-stakes or messy problems. It scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty (0-2 fast, 3-5 standard, 6+ deep), starts low and escalates only on evidence, reuses outputs from the last 7 days, and caps deep work at 3 tasks per run. Every decision is logged to `outputs/jev-routing-log.csv`.
+
+`amz-orchestrator` leads the team: it finds the biggest problem, routes tasks through JEV, briefs the specialists and returns one ranked action list for your approval.

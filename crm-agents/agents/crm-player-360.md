@@ -31,3 +31,7 @@ If a source is missing, say which segments you can't build and carry on with the
 - Read-only on source systems.
 - Keep RG fields on every profile. The other agents need them.
 - No personal data in your chat replies: counts and segment names only.
+
+
+## Model tier
+You run on the model tier `crm-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

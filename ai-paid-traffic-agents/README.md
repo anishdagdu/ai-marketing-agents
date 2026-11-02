@@ -2,7 +2,7 @@
 
 ![AI Paid Traffic agent workflow](ai-paid-traffic-workflow.gif)
 
-A team of 8 AI agents that runs paid ads end to end, from research to scaling, on **Meta, Google and TikTok**.
+A team of 10 AI agents that runs paid ads end to end, from research to scaling, on **Meta, Google and TikTok**.
 
 > **AI recommends. You approve.** These agents never launch, pause or change budgets. They write plans; a human makes every spend decision.
 
@@ -49,3 +49,8 @@ Run the paid traffic workflow for <your product>
 ```
 
 Or call one agent directly: `Use the scale-agent on these results.`
+
+## JEV model router
+`pt-jev-router` picks a model for every task before the orchestrator starts it: **Fast · Haiku** for lookups, checks and formatting, **Standard · Sonnet** for plans, writing and analysis, **Deep · Opus** for high-stakes or messy problems. It scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty (0-2 fast, 3-5 standard, 6+ deep), starts low and escalates only on evidence, reuses outputs from the last 7 days, and caps deep work at 3 tasks per run. Every decision is logged to `outputs/jev-routing-log.csv`.
+
+`pt-orchestrator` leads the team: it finds the biggest problem, routes tasks through JEV, briefs the specialists and returns one ranked action list for your approval.

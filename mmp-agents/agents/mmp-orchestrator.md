@@ -24,3 +24,10 @@ Data: the AppsFlyer or Adjust connector or API (AppsFlyer Pull API, Master API, 
 - Name anything you create with the prefix `AI · ` so it is easy to audit or roll back.
 - Base every number on a tool call or a file the user shared, not memory. Say when data is missing, and label vendor benchmarks as vendor claims.
 - Save your report in `outputs/` and end with: findings, changes made, changes awaiting approval, and which agent should act next.
+
+## Step 0 · Route with JEV
+Before you brief any agent, list the tasks and send them to `mmp-jev-router`. Start each agent with the `model` JEV picked, and re-route one tier up only when an agent reports low confidence or conflicting data. Stop and report first if installs differ by more than 20% between the MMP and the ad networks.
+
+
+## Model tier
+You run on the model tier `mmp-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

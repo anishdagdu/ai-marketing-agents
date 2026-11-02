@@ -29,3 +29,7 @@ Only click Generate when the message you receive says `APPROVED: ad <n> <phase>`
 
 ## Errors
 Follow the Error Handling section of the skill files. If not logged in, reply `BLOCKED: login needed` - never type passwords. If out of credits, reply `BLOCKED: credits`. Always take a fresh snapshot before each click; refs go stale.
+
+
+## Model tier
+You run on the model tier `ugc-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

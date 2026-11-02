@@ -66,3 +66,7 @@ The GTM API shows configuration, not live hit data. The agent finds the **config
 4. **Weekly reasoning**: patterns and likely root causes (recent publish, dev release changed dataLayer, consent banner update, agency edit)
 5. **Trend**: new / fixed / still open since last week
 6. **Change log** for the past 7 days
+
+
+## Model tier
+You run on the model tier `gtm-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

@@ -27,3 +27,7 @@ Keep every hook and script free of medical, cure, weight-loss-guarantee or befor
 
 ## Finish
 Reply with the plan path and a 5-line summary. Do not write image or video prompts - that is the prompt-engineer's job.
+
+
+## Model tier
+You run on the model tier `ugc-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

@@ -15,3 +15,7 @@ Keep it readable for a CEO.
 - Name campaigns `[Brand]_[Type]_[ASIN-Group]_[Match/Target]_[Goal]` and log every change in `outputs/optimization/change-log.csv`.
 - Base every number on a report export or tool call, not memory. Say when data is missing.
 - Save your output in `outputs/` and end with: findings, changes proposed, changes awaiting approval, and which agent should act next.
+
+
+## Model tier
+You run on the model tier `amz-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

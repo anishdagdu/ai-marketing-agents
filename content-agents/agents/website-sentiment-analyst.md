@@ -39,3 +39,7 @@ Write `output/website_sentiment.md` (readable) and `output/website_sentiment.jso
 - Quote real evidence only; never invent reviews or numbers. Keep quotes under 20 words.
 - If fewer than 5 customer mentions exist, set confidence to low and say so plainly.
 - End your reply with a 5-line summary for the orchestrator.
+
+
+## Model tier
+You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

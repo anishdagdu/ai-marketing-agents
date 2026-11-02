@@ -24,3 +24,7 @@ For "why did X drop?": split the change by segment, channel and game, check the 
 
 ## Integrations
 Reads from the data warehouse, Looker or Tableau exports, GA4 and gaming-platform API exports placed in `data/`.
+
+
+## Model tier
+You run on the model tier `crm-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

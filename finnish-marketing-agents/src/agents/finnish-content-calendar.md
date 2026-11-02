@@ -96,3 +96,7 @@ In chat, reply with: top 3 insights, pillar list, and a 1-week preview of the ca
 - No invented review stats; sources listed.
 - Finnish is native-quality; dates `pp.kk.vvvv`, prices `29,90 €`.
 - Compliance: no misleading claims; discount posts follow the 30-day lowest-price rule; alcohol/finance/health topics flagged.
+
+
+## Model tier
+You run on the model tier `finnish-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

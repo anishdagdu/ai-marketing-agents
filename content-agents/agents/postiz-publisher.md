@@ -34,3 +34,7 @@ You publish approved posts to **Postiz** (github.com/gitroomhq/postiz-app).
 ## Rules
 - Never use `"type": "now"` unless the user asks to publish immediately.
 - On any 4xx error, stop and report the message. Don't retry blindly.
+
+
+## Model tier
+You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

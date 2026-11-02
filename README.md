@@ -6,19 +6,19 @@ Fourteen sets of AI agents for marketing teams, in one repo: **paid ads**, **sea
 
 | Project | What it does | Agents |
 |---|---|---|
-| [AI Paid Traffic](ai-paid-traffic-agents/) | Runs paid ads end to end on Meta, Google and TikTok: research, strategy, creative, platform builds, tracking and scaling | 8 agents + 1 workflow |
-| [AI Search Everywhere](ai-search-everywhere-agents/) | Visibility on Google and AI answer engines: SEO, AEO, GEO, AIO and SXO, with ranking targets and a weekly report | 7 agents + 8 skills |
-| [GTM Health Agent](gtm-health-agent/) | Audits Google Tag Manager every Monday: flags tags that won't fire, explains why and recommends fixes | 1 weekly agent |
-| [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 5 agents |
-| [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 5 agents + 1 workflow |
-| [AI UGC Ad Agents](ai-ugc-ad-agents/) | AI creator video ads on Higgsfield: creators, hooks, angles and scripts, paste-ready prompts, an ad-policy check, then image and video generation | 4 agents + 1 workflow |
-| [Website Audit Agents](website-audit-agents/) | Audits site speed, Core Web Vitals, accessibility, technical SEO, keywords and backlinks with free PageSpeed Insights + Ahrefs Webmaster Tools, weekly and monthly via GitHub Actions | 10 agents + 1 workflow |
-| [CRM Agents](crm-agents/) | Player 360, churn and LTV scoring, journeys, real-time triggers, uplift with control groups and bandit tests, with a Responsible Gaming Guardian that can veto any message | 10 agents + 5 skills + 1 workflow |
-| [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
-| [HubSpot Agents](hubspot-agents/) | An AI team for the whole HubSpot portal: CRM setup and data hygiene, lead capture and scoring, sales pipeline, SEO/AEO, social, ads, email, workflows, help desk, reporting and Stripe revenue, connected to Shopify, Stripe and Slack | 15 agents + 1 workflow |
-| [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 3 agents + 1 workflow |
-| [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 12 agents + 1 workflow |
-| [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 21 agents + 1 workflow |
+| [AI Paid Traffic](ai-paid-traffic-agents/) | Runs paid ads end to end on Meta, Google and TikTok: research, strategy, creative, platform builds, tracking and scaling | 10 agents + 1 workflow |
+| [AI Search Everywhere](ai-search-everywhere-agents/) | Visibility on Google and AI answer engines: SEO, AEO, GEO, AIO and SXO, with ranking targets and a weekly report | 9 agents + 8 skills |
+| [GTM Health Agent](gtm-health-agent/) | Audits Google Tag Manager every Monday: flags tags that won't fire, explains why and recommends fixes | 3 agents (weekly) |
+| [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 6 agents |
+| [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 7 agents + 1 workflow |
+| [AI UGC Ad Agents](ai-ugc-ad-agents/) | AI creator video ads on Higgsfield: creators, hooks, angles and scripts, paste-ready prompts, an ad-policy check, then image and video generation | 6 agents + 1 workflow |
+| [Website Audit Agents](website-audit-agents/) | Audits site speed, Core Web Vitals, accessibility, technical SEO, keywords and backlinks with free PageSpeed Insights + Ahrefs Webmaster Tools, weekly and monthly via GitHub Actions | 10 agents + JEV in code |
+| [CRM Agents](crm-agents/) | Player 360, churn and LTV scoring, journeys, real-time triggers, uplift with control groups and bandit tests, with a Responsible Gaming Guardian that can veto any message | 12 agents + 5 skills + 1 workflow |
+| [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 16 agents + 1 workflow |
+| [HubSpot Agents](hubspot-agents/) | An AI team for the whole HubSpot portal: CRM setup and data hygiene, lead capture and scoring, sales pipeline, SEO/AEO, social, ads, email, workflows, help desk, reporting and Stripe revenue, connected to Shopify, Stripe and Slack | 16 agents + 1 workflow |
+| [Finnish Marketing Agents](finnish-marketing-agents/) | Native Finnish ad copy for every campaign type on Google, Meta, LinkedIn and Snapchat, plus an organic + paid content calendar from website analysis, competitor sentiment and the Meta Ad Library, with English ↔ Finnish translation | 4 agents + 1 workflow |
+| [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 14 agents + 1 workflow |
+| [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 22 agents + 1 workflow |
 | [Programmatic Agents](programmatic-ads-agents/) | An AI team for CM360, DV360 and The Trade Desk: Floodlight and verification, media planning, audiences and UID2, deals, DV360 and TTD builds, YouTube, CTV, retail media, bidding, frequency, pacing, CM360 dedup attribution and lift tests, with the JEV model router picking Haiku, Sonnet or Opus per task | 20 agents + 1 workflow |
 
 ## AI Paid Traffic
@@ -118,6 +118,9 @@ Orchestrator finds the biggest measurement gap → measure → signals → prote
 
 Orchestrator → JEV model router (fast · standard · deep) → measure first → plan → buy on DV360 and TTD → optimise → prove with CM360 dedup and lift tests, every week. New items are built paused; you launch and change budgets.
 [Read more and install →](programmatic-ads-agents/)
+
+## Orchestrator + JEV in every set
+Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (fast), **Sonnet** (standard) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary.
 
 ## How they fit together
 

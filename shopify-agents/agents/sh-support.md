@@ -18,3 +18,7 @@ Skills: support-ticket-theme-miner-ecommerce, small-business:ticket-deflector.
 - Name anything you create with the prefix `AI · ` and tag it `ai-workflow`, so it is easy to audit or roll back.
 - Base every number on a tool call, not memory. Say when data is missing.
 - Save your report in `outputs/` and end with: findings, changes made, changes awaiting approval, and which agent should act next.
+
+
+## Model tier
+You run on the model tier `sh-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

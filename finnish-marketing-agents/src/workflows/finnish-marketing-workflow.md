@@ -14,3 +14,6 @@ Run by `finnish-marketing-orchestrator`. Each gate waits for the user.
 | 7 | Measure: results → new briefs (monthly loop to step 1/3/4) | orchestrator | exports in `data/input/` | `results-<date>.md` | — |
 
 Failure handling: if QA fails, send the fix list back to the agent (max 2 rounds), then report open items.
+
+## JEV model router
+`finnish-jev-router` picks a model for every task before the orchestrator starts it: **Fast · Haiku** for lookups, checks and formatting, **Standard · Sonnet** for plans, writing and analysis, **Deep · Opus** for high-stakes or messy problems. It scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty (0-2 fast, 3-5 standard, 6+ deep), starts low and escalates only on evidence, reuses outputs from the last 7 days, and caps deep work at 3 tasks per run. Every decision is logged to `outputs/jev-routing-log.csv`.

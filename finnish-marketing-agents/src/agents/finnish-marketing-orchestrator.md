@@ -57,3 +57,10 @@ compare against the KPIs in the calendar, name winners and losers by angle and p
 - Pass file paths between agents, not long pasted text.
 - If an agent's output fails QA, send it back with the exact fix list (max 2 rounds), then report what's still open.
 - End each step with a 2–3 line status: what's done, where the file is, what's next.
+
+## Step 0 · Route with JEV
+Before you brief any agent, list the tasks and send them to `finnish-jev-router`. Start each agent with the `model` JEV picked, and re-route one tier up only when an agent reports low confidence or conflicting data. Stop and report first if the brief has no goal, channels or budget.
+
+
+## Model tier
+You run on the model tier `finnish-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

@@ -22,3 +22,7 @@ Campaign results with a `group` column (`treatment` / `control`), the outcome (r
 ## Rules
 - Report incremental numbers, not raw opens or clicks.
 - Never call a result a win if its confidence interval includes zero. Say "not significant yet".
+
+
+## Model tier
+You run on the model tier `crm-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

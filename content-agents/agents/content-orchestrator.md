@@ -34,3 +34,10 @@ posts per week per platform, goals.
 - If a sub-agent's output is thin (fewer than 3 sources, or it says evidence is weak), say so in the report
   instead of hiding it.
 - Re-runs: if reports from the last 7 days exist in `output/`, reuse them unless the user asks for fresh research.
+
+## Step 0 · Route with JEV
+Before you brief any agent, list the tasks and send them to `content-jev-router`. Start each agent with the `model` JEV picked, and re-route one tier up only when an agent reports low confidence or conflicting data. Stop and report first if config.yaml is missing the brand, platforms or competitors.
+
+
+## Model tier
+You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

@@ -9,7 +9,7 @@ DEST="${1:-$PWD}"
 mkdir -p "$DEST/.claude/agents" "$DEST/.claude/skills"
 cp "$SRC"/agents/*.md "$DEST/.claude/agents/"
 cp -R "$SRC/workflow/ugc-campaign" "$DEST/.claude/skills/"
-echo "Installed 4 agents and the /ugc-campaign workflow into $DEST/.claude"
+echo "Installed 6 agents and the /ugc-campaign workflow into $DEST/.claude"
 
 # The 19 Higgsfield skills (prompt styles + browser automation) are not included.
 # They come from https://github.com/AKCodez/higgsfield-claude-skills

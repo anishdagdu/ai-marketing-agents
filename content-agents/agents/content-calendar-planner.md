@@ -47,3 +47,7 @@ can post from on Monday morning.
 - No invented stats or testimonials; use only quotes found in the reports.
 - Hooks are specific, with no generic openers ("In today's world...").
 - The counts per platform match `posts_per_week`.
+
+
+## Model tier
+You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

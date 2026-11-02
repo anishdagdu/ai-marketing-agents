@@ -27,3 +27,7 @@ Never create, update, suppress, delete or send anything.
 - **What other agents can do now vs after setup.**
 
 Save to `outputs/klaviyo-data-audit.md` when a working folder exists.
+
+
+## Model tier
+You run on the model tier `kl-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.

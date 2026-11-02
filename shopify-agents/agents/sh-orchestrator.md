@@ -21,3 +21,10 @@ Team: sh-store-setup, sh-debugger, sh-catalog, sh-inventory, sh-conversion, sh-s
 - Name anything you create with the prefix `AI · ` and tag it `ai-workflow`, so it is easy to audit or roll back.
 - Base every number on a tool call, not memory. Say when data is missing.
 - Save your report in `outputs/` and end with: findings, changes made, changes awaiting approval, and which agent should act next.
+
+## Step 0 · Route with JEV
+Before you brief any agent, list the tasks and send them to `sh-jev-router`. Start each agent with the `model` JEV picked, and re-route one tier up only when an agent reports low confidence or conflicting data. Stop and report first if checkout is broken, or orders in Shopify and GA4 differ by more than 20%.
+
+
+## Model tier
+You run on the model tier `sh-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.
