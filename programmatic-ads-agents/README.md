@@ -11,7 +11,7 @@ Twenty Claude Code agents and one workflow skill for programmatic advertising. *
 | Stage | Agent | Default tier | What it does |
 |---|---|---|---|
 | Lead | [`pg-orchestrator`](agents/pg-orchestrator.md) | Standard | Entry point for the programmatic team (CM360, DV360, The Trade Desk) |
-| Router | [`pg-jev-router`](agents/pg-jev-router.md) | Fast | JEV model router. Decides which Claude model tier each programmatic task needs (fast Haiku, standard Sonnet, deep Opus) so the team spends tokens only where judgement matters |
+| Router | [`pg-jev-router`](agents/pg-jev-router.md) | Standard | JEV model router. Decides which Claude model tier each programmatic task needs (standard Haiku, medium Sonnet, deep Opus) so the team spends tokens only where judgement matters |
 | 1 Measure first | [`pg-floodlight-tracking`](agents/pg-floodlight-tracking.md) | Standard | Owns conversion tracking: Floodlight activities and variables, gtag/GTM implementation, enhanced conversions, consent mode, and CM360 versus DSP conversion reconciliation |
 |  | [`pg-verification`](agents/pg-verification.md) | Fast | Checks brand safety, suitability, invalid traffic (IVT), viewability and MFA (made-for-advertising) sites using CM360 verification, Active View and DSP or third-party verification data |
 |  | [`pg-cm360-trafficking`](agents/pg-cm360-trafficking.md) | Fast | Traffics in CM360: advertisers, campaigns, sites, placements, creatives, ads, rotation, tag sheets and naming conventions, using bulk tools or the API |
@@ -39,8 +39,8 @@ Every task gets a 0-10 score on money at stake, ambiguity, reasoning depth, blas
 
 | Score | Tier | Model | Typical tasks |
 |---|---|---|---|
-| 0-2 | Fast | Haiku | Tag QA, naming checks, pacing read-outs, report pulls |
-| 3-5 | Standard | Sonnet | Media plans, audience and deal strategy, briefs, weekly readout |
+| 0-2 | Standard | Haiku | Tag QA, naming checks, pacing read-outs, report pulls |
+| 3-5 | Medium | Sonnet | Media plans, audience and deal strategy, briefs, weekly readout |
 | 6+ | Deep | Opus | Attribution disputes, custom bidding scripts, budget reallocation, lift-test design |
 
 **Efficiency rules:** start low and escalate only on evidence · split a task into cheap and expensive parts · reuse outputs from the last 7 days · batch small checks · at most 3 deep tasks per weekly run. Every decision is logged to `outputs/jev-routing-log.csv`, and the weekly readout shows the estimated saving versus running everything on Opus.

@@ -23,7 +23,7 @@ description: Runs the programmatic AI team end to end across CM360, DV360 and Th
 ```
 
 ## Steps
-0. **Route** – the orchestrator lists the tasks and asks `pg-jev-router` for a tier per task. Start each agent with that `model`. Fast = haiku, standard = sonnet, deep = opus.
+0. **Route** – the orchestrator lists the tasks and asks `pg-jev-router` for a tier per task. Start each agent with that `model`. Standard = haiku, medium = sonnet, deep = opus.
 1. **Measure first** – `pg-floodlight-tracking`, `pg-verification` and `pg-cm360-trafficking` QA. If Floodlights are broken, CM360 and DSP conversions differ by more than 20%, or IVT is above 5%, stop and fix these first.
 2. **Plan** – `pg-media-planner` sets goals and the DV360/TTD split; `pg-audience-identity` and `pg-deals-supply` pick who and where.
 3. **Buy** – `pg-dv360-buyer` and `pg-ttd-buyer` build the structure **paused**; channel specialists handle YouTube, CTV/audio/DOOH and retail data.
@@ -34,7 +34,7 @@ description: Runs the programmatic AI team end to end across CM360, DV360 and Th
 - Start low, escalate on evidence (low confidence or conflicting data → one tier up).
 - Split a task into cheap and expensive parts before upgrading it.
 - Reuse outputs from the last 7 days instead of rerunning.
-- Batch fast-tier QA checks; cap deep tasks at 3 per weekly run.
+- Batch standard-tier QA checks; cap deep tasks at 3 per weekly run.
 - Log every decision to `outputs/jev-routing-log.csv`.
 
 ## Guardrails (apply to every agent)
