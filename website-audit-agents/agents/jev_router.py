@@ -1,7 +1,7 @@
 """JEV model router: picks the Claude model for the executive summary from how messy the
 audit results are, and logs each decision to reports/jev-routing-log.csv.
 
-Fast (Haiku) when everything passes, Standard (Sonnet) for normal weeks, Deep (Opus) when
+Standard (Haiku) when everything passes, Medium (Sonnet) for normal weeks, Deep (Opus) when
 several revenue-critical checks fail at once or results swing hard against last run.
 """
 import csv
@@ -10,7 +10,7 @@ from datetime import date
 
 from agents.common import ROOT
 
-TIERS = {"fast": "claude-haiku-5-5", "standard": "claude-sonnet-5-5", "deep": "claude-opus-5-5"}
+TIERS = {"standard": "claude-haiku-5-5", "medium": "claude-sonnet-5-5", "deep": "claude-opus-5-5"}
 
 
 def score(results, prev=None):
@@ -35,9 +35,9 @@ def score(results, prev=None):
 def choose(cfg, results, prev=None):
     """Returns (tier, model, points). A fixed claude_model in config.json overrides JEV."""
     points, (money, ambiguity) = score(results, prev)
-    tier = "fast" if points <= 2 else ("standard" if points <= 5 else "deep")
-    if tier == "fast" and (money == 2 or ambiguity == 2):
-        tier = "standard"
+    tier = "standard" if points <= 2 else ("medium" if points <= 5 else "deep")
+    if tier == "standard" and (money == 2 or ambiguity == 2):
+        tier = "medium"
     model = cfg.get("claude_model") or TIERS[tier]
     log(tier, model, points)
     return tier, model, points
