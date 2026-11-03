@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Fourteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs** and **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router**.
+Fifteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** and **B2B pipeline from LinkedIn Ads**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -20,6 +20,7 @@ Fourteen sets of AI agents for marketing teams, in one repo: **paid ads**, **sea
 | [Amazon Ads Agents](amazon-ads-agents/) | Sets up and optimizes Amazon Ads (Sponsored Products, Brands, Display and DSP): unit economics, keywords, competitor targets, a listing gate, bulk-ready builds and a weekly harvest, bid, budget and report loop | 14 agents + 1 workflow |
 | [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 22 agents + 1 workflow |
 | [Programmatic Agents](programmatic-ads-agents/) | An AI team for CM360, DV360 and The Trade Desk: Floodlight and verification, media planning, audiences and UID2, deals, DV360 and TTD builds, YouTube, CTV, retail media, bidding, frequency, pacing, CM360 dedup attribution and lift tests, with the JEV model router picking Haiku, Sonnet or Opus per task | 20 agents + 1 workflow |
+| [LinkedIn Ads Agents](linkedin-ads-agents/) | An AI team for B2B pipeline on LinkedIn: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue and CRM pipeline reporting | 15 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -122,8 +123,16 @@ Orchestrator → JEV model router (standard · medium · deep) → measure first
 ## Orchestrator + JEV in every set
 Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (standard), **Sonnet** (medium) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary.
 
+## LinkedIn Ads Agents
+
+![LinkedIn Ads agents workflow](linkedin-ads-agents/linkedin-ads-agents-workflow.gif)
+
+Orchestrator finds the pipeline leak → foundations → target → create → launch + optimise → prove pipeline, every week.
+[Read more and install →](linkedin-ads-agents/)
+
 ## How they fit together
 
+- **LinkedIn B2B:** the LinkedIn agents hand Insight Tag checks to the GTM Health Agent and send lead outcomes through the HubSpot agents, so LinkedIn is judged on pipeline, not clicks.
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
 - **Paid + organic:** keyword research from AI Search Everywhere feeds Google Search campaigns in AI Paid Traffic, and paid search terms show which organic pages to build.
 - **Organic social:** the content agents' competitor research shares angles with the paid-traffic research agent; winning organic posts make good Spark Ads and creative tests.
