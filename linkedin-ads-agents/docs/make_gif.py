@@ -1,4 +1,4 @@
-"""Renders linkedin-ads-agents-workflow.gif: the 15 LinkedIn Ads agents, animated.
+"""Renders linkedin-ads-workflow.gif: the 15 LinkedIn Ads agents, animated.
 
 Layout: the five stages are stacked as horizontal lanes and the token snakes down
 through them (foundations -> target -> create -> launch + optimise -> prove pipeline),
@@ -13,7 +13,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "..", "tools"))
 from gifkit import *  # noqa: E402,F403
 
-OUT = os.path.join(HERE, "..", "linkedin-ads-agents-workflow.gif")
+OUT = os.path.join(HERE, "..", "linkedin-ads-workflow.gif")
 LI = (10, 102, 194)
 
 N = {

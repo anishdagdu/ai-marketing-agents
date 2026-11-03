@@ -1,6 +1,6 @@
 # LinkedIn Ads Agents: An AI Team for B2B Pipeline
 
-![LinkedIn Ads agents workflow](linkedin-ads-agents-workflow.gif)
+![LinkedIn Ads agents workflow](linkedin-ads-workflow.gif)
 
 Fifteen Claude Code agents and one workflow skill for LinkedIn Ads. They cover the whole job: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, formats, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue, CRM follow-up and pipeline reporting. An orchestrator finds the biggest pipeline leak each week and sends the right specialists after it.
 
@@ -55,5 +55,5 @@ Then, in a new Claude Code session, say **"run the LinkedIn workflow"**. Or ask 
 
 - `agents/`: the 15 agent definitions
 - `workflow/linkedin-ads-workflow/SKILL.md`: the orchestrator skill
-- `linkedin-ads-agents-workflow.gif`: workflow infographic
+- `linkedin-ads-workflow.gif`: workflow infographic
 - `docs/make_gif.py`: regenerates the GIF (needs Pillow and `tools/gifkit.py`)

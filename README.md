@@ -125,7 +125,7 @@ Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-
 
 ## LinkedIn Ads Agents
 
-![LinkedIn Ads agents workflow](linkedin-ads-agents/linkedin-ads-agents-workflow.gif)
+![LinkedIn Ads agents workflow](linkedin-ads-agents/linkedin-ads-workflow.gif)
 
 Orchestrator finds the pipeline leak → foundations → target → create → launch + optimise → prove pipeline, every week.
 [Read more and install →](linkedin-ads-agents/)
