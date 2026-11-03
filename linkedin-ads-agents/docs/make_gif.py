@@ -75,11 +75,11 @@ def under(c, t, state):
              window(t, APPEAR["orch"] + 0.4 + i * 0.08, APPEAR["orch"] + 0.8 + i * 0.08), 0, 12.5)
     # guardrails, top right
     a = window(t, APPEAR["guard"], APPEAR["guard"] + 0.5)
-    band(c, RX0, LY[0], RX1, LY[2] + LH, "Guardrails", LI, a)
+    band(c, RX0, LY[0], RX1, LY[0] + 246, "Guardrails", LI, a)
     for i, r in enumerate(RULES):
-        c.pill(RX0 + 12, LY[0] + 32 + i * 37, r, LI, size=11.5, weight="demi", a=a, h=26)
+        c.pill(RX0 + 12, LY[0] + 30 + i * 35, r, LI, size=11.5, weight="demi", a=a, h=26)
     # outputs, bottom right
-    section_label(c, RX0, LY[3] - 16, "You approve", a=window(t, APPEAR["out"], APPEAR["out"] + 0.4))
+    section_label(c, RX0, OY[0] - 26, "You approve", a=window(t, APPEAR["out"], APPEAR["out"] + 0.4))
     for i, (lab, ic) in enumerate(OUTS):
         on = state["amt"] if act == "out" else 0.0
         chip(c, RX0, OY[i], RX1, OY[i] + 44, lab, ic, GREEN,
@@ -104,8 +104,8 @@ SC = [
              side="top", callout_xy=mid(3, 120, top=True)),
         Step("s3>s4", "s4", 0.4, 1.3, "Prove pipeline", "Cost per SQL down 31% · $480K pipeline", GREEN,
              side="top", callout_xy=mid(4, 120, top=True)),
-        Step("s4>out", "out", 0.45, 1.6, "Your call", "Ranked actions · launch the drafts you approve", GREEN,
-             side="top", callout_xy=(1149, OY[0])),
+        Step("s4>out", "out", 0.45, 1.6, "Your call", "Ranked actions · you launch the drafts", GREEN,
+             side="top", callout_xy=(900, LY[4] + 4)),
     ], label="in"),
 ]
 
