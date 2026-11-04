@@ -27,6 +27,15 @@ Ten agents that audit and optimize any company website automatically, using two 
 4. **Combine:** `run.py` collects the results, compares them with the previous run, and asks Claude for a short summary for leadership.
 5. **Deliver:** a markdown scorecard is committed to `reports/`, a GitHub Issue is opened with the action checklist, and Slack is alerted on regressions.
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `landing-page-audit`, `design:accessibility-review`, `marketing:seo-audit`, `zizi-skills:frontend`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Setup (about 10 minutes)
 
 1. **Edit `config.json`:** set `site` and list your key `revenue_pages` (home, pricing, product, checkout).
