@@ -24,6 +24,15 @@ The [`klaviyo-growth-workflow`](workflow/klaviyo-growth-workflow/SKILL.md) skill
 - Name everything created with the prefix `AI · ` and tag it `ai-workflow`, so it's easy to audit or roll back
 - Deliverability limits: bounce < 1%, spam < 0.08%, unsubscribe < 0.3% per send
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `windsor-ai:klaviyo`, `marketing:email-sequence`, `repeat-purchase-flow-review-ecommerce`, `ltv-cohort-read-ecommerce`, `subscription-churn-review-ecommerce`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
