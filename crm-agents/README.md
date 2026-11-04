@@ -44,6 +44,15 @@ The [`crm-agents-workflow`](workflow/crm-agents-workflow/SKILL.md) skill runs ev
 7. **Uplift Analyst:** after 14 days, reports the lift in reactivation against control
 8. **Insights:** adds the result to the weekly summary and suggests making it always-on
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `windsor-ai:crm-insights`, `small-business:reactivate`, `ltv-cohort-read-ecommerce`, `support-ticket-theme-miner-ecommerce`, `zizi-skills:data-analytics`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
