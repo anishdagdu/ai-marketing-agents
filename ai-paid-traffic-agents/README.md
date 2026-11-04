@@ -27,6 +27,15 @@ Agents 4–6 run **in parallel**, only for the platforms you use. Every agent re
 - **Optimize** (already spending, run weekly): 7 → 8 → 3 if creative is fatigued → 2 to update the test plan
 - **Single task**: e.g. "write hooks" goes straight to the creative agent
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `paid-traffic-workflow`, `account-audit`, `kpi-targets`, `budget-planner`, `campaign-structure`, `scaling-rules`, `roas-diagnosis`, `creative-fatigue-check`, `testing-roadmap`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
