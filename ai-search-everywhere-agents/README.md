@@ -6,6 +6,15 @@ Search visibility across Google and AI answer engines: SEO, AEO, GEO, AIO and SX
 
 Stages: 1 SEO + AIO · 2 AEO + GEO · 3 SXO · 4 Rankings · then a Weekly Report every Monday.
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `marketing:seo-audit`, `small-business:seo-ai-visibility`, `keyword-research`, `windsor-ai:google-search-console`, `ai-shopping-readiness-ecommerce`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Install in Claude (claude.ai or the desktop app)
 1. Open Settings > Capabilities and make sure code execution / file creation is on.
 2. In the Skills section, click Upload skill.
