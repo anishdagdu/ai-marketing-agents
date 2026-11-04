@@ -36,6 +36,15 @@ The [`hubspot-growth-workflow`](workflow/hubspot-growth-workflow/SKILL.md) skill
 - Name everything created with the prefix `AI · ` and tag it `ai-workflow`
 - Every number comes from a tool call, never from memory
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `windsor-ai:hubspot`, `windsor-ai:pipeline-report`, `small-business:crm-autopilot`, `small-business:lead-triage`, `small-business:speed-to-lead`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
