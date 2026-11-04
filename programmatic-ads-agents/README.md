@@ -53,6 +53,15 @@ Every task gets a 0-10 score on money at stake, ambiguity, reasoning depth, blas
 - Name everything created with the prefix `AI · ` and tag it `ai-workflow`
 - Every number comes from a tool call or an export, never from memory
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `windsor-ai:campaign-report`, `budget-planner`, `attribution-report`, `youtube-ads`, `weekly-report`
+- **For every set:** `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
