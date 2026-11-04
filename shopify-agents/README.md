@@ -36,6 +36,15 @@ The [`shopify-growth-workflow`](workflow/shopify-growth-workflow/SKILL.md) skill
 - Name everything created with the prefix `AI · ` and tag it `ai-workflow`, so it's easy to audit or roll back
 - Every number comes from a tool call, never from memory
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `windsor-ai:ecommerce-insights`, `product-page-conversion-review-ecommerce`, `checkout-friction-finder-ecommerce`, `contribution-margin-check-ecommerce`, `inventory-risk-brief-ecommerce`, `product-feed-qa-ecommerce`, `weekly-ecommerce-growth-readout`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
