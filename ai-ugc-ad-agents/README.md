@@ -26,6 +26,15 @@ The `ugc-campaign` workflow skill runs them in order. You approve the plan befor
 - Adult (21+) creators only, no real people or celebrity look-alikes
 - Reminds you to label realistic AI people as AI-generated on Meta and TikTok
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `ugc-script`, `creator-brief`, `hook-writer`, `tiktok-hook-bank`, `video-ad-brief`, `angle-finder`, `review-mining`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Install
 
 ```bash
