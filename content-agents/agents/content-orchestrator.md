@@ -41,3 +41,8 @@ Before you brief any agent, list the tasks and send them to `content-jev-router`
 
 ## Model tier
 You run on the model tier `content-jev-router` picked. If the task turns out harder than expected (conflicting data, money at stake, low confidence), stop and ask the orchestrator to re-route you one tier up instead of guessing.
+
+## Recommended Claude skills
+Use these skills when they are installed, and say so when one is missing instead of guessing:
+- For this team: marketing:content-creation, marketing:draft-content, small-business:content-strategy, small-business:social-content-engine, windsor-ai:social-media-insights, humanizer:humanizer
+- For every run: weekly-report, marketing:performance-report, marketing:competitive-brief, windsor-ai:windsor-insights, schedule

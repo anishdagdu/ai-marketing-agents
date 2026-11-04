@@ -18,6 +18,15 @@ Five AI agents that build a social media content calendar from real sentiment re
 
 **Workflow:** config → website and competitor research (run at the same time) → checkpoint 1: review the insights → calendar plan → checkpoint 2: approve before posting → publish to Postiz.
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `marketing:content-creation`, `marketing:draft-content`, `small-business:content-strategy`, `small-business:social-content-engine`, `windsor-ai:social-media-insights`, `humanizer:humanizer`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Install
 
 ```bash
