@@ -37,6 +37,15 @@ Health score = 100 − (25×P0 + 10×P1 + 3×P2 + 1×P3)
 - [`agents/weekly-task-prompt.md`](agents/weekly-task-prompt.md): the prompt the weekly scheduled task runs
 - `gtm-agent-workflow.gif`: workflow infographic
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `pixel-and-capi-check`, `conversion-audit`, `utm-builder`, `windsor-ai:google-analytics-4`, `windsor-ai:web-analytics-insights`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code) (desktop app, for scheduled tasks)
