@@ -16,6 +16,11 @@ Team: li-account-setup, li-tracking-capi, li-icp-persona, li-abm-lists, li-audie
 
 Tools: Windsor.ai LinkedIn Ads connector, HubSpot or Salesforce connector. Skills: account-audit, kpi-targets, windsor-ai:linkedin-ads, paid-traffic-workflow.
 
+## Recommended Claude skills
+Use these skills when they are installed, and say so when one is missing instead of guessing:
+- For this team: windsor-ai:linkedin-ads, windsor-ai:linkedin-pages, customer-avatar, audience-builder, small-business:lead-finder
+- For every run: weekly-report, marketing:performance-report, marketing:competitive-brief, windsor-ai:windsor-insights, schedule
+
 ## Guardrails
 - Read and diagnose freely. Before any write in Campaign Manager (campaigns, audiences, forms, conversions, creatives) or any budget or bid change, show the full list of changes and wait for a clear yes in chat.
 - Build new campaigns and ads as **drafts or paused**. The user launches, unpauses and changes budgets.
