@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-Fifteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** and **B2B pipeline from LinkedIn Ads**.
+Sixteen sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads** and **behaviour analytics with Microsoft Clarity and Hotjar**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -21,6 +21,7 @@ Fifteen sets of AI agents for marketing teams, in one repo: **paid ads**, **sear
 | [MMP Agents](mmp-agents/) | An AI team for AppsFlyer, Adjust and every mobile measurement partner: attribution, SAN reconciliation, SKAN and AdAttributionKit, postbacks, events, ad revenue, fraud, privacy, clean rooms, ROAS, LTV, creative, incrementality, deep links, audiences and AI alerts | 22 agents + 1 workflow |
 | [Programmatic Agents](programmatic-ads-agents/) | An AI team for CM360, DV360 and The Trade Desk: Floodlight and verification, media planning, audiences and UID2, deals, DV360 and TTD builds, YouTube, CTV, retail media, bidding, frequency, pacing, CM360 dedup attribution and lift tests, with the JEV model router picking Haiku, Sonnet or Opus per task | 20 agents + 1 workflow |
 | [LinkedIn Ads Agents](linkedin-ads-agents/) | An AI team for B2B pipeline on LinkedIn: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue and CRM pipeline reporting | 15 agents + 1 workflow |
+| [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -130,7 +131,16 @@ Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-
 Orchestrator finds the pipeline leak → foundations → target → create → launch + optimise → prove pipeline, every week.
 [Read more and install →](linkedin-ads-agents/)
 
+## Behaviour Analytics Agents
+
+![Behaviour analytics agents workflow](behavior-analytics-agents/behavior-analytics-workflow.gif)
+
+Live page → orchestrator → capture → observe what (Clarity) → ask why (Hotjar) → fix + prove, every week.
+[Read more and install →](behavior-analytics-agents/)
+
 ## How they fit together
+
+- **Behaviour analytics:** the Clarity and Hotjar agents show why paid and organic visitors don't convert, hand ad problems to AI Paid Traffic, store fixes to Shopify Agents and tag checks to the GTM Health Agent.
 
 - **LinkedIn B2B:** the LinkedIn agents hand Insight Tag checks to the GTM Health Agent and send lead outcomes through the HubSpot agents, so LinkedIn is judged on pipeline, not clicks.
 - **Tracking first:** the GTM Health Agent keeps conversion data correct, which the paid-traffic scale agent and the search weekly report both rely on.
