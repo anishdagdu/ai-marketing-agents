@@ -33,6 +33,15 @@ The [`amazon-ads-workflow`](workflow/amazon-ads-workflow/SKILL.md) skill runs th
 - No decisions on thin data (10+ clicks, 7+ days, settled attribution); no entity changed twice in 7 days
 - Every change logged in `outputs/optimization/change-log.csv`
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `negative-keywords`, `keyword-research`, `contribution-margin-check-ecommerce`, `catalog-content-audit-ecommerce`, `windsor-ai:wasted-spend`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
