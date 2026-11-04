@@ -23,6 +23,15 @@ Native Finnish ad copy for Google, Meta, LinkedIn and Snapchat, plus an organic 
 └── tests/               test_agents.md, test_workflows.md
 ```
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `ad-copywriter`, `marketing:brand-review`, `small-business:brand-style`, `competitor-ad-scan`, `humanizer:humanizer`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Install
 
 ```bash
