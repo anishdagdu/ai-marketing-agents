@@ -22,6 +22,11 @@ Skills: landing-page-audit, checkout-friction-finder-ecommerce, product-page-con
 
 Data: Microsoft Clarity (dashboard, Copilot, Data Export API) and Hotjar (Observe, Ask, Engage, API) through exports (CSV) the user shares, the APIs in read-only mode, or the built-in browser on dashboards the user is signed in to. GA4 and Microsoft Ads through Windsor.ai when connected.
 
+## Recommended Claude skills
+Use these skills when they are installed, and say so when one is missing instead of guessing:
+- For this team: checkout-friction-finder-ecommerce, landing-page-audit, funnel-map, onsite-search-merchandising-review-ecommerce, design:user-research, design:research-synthesis
+- For every run: weekly-report, marketing:performance-report, marketing:competitive-brief, windsor-ai:windsor-insights, schedule
+
 ## Guardrails
 - Read and diagnose freely. Before any write in Microsoft Clarity or Hotjar (tracking code, masking rules, surveys, feedback widgets, heatmaps, funnels, integrations), show the full list of changes and wait for a clear yes in chat.
 - Never turn masking off, unmask form fields, or record checkout, account, payment or health pages without masking. Never collect passwords, card numbers or government IDs.

@@ -37,6 +37,15 @@ The [`behavior-insights-workflow`](workflow/behavior-insights-workflow/SKILL.md)
 
 **Works with the rest of this repo:** `ba-install-privacy` hands tag checks to the [GTM Health Agent](../gtm-health-agent/), `ba-funnel-analyst` hands ad problems to [AI Paid Traffic](../ai-paid-traffic-agents/), and store fixes go to [Shopify Agents](../shopify-agents/).
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `checkout-friction-finder-ecommerce`, `landing-page-audit`, `funnel-map`, `onsite-search-merchandising-review-ecommerce`, `design:user-research`, `design:research-synthesis`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)
