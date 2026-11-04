@@ -43,6 +43,15 @@ The [`mmp-growth-workflow`](workflow/mmp-growth-workflow/SKILL.md) skill runs th
 - Name everything created with the prefix `AI · `, so it's easy to audit or roll back
 - Every number comes from a tool call or a shared file, never from memory
 
+## Recommended Claude skills
+
+These Claude Code skills pair well with this set. The lead agent uses them when they are installed.
+
+- **For this set:** `attribution-report`, `conversion-audit`, `windsor-ai:performance-review`, `ltv-cohort-read-ecommerce`
+- **For every set:** `weekly-report`, `marketing:performance-report`, `marketing:competitive-brief`, `windsor-ai:windsor-insights`, `schedule`
+
+Skills from `windsor-ai:*`, `marketing:*`, `small-business:*` and `design:*` need those plugins installed, and Windsor.ai or HubSpot skills only return data once those connectors are signed in.
+
 ## Requirements
 
 - [Claude Code](https://claude.com/claude-code)

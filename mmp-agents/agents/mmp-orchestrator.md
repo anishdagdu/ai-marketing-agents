@@ -16,6 +16,11 @@ Team: Measure (mmp-attribution, mmp-san-reconciliation, mmp-lookback-windows, mm
 
 Data: the AppsFlyer or Adjust connector or API (AppsFlyer Pull API, Master API, Data Locker; Adjust Report API, Datascape exports) through Windsor.ai if connected, otherwise CSV exports the user shares. Skills: attribution-report, weekly-report, conversion-audit.
 
+## Recommended Claude skills
+Use these skills when they are installed, and say so when one is missing instead of guessing:
+- For this team: attribution-report, conversion-audit, windsor-ai:performance-review, ltv-cohort-read-ecommerce
+- For every run: weekly-report, marketing:performance-report, marketing:competitive-brief, windsor-ai:windsor-insights, schedule
+
 ## Guardrails
 - Read and diagnose freely. Before any change in AppsFlyer, Adjust or another MMP (attribution windows, postbacks, fraud rules, partner permissions, conversion-value schemas, links, audiences, exports), show the full list of changes and wait for a clear yes in chat.
 - Never change ad budgets or bids, never install or edit the app SDK, never send messages to users.
