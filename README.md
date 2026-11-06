@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-16 sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads** and **behaviour analytics with Microsoft Clarity and Hotjar**.
+17 sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads** and **behaviour analytics with Microsoft Clarity and Hotjar**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -22,6 +22,7 @@
 | [Programmatic Agents](programmatic-ads-agents/) | An AI team for CM360, DV360 and The Trade Desk: Floodlight and verification, media planning, audiences and UID2, deals, DV360 and TTD builds, YouTube, CTV, retail media, bidding, frequency, pacing, CM360 dedup attribution and lift tests, with the JEV model router picking Haiku, Sonnet or Opus per task | 20 agents + 1 workflow |
 | [LinkedIn Ads Agents](linkedin-ads-agents/) | An AI team for B2B pipeline on LinkedIn: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue and CRM pipeline reporting | 15 agents + 1 workflow |
 | [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
+| [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -138,7 +139,16 @@ Orchestrator finds the pipeline leak → foundations → target → create → l
 Live page → orchestrator → capture → observe what (Clarity) → ask why (Hotjar) → fix + prove, every week.
 [Read more and install →](behavior-analytics-agents/)
 
+## Apple Ads Agents
+
+![Apple Ads agents workflow](apple-ads-agents/apple-ads-workflow.gif)
+
+App Store search → orchestrator + JEV → measure → discover → win the search (App Store, Apple News, Apple Maps) → optimise + prove, every week.
+[Read more and install →](apple-ads-agents/)
+
 ## How they fit together
+
+- **Apple Ads:** the Apple Ads agents check installs against the MMP Agents, hand cross-channel budgets to AI Paid Traffic and App Store page behaviour to the Behaviour Analytics Agents.
 
 - **Behaviour analytics:** the Clarity and Hotjar agents show why paid and organic visitors don't convert, hand ad problems to AI Paid Traffic, store fixes to Shopify Agents and tag checks to the GTM Health Agent.
 
