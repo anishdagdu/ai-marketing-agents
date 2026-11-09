@@ -1,5 +1,5 @@
 {
- "date": "2026-11-02",
+ "date": "2026-11-09",
  "mode": "weekly",
  "site": "https://example.com",
  "agents": [
@@ -15,7 +15,7 @@
    ],
    "actions": [],
    "owner": "Engineering",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   },
   {
    "id": 2,
@@ -29,7 +29,7 @@
    ],
    "actions": [],
    "owner": "Engineering + Growth",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   },
   {
    "id": 3,
@@ -43,7 +43,7 @@
    ],
    "actions": [],
    "owner": "Engineering",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   },
   {
    "id": 4,
@@ -57,7 +57,7 @@
    ],
    "actions": [],
    "owner": "Marketing Ops",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   },
   {
    "id": 5,
@@ -71,21 +71,21 @@
    ],
    "actions": [],
    "owner": "Design + Engineering",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   },
   {
    "id": 10,
    "name": "Early-warning alerts",
    "status": "pass",
    "kpi": "Open alerts",
-   "value": 1,
+   "value": 0,
    "target": "0",
    "findings": [
-    "First run - baseline saved. Alerts start from the next run."
+    "No regressions"
    ],
    "actions": [],
    "owner": "Marketing Ops",
-   "date": "2026-11-02"
+   "date": "2026-11-09"
   }
  ]
 }

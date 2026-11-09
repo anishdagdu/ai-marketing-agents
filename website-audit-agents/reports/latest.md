@@ -1,5 +1,5 @@
 # Website audit scorecard - https://example.com
-_Weekly run, 2026-11-02_
+_Weekly run, 2026-11-09_
 
 ## Scorecard
 
@@ -10,7 +10,7 @@ _Weekly run, 2026-11-02_
 | 3 | Speed fix backlog | ⚪ skipped | - | None | - | Engineering |
 | 4 | Marketing tag bloat | ⚪ skipped | - | None | - | Marketing Ops |
 | 5 | Accessibility & compliance | ⚪ skipped | - | None | - | Design + Engineering |
-| 10 | Early-warning alerts | 🟢 pass | Open alerts | 1 | 0 | Marketing Ops |
+| 10 | Early-warning alerts | 🟢 pass | Open alerts | 0 | 0 | Marketing Ops |
 
 ### 1. Core Web Vitals baseline ⚪
 - PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)
@@ -28,4 +28,4 @@ _Weekly run, 2026-11-02_
 - PageSpeed API error: HTTP Error 429: Too Many Requests - set a free PAGESPEED_API_KEY (see README)
 
 ### 10. Early-warning alerts 🟢
-- First run - baseline saved. Alerts start from the next run.
+- No regressions
