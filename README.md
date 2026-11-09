@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-17 sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads** and **behaviour analytics with Microsoft Clarity and Hotjar**.
+18 sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads**, **behaviour analytics with Microsoft Clarity and Hotjar** and **prospecting and buying signals with Clay, Common Room and Apollo**.
 
 > **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
@@ -23,6 +23,7 @@
 | [LinkedIn Ads Agents](linkedin-ads-agents/) | An AI team for B2B pipeline on LinkedIn: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue and CRM pipeline reporting | 15 agents + 1 workflow |
 | [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
 | [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
+| [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -146,9 +147,18 @@ Live page → orchestrator → capture → observe what (Clarity) → ask why (H
 App Store search → orchestrator + JEV → measure → discover → win the search (App Store, Apple News, Apple Maps) → optimise + prove, every week.
 [Read more and install →](apple-ads-agents/)
 
+## Prospecting & Signals Agents
+
+![Prospecting and signals agents workflow](prospecting-signals-agents/prospecting-signals-workflow.gif)
+
+Goal → orchestrator + JEV → target → enrich (Clay) → signals (Common Room) → score → engage, with replies re-scoring every week.
+[Read more and install →](prospecting-signals-agents/)
+
 ## How they fit together
 
 - **Apple Ads:** the Apple Ads agents check installs against the MMP Agents, hand cross-channel budgets to AI Paid Traffic and App Store page behaviour to the Behaviour Analytics Agents.
+
+- **Prospecting and signals:** the Clay, Common Room and Apollo agents hand clean, consented contacts to the HubSpot agents, in-market accounts to LinkedIn Ads for retargeting, and pricing-page visitors to the Behaviour Analytics Agents. JEV spends Clay credits only on high-fit accounts.
 
 - **Behaviour analytics:** the Clarity and Hotjar agents show why paid and organic visitors don't convert, hand ad problems to AI Paid Traffic, store fixes to Shopify Agents and tag checks to the GTM Health Agent.
 
@@ -188,6 +198,7 @@ Then follow the install steps in each project's README.
 - HubSpot Agents need the HubSpot MCP connector; Shopify, Stripe (read only) and Slack connectors are optional
 - Amazon Ads Agents need Amazon Ads report exports (bulk sheet, Search Term, Targeting, Placement); Windsor.ai is optional
 - MMP Agents need AppsFlyer or Adjust exports or API access (or the Windsor.ai connector); the AppsFlyer MCP server is optional
+- Prospecting & Signals Agents need Clay, Common Room or Apollo (exports, API/MCP access or a signed-in dashboard); HubSpot or Salesforce is optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
