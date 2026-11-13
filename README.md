@@ -24,7 +24,7 @@
 | [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
 | [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
 | [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
-| [AvantStay Agents](avantstay-agents/) | A performance marketing team designed around a Head of Performance Marketing role at a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
+| [AvantStay Agents](avantstay-agents/) | A performance marketing team for a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
 
 ## AI Paid Traffic
 

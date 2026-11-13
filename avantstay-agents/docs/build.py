@@ -119,7 +119,7 @@ You are the {a['name']} on the {t['name']} team of the AvantStay performance mar
 
 ![AvantStay agents workflow](avantstay-agents-workflow.gif)
 
-Eight teams and {n} Claude Code agents, designed around AvantStay's Head of Performance Marketing role. Each team answers one block of the job posting and owns named offerings on avantstay.com: group homes, Members Club, homeowner management, homes for sale, hotels and company retreats.
+Eight teams and {n} Claude Code agents, built as a performance marketing team for AvantStay. Each team owns one part of the growth plan and named offerings on avantstay.com: group homes, Members Club, homeowner management, homes for sale, hotels and company retreats.
 
 > **Independent project.** This pack is a candidate's own design. It is not affiliated with, endorsed by or built for AvantStay, and it has not been run on AvantStay's accounts. Offering terms were read from public pages on 12 November 2026 and may have changed. Hooks and offers are test ideas with no performance data behind them.
 
@@ -279,7 +279,7 @@ def overall_gif():
     for f in range(total + 1):
         c = Canvas(W, H, base)
         header(c, "AVANTSTAY AGENTS", f"8 teams, {n} agents, one approval queue",
-               "Each team answers one block of the Head of Performance Marketing role and owns named offerings.", BLUE,
+               "Each team owns one part of the growth plan and named offerings.", BLUE,
                right=[("AI proposes", BLUE), ("You approve", GREEN)])
         band(c, 30, 140, 232, 566, "Data in", DIM, clamp(f / 3))
         for i, (s, ic) in enumerate(SOURCES):

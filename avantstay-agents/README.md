@@ -2,7 +2,7 @@
 
 ![AvantStay agents workflow](avantstay-agents-workflow.gif)
 
-Eight teams and 76 Claude Code agents, designed around AvantStay's Head of Performance Marketing role. Each team answers one block of the job posting and owns named offerings on avantstay.com: group homes, Members Club, homeowner management, homes for sale, hotels and company retreats.
+Eight teams and 76 Claude Code agents, built as a performance marketing team for AvantStay. Each team owns one part of the growth plan and named offerings on avantstay.com: group homes, Members Club, homeowner management, homes for sale, hotels and company retreats.
 
 > **Independent project.** This pack is a candidate's own design. It is not affiliated with, endorsed by or built for AvantStay, and it has not been run on AvantStay's accounts. Offering terms were read from public pages on 12 November 2026 and may have changed. Hooks and offers are test ideas with no performance data behind them.
 
