@@ -1,0 +1,666 @@
+{
+ "teams": [
+  {
+   "n": 1,
+   "name": "Signal and Measurement",
+   "answers": "Rebuild GTM (web and server-side), Segment, GA4, Meta CAPI, enhanced conversions; Salesforce offline conversions; attribution leadership trusts; holdout, lift and geo tests",
+   "serves": "All audiences",
+   "note": "",
+   "agents": [
+    {
+     "name": "Terms and Claims Ledger",
+     "job": "Holds one approved value for every price, term and proof number",
+     "inputs": "Site pages, T&Cs, legal sign-off",
+     "output": "Versioned ledger other agents must cite"
+    },
+    {
+     "name": "Tag and Consent Auditor",
+     "job": "Lists every tag firing and whether it fires before consent",
+     "inputs": "Page source, network log, Transcend config",
+     "output": "Tag inventory and defect list"
+    },
+    {
+     "name": "Event Spec Writer",
+     "job": "Defines one event schema for guest and owner funnels",
+     "inputs": "Segment tracking plan, GA4",
+     "output": "Event spec with owners and tests"
+    },
+    {
+     "name": "sGTM and CAPI Planner",
+     "job": "Designs server-side routing with deduplication keys",
+     "inputs": "Event spec, sGTM, Meta CAPI docs",
+     "output": "Container plan and dedup test results"
+    },
+    {
+     "name": "Enhanced Conversions Validator",
+     "job": "Checks hashed first-party match quality on Google and Microsoft",
+     "inputs": "Google Ads API, GA4",
+     "output": "Match-rate report and fixes"
+    },
+    {
+     "name": "Salesforce Stage Mapper",
+     "job": "Maps owner stages to offline conversions with click IDs and values",
+     "inputs": "SF objects, BQ",
+     "output": "Upload spec and daily upload file"
+    },
+    {
+     "name": "Attribution Policy Writer",
+     "job": "Writes the one-page rule for which number is reported where",
+     "inputs": "BQ, finance input",
+     "output": "Policy memo for leadership sign-off"
+    },
+    {
+     "name": "Geo Holdout Designer",
+     "job": "Picks matched markets and sample size for incrementality tests",
+     "inputs": "BQ bookings by market",
+     "output": "Test design and power estimate"
+    },
+    {
+     "name": "Lift Readout Agent",
+     "job": "Reads test results and states what was incremental",
+     "inputs": "Platform lift studies, BQ",
+     "output": "Readout with confidence range"
+    },
+    {
+     "name": "Discrepancy Monitor",
+     "job": "Compares platform, BQ and SF counts daily",
+     "inputs": "Ads APIs, BQ, SF",
+     "output": "Three-way reconciliation and alerts"
+    }
+   ]
+  },
+  {
+   "n": 2,
+   "name": "Guest Demand",
+   "answers": "Google Search, PMax, Demand Gen, Microsoft, Meta; test new channels",
+   "serves": "Group homes, collections, snowbird stays, Affirm, travel protection (guest)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Market and Occasion Keyword Agent",
+     "job": "Builds keyword sets by market × occasion × group size",
+     "inputs": "Search terms report, event guides",
+     "output": "Keyword and negative lists"
+    },
+    {
+     "name": "Search Builder",
+     "job": "Drafts ad groups and responsive ads with price and dates",
+     "inputs": "Ledger, listing feed, Google Ads API",
+     "output": "Campaign draft for approval"
+    },
+    {
+     "name": "Per-Guest Price Agent",
+     "job": "Computes the page's per-guest nightly price for each home and date",
+     "inputs": "Listing pages or pricing feed",
+     "output": "Price feed with date stamp and footnote"
+    },
+    {
+     "name": "PMax and Feed Agent",
+     "job": "Maintains asset groups and the home catalogue feed",
+     "inputs": "Listing feed, image library",
+     "output": "Feed file and asset groups"
+    },
+    {
+     "name": "Demand Gen and YouTube Agent",
+     "job": "Plans short video placements by persona",
+     "inputs": "Creative library, audience lists",
+     "output": "Line-item plan"
+    },
+    {
+     "name": "Meta Catalogue Agent",
+     "job": "Runs catalogue travel ads with per-home labels",
+     "inputs": "Meta Marketing API, feed",
+     "output": "Ad set and catalogue proposals"
+    },
+    {
+     "name": "Microsoft Mirror Agent",
+     "job": "Ports winning Google structures to Microsoft Ads",
+     "inputs": "Google Ads export",
+     "output": "Import file with adjustments"
+    },
+    {
+     "name": "Abandoned-Search Retargeter",
+     "job": "Builds audiences from searches and checkouts not completed",
+     "inputs": "Segment audiences",
+     "output": "Audience definitions and sequences"
+    },
+    {
+     "name": "Snowbird and Long-Stay Agent",
+     "job": "Markets 30+ night stays in low season",
+     "inputs": "Snowbird pages, occupancy gaps",
+     "output": "Seasonal campaign draft"
+    },
+    {
+     "name": "Waste and Negatives Agent",
+     "job": "Finds spend with no qualified outcome",
+     "inputs": "Search terms, BQ",
+     "output": "Weekly cut list"
+    }
+   ]
+  },
+  {
+   "n": 3,
+   "name": "Member and Loyalty",
+   "answers": "Rebuild \"follow-up\"; CAC by funnel stage",
+   "serves": "Members Club, referral, concierge, app, discount-code page (member)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Member Savings Calculator",
+     "job": "Shows the real saving for a given stay under the cap and eligibility rule",
+     "inputs": "Ledger, booking total",
+     "output": "\"You save $X\" line per stay"
+    },
+    {
+     "name": "Checkout Upsell Tester",
+     "job": "Designs tests of when the membership offer appears",
+     "inputs": "Statsig, checkout events",
+     "output": "Test plan and readout"
+    },
+    {
+     "name": "Repeat-Guest Prospector",
+     "job": "Scores past guests by likelihood of a second stay",
+     "inputs": "BQ booking history",
+     "output": "Ranked audience for member ads"
+    },
+    {
+     "name": "Referral Loop Agent",
+     "job": "Triggers the referral ask after check-out and tracks credits",
+     "inputs": "Segment, referral data",
+     "output": "Sequence draft and credit liability report"
+    },
+    {
+     "name": "Renewal and Churn Agent",
+     "job": "Flags members unlikely to renew and proposes a save offer",
+     "inputs": "Membership billing data",
+     "output": "Save list and message drafts"
+    },
+    {
+     "name": "Coupon-Intent Agent",
+     "job": "Keeps the discount-code page and its ads accurate",
+     "inputs": "Ledger, search terms",
+     "output": "Page copy and ad drafts"
+    },
+    {
+     "name": "Concierge Upsell Agent",
+     "job": "Proposes add-ons by property and party type",
+     "inputs": "Upgrade catalogue, booking data",
+     "output": "Pre-arrival offer sequences"
+    },
+    {
+     "name": "App Adoption Agent",
+     "job": "Moves booked guests into the app before arrival",
+     "inputs": "App events, Segment",
+     "output": "Install prompts and adoption report"
+    },
+    {
+     "name": "Affirm and Protection Agent",
+     "job": "Tests where pay-later and Allianz cover appear in the funnel",
+     "inputs": "Checkout events",
+     "output": "Placement tests and attach-rate report"
+    }
+   ]
+  },
+  {
+   "n": 4,
+   "name": "Homeowner Supply",
+   "answers": "Cost per qualified owner and per signed owner; LinkedIn; direct mail",
+   "serves": "Management, Airbnb management, calculator, AI audit, comparison pages (homeowner)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Owner ICP and Market Scorer",
+     "job": "Ranks markets and home types by expected value of a signed owner",
+     "inputs": "BQ, SF, AirDNA-type data",
+     "output": "Priority market list"
+    },
+    {
+     "name": "Owner Search Agent",
+     "job": "Builds \"airbnb management [city]\" and income-estimate search",
+     "inputs": "605 local pages, Google Ads API",
+     "output": "Campaign drafts"
+    },
+    {
+     "name": "Calculator Funnel Agent",
+     "job": "Tests showing an instant range before the SMS step",
+     "inputs": "Calculator events, Statsig",
+     "output": "Test design and lead-quality readout"
+    },
+    {
+     "name": "LinkedIn Owner Agent",
+     "job": "Targets second-home owners and investors",
+     "inputs": "LinkedIn API, SF segments",
+     "output": "Campaign drafts"
+    },
+    {
+     "name": "Switcher Agent",
+     "job": "Builds campaigns for owners leaving named competitors",
+     "inputs": "Comparison pages, ledger",
+     "output": "Ads and pages, legal-reviewed"
+    },
+    {
+     "name": "Direct Mail Agent",
+     "job": "Builds address lists with a holdout and a trackable response path",
+     "inputs": "Property records, SF",
+     "output": "Mail file, holdout list, creative"
+    },
+    {
+     "name": "Owner Lead Scorer",
+     "job": "Scores leads on fit and sends a value back to ad platforms",
+     "inputs": "SF, BQ",
+     "output": "Score field and conversion values"
+    },
+    {
+     "name": "Speed-to-Lead Agent",
+     "job": "Drafts the first reply and books the call",
+     "inputs": "SF, calendar",
+     "output": "Reply drafts and response-time report"
+    },
+    {
+     "name": "Owner Proof Miner",
+     "job": "Pulls testimonials and case numbers that the ledger approves",
+     "inputs": "Homeowner reviews, case studies",
+     "output": "Proof library"
+    },
+    {
+     "name": "AI Visibility Agent",
+     "job": "Runs the audit promise honestly, starting with the missing llms.txt",
+     "inputs": "Site crawl, AI answer tests",
+     "output": "Fix list and weekly visibility report"
+    }
+   ]
+  },
+  {
+   "n": 5,
+   "name": "Buyer, Investor and Agent",
+   "answers": "Two-sided marketplace; LinkedIn; owner KPIs",
+   "serves": "Buy, Sell, best-places report, agents programme (buyer, investor, agent)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Listing Feed Agent",
+     "job": "Turns the homes-for-sale list into an ad feed with price and estimated revenue",
+     "inputs": "/buy listings",
+     "output": "Feed with disclaimer text attached"
+    },
+    {
+     "name": "Yield Explainer Agent",
+     "job": "Writes plain-language revenue pages per market",
+     "inputs": "Best-places data, ledger",
+     "output": "Market pages and lead magnet"
+    },
+    {
+     "name": "Buyer Search and Social Agent",
+     "job": "Runs housing-category campaigns within platform rules",
+     "inputs": "Google Ads, Meta APIs",
+     "output": "Compliant campaign drafts"
+    },
+    {
+     "name": "Investor Outreach Agent",
+     "job": "Builds LinkedIn campaigns for family offices, funds and developers",
+     "inputs": "LinkedIn API, SF",
+     "output": "Account list and ads"
+    },
+    {
+     "name": "Seller Lead Agent",
+     "job": "Markets the \"sell with bookings in place\" promise",
+     "inputs": "Seller page, SF",
+     "output": "Ads and form tests"
+    },
+    {
+     "name": "Agent Recruiter",
+     "job": "Recruits licensed agents into the referral network",
+     "inputs": "State licence lists, LinkedIn",
+     "output": "Agent outreach and sign-up tests"
+    },
+    {
+     "name": "Agent Enablement Agent",
+     "job": "Gives network agents a co-branded revenue estimate to share",
+     "inputs": "Underwriting output",
+     "output": "One-page estimate template"
+    },
+    {
+     "name": "Report Refresher",
+     "job": "Keeps dated reports and teasers current",
+     "inputs": "Site crawl",
+     "output": "Stale-content list (\"2024\", \"2025\")"
+    }
+   ]
+  },
+  {
+   "n": 6,
+   "name": "Hotel, OTA and Metasearch",
+   "answers": "Google Hotel Ads, metasearch, Expedia TravelAds, Booking.com Sponsored Ads",
+   "serves": "Hotels, hotel management (hotel guest, hotel owner)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Hotel Feed and Price Accuracy Agent",
+     "job": "Checks hotel rates and availability match across feeds",
+     "inputs": "Hotel Center, PMS rates",
+     "output": "Mismatch list"
+    },
+    {
+     "name": "Free Booking Links Agent",
+     "job": "Confirms eligibility and coverage before any paid bid",
+     "inputs": "Hotel Center",
+     "output": "Coverage report"
+    },
+    {
+     "name": "Metasearch Bid Agent",
+     "job": "Proposes bids by hotel, date and device",
+     "inputs": "Hotel Ads API, BQ",
+     "output": "Bid change proposals"
+    },
+    {
+     "name": "TravelAds Agent",
+     "job": "Rotates Expedia creative by booking window",
+     "inputs": "Expedia TravelAds",
+     "output": "Creative sets and reports"
+    },
+    {
+     "name": "Booking Sponsored Ads Agent",
+     "job": "Tests sponsored placement on Booking.com",
+     "inputs": "Booking.com extranet",
+     "output": "Test plan and readout"
+    },
+    {
+     "name": "OTA vs Direct Margin Agent",
+     "job": "Compares net margin per booking by channel",
+     "inputs": "BQ, commission terms",
+     "output": "Margin table and bid ceilings"
+    },
+    {
+     "name": "Hotel Launch Agent",
+     "job": "Builds the first 90 days of marketing for a new hotel",
+     "inputs": "Hotel fact sheet",
+     "output": "Launch plan"
+    },
+    {
+     "name": "Group Buyout Agent",
+     "job": "Markets whole-hotel buyouts to planners",
+     "inputs": "Hotels page, SF",
+     "output": "Buyout campaign drafts"
+    },
+    {
+     "name": "Hotel Owner Lead Agent",
+     "job": "Finds and messages boutique hotel owners and developers",
+     "inputs": "LinkedIn, SF",
+     "output": "Account list and ads"
+    }
+   ]
+  },
+  {
+   "n": 7,
+   "name": "Corporate, Events and Groups",
+   "answers": "LinkedIn; landing page tests; new channels",
+   "serves": "Company retreats, events quote, hotel buyouts (corporate)",
+   "note": "",
+   "agents": [
+    {
+     "name": "Retreat Account Finder",
+     "job": "Lists companies likely to run offsites by size and location",
+     "inputs": "LinkedIn, firmographic data",
+     "output": "Target account list"
+    },
+    {
+     "name": "Retreat Campaign Agent",
+     "job": "Runs LinkedIn and search for offsite planners",
+     "inputs": "Ledger, retreats page",
+     "output": "Campaign drafts"
+    },
+    {
+     "name": "Retreat Quote Agent",
+     "job": "Drafts a priced proposal within one business day",
+     "inputs": "SF, availability",
+     "output": "Proposal draft for the sales manager"
+    },
+    {
+     "name": "Rebook Agent",
+     "job": "Asks past retreat clients to rebook",
+     "inputs": "SF history",
+     "output": "Rebook sequence"
+    },
+    {
+     "name": "Occasion Page Agent",
+     "job": "Builds pages for weddings, reunions and bachelorettes",
+     "inputs": "Events form, home feed",
+     "output": "Page drafts with proof and price cues"
+    },
+    {
+     "name": "Occasion Search Agent",
+     "job": "Pairs each occasion page with search ad groups",
+     "inputs": "Keyword data",
+     "output": "Ad group drafts"
+    },
+    {
+     "name": "Event Calendar Agent",
+     "job": "Ties campaigns to dated events in each market",
+     "inputs": "108 event guides",
+     "output": "Dated campaign calendar"
+    },
+    {
+     "name": "Quote Form Tester",
+     "job": "Tests a shorter first step on the quote form",
+     "inputs": "Statsig, form events",
+     "output": "Test design and readout"
+    }
+   ]
+  },
+  {
+   "n": 8,
+   "name": "Creative, CRO and Reporting Ops",
+   "answers": "Copy, creative, landing pages, booking-flow tests; BigQuery reporting; budget allocation, forecasting, pacing and alerts; OOH and direct mail measured \"as rigorously as digital\"",
+   "serves": "All audiences",
+   "note": "",
+   "agents": [
+    {
+     "name": "Hook and Angle Agent",
+     "job": "Writes hooks per audience, each tagged as a hypothesis with a KPI",
+     "inputs": "Ledger, reviews",
+     "output": "Hook bank"
+    },
+    {
+     "name": "Video and GIF Brief Agent",
+     "job": "Turns a home's page into a shot-by-shot brief",
+     "inputs": "Property page, photo captions",
+     "output": "Creative brief and script"
+    },
+    {
+     "name": "Claims Guard",
+     "job": "Blocks any creative whose number or term is not in the ledger",
+     "inputs": "Ledger, draft ads",
+     "output": "Pass or fail with the line at fault"
+    },
+    {
+     "name": "Fatigue Agent",
+     "job": "Flags creatives whose results are decaying",
+     "inputs": "Ads APIs",
+     "output": "Refresh list"
+    },
+    {
+     "name": "Landing Page Agent",
+     "job": "Drafts page variants matched to each ad group",
+     "inputs": "Ad copy, page templates",
+     "output": "Page drafts"
+    },
+    {
+     "name": "Booking-Flow Test Designer",
+     "job": "Prioritises checkout tests with Product",
+     "inputs": "Funnel events, Statsig",
+     "output": "Ranked backlog"
+    },
+    {
+     "name": "BigQuery Model Builder",
+     "job": "Writes and tests the SQL models behind every report",
+     "inputs": "BQ, GA4 export, SF",
+     "output": "Tested models"
+    },
+    {
+     "name": "Pacing and Anomaly Agent",
+     "job": "Watches spend and conversion against plan",
+     "inputs": "Ads APIs, BQ",
+     "output": "Daily alert"
+    },
+    {
+     "name": "Budget and Forecast Agent",
+     "job": "Proposes the monthly split and a forecast range",
+     "inputs": "BQ, test readouts",
+     "output": "Allocation memo"
+    },
+    {
+     "name": "OOH and Mail Measurement Agent",
+     "job": "Designs matched-market reads for offline media",
+     "inputs": "Geo data, SF",
+     "output": "Test design and readout"
+    },
+    {
+     "name": "Leadership Readout Agent",
+     "job": "Writes the weekly one-page summary",
+     "inputs": "BQ, approval log",
+     "output": "Weekly memo"
+    },
+    {
+     "name": "Change-Log Keeper",
+     "job": "Records every approved change and who approved it",
+     "inputs": "Approval queue",
+     "output": "Audit trail"
+    }
+   ]
+  }
+ ],
+ "hooks": [
+  [
+   "Team",
+   "Hook or offer (test hypothesis)",
+   "Modelled on",
+   "AvantStay number or term used"
+  ],
+  [
+   "Guest Demand",
+   "\"19 of you. One house. $126.43 each a night.\"",
+   "Airbnb's one-home-beats-several-hotel-rooms idea (ShortTermRentalz)",
+   "Per-guest price printed on the property page [D], with dates and \"before taxes\""
+  ],
+  [
+   "Guest Demand",
+   "\"No wild cards\": inspected, stocked, local team 24/7",
+   "Vrbo's VrboCare guarantee as the offer (Expedia newsroom)",
+   "Line already in AvantStay's Google ad [D] (Transparency Center)"
+  ],
+  [
+   "Guest Demand",
+   "\"Split it. Pay later with Affirm.\" on high-total homes",
+   "Airbnb pay-later adoption [3P]; Vrbo's reported Affirm filter (Rental Scale-Up)",
+   "Affirm line on homepage [D]; terms unpublished, so legal must supply them"
+  ],
+  [
+   "Guest Demand",
+   "Catalogue ads with per-home labels (sleeps, pool, per-guest price)",
+   "Accor on TikTok [3P]",
+   "Home feed plus Per-Guest Price Agent"
+  ],
+  [
+   "Member",
+   "\"This stay: $250 off. Membership: $149.\" shown on the property page",
+   "Member-rate ads such as Accor's up to 25% off through ALL.com [3P] (TikTok for Business)",
+   "$149 fee, $250 cap [D]; eligible properties only"
+  ],
+  [
+   "Member",
+   "\"Four stays, $851 back\"",
+   "Worked-example value framing",
+   "Page's own calculator [D] (Membership)"
+  ],
+  [
+   "Member",
+   "\"Give $250, get $100\" in post-stay email and app",
+   "Wander's paid-for-credit founding membership ($100 for $100 in credits [3P], 2024) (Wander)",
+   "Referral terms [D]; credits expire in 1 year"
+  ],
+  [
+   "Member",
+   "Founding-member cap or waitlist on a higher tier",
+   "Inspirato Pass capped at 2,500 memberships [3P] (Inspirato)",
+   "No such tier exists; a product proposal, not a media test"
+  ],
+  [
+   "Homeowner",
+   "\"Real stays beat scraped data\": an instant revenue range",
+   "Evolve's quantified uplift [3P]",
+   "2,500+ homes line in the live Google ad [D]"
+  ],
+  [
+   "Homeowner",
+   "\"20% more than your current manager, or see the numbers first\"",
+   "Evolve's 18% claim and Vacasa's \"33% more bookings\" [3P] (Vacasa)",
+   "20% average lift [D]; the +32% YoY figure on another page must be reconciled first"
+  ],
+  [
+   "Homeowner",
+   "\"Booked in 6 days\"",
+   "Speed-to-value proof",
+   "6 days to first booking [D]"
+  ],
+  [
+   "Homeowner",
+   "Fee refund if unhappy in the first months",
+   "Evolve's six-month fee refund [3P]; RedAwning's guarantee (RedAwning)",
+   "No such AvantStay offer exists; needs a commercial decision"
+  ],
+  [
+   "Buyer, Investor, Agent",
+   "\"$619,900 home. Est. $135k a year. Managed from day one.\"",
+   "Listing-level economics as the ad",
+   "/buy listing [D], with AvantStay's disclaimer that results \"could differ materially\""
+  ],
+  [
+   "Buyer, Investor, Agent",
+   "\"Earn up to 10% of the management fee, with no cap on referrals\"",
+   "Wander's flat $500 realtor fee [3P] (Wander)",
+   "Agents page [D]"
+  ],
+  [
+   "Hotel",
+   "\"The AvantStay standard, by the room\" with member rate",
+   "Loyalty rate beats OTA: Which? found member booking cheaper nine times in ten [3P] (Which?)",
+   "4.8 average hotel guest rating [D]; membership eligibility for hotels unverified"
+  ],
+  [
+   "Hotel",
+   "Booking-window creative: planners versus last-minute",
+   "Expedia's TravelAds guidance (Expedia Group)",
+   "Six named hotels [D]"
+  ],
+  [
+   "Hotel (owners)",
+   "\"Up to 40% direct at The Gilmore\"",
+   "Proof-led B2B",
+   "Hotel management page [D]"
+  ],
+  [
+   "Corporate",
+   "\"94% of teams rebook\"",
+   "Proof-led B2B",
+   "Retreats page [D]"
+  ],
+  [
+   "Corporate",
+   "\"A priced proposal within one business day\"",
+   "Named service promise, as VrboCare names a policy",
+   "Response time [D]"
+  ],
+  [
+   "Corporate",
+   "\"Buy out the whole hotel\"",
+   "Group economics",
+   "Buyout CTA [D]"
+  ],
+  [
+   "Creative Ops",
+   "Creator-shot vertical house tours, whitelisted",
+   "Vrbo and Expedia's shift to creator video; W Hotels' whitelisting (self-reported) (Shorty Awards)",
+   "Awards winners as the first 20 homes [D]"
+  ]
+ ]
+}
