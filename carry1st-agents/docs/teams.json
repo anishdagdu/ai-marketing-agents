@@ -1,0 +1,1258 @@
+{
+ "teams": [
+  {
+   "n": 1,
+   "name": "Growth Command",
+   "mission": "Orchestrate the engine, allocate budget and govern every change",
+   "works_with": "All teams",
+   "agents": [
+    {
+     "name": "Engine Orchestrator",
+     "job": "Routes requests to team leads and resolves competing proposals before anything is written",
+     "inputs": "Team proposals, change ledger, guardrail tables",
+     "output": "Routed brief or approve, queue or reject decision"
+    },
+    {
+     "name": "Beat Calendar Keeper",
+     "job": "Keeps one calendar of game seasons, battle-pass resets, Africa Cup stages, paydays and holidays per country",
+     "inputs": "Publisher roadmaps, esports schedule, country holiday lists",
+     "output": "Dated beat calendar with owners"
+    },
+    {
+     "name": "Budget Allocator",
+     "job": "Proposes the weekly spend split across Google, Meta and TikTok by country and title",
+     "inputs": "Blended CAC, payback and pLTV view, platform pacing, beat calendar",
+     "output": "Weekly budget plan for approval"
+    },
+    {
+     "name": "Change Ledger Clerk",
+     "job": "Records every proposed and applied change with old value, new value, proposer and approver",
+     "inputs": "Write proposals, platform change history",
+     "output": "Change ledger and entity locks"
+    },
+    {
+     "name": "Guardrail Sentinel",
+     "job": "Enforces spend caps, edit cool-downs and country-eligibility tables in code",
+     "inputs": "Ledger, platform spend, eligibility tables",
+     "output": "Pass or block verdict on each proposal"
+    },
+    {
+     "name": "Consent and Privacy Gatekeeper",
+     "job": "Blocks any send or audience upload that lacks a valid consent record",
+     "inputs": "Consent records, NDPA and POPIA rules, segment files",
+     "output": "Clearance decision and impact-assessment register"
+    },
+    {
+     "name": "Experiment Registrar",
+     "job": "Holds the single test backlog and prevents overlapping tests",
+     "inputs": "Test proposals from every team, live test list",
+     "output": "Scheduled test slots with hypotheses and results"
+    },
+    {
+     "name": "Agent Evaluator",
+     "job": "Scores agent outputs with end-state checks and a human-reviewed sample",
+     "inputs": "Agent outputs, scoring rubric, reviewer notes",
+     "output": "Quality scorecard per agent and team"
+    },
+    {
+     "name": "Cost Controller",
+     "job": "Sets token budgets per team and assigns cheaper models to worker roles",
+     "inputs": "Usage logs, task completion counts",
+     "output": "Cost per completed task report and model plan"
+    },
+    {
+     "name": "Incident Responder",
+     "job": "Pauses, rolls back and writes the post-mortem when a cap, policy or data incident fires",
+     "inputs": "Alerts, change ledger, platform status",
+     "output": "Rollback proposal and post-mortem"
+    },
+    {
+     "name": "Weekly Readout Writer",
+     "job": "Writes one growth readout for the Head of Growth from all team outputs",
+     "inputs": "Team reports, blended view, test results",
+     "output": "Weekly growth readout"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Weekly budget allocation",
+     "trigger": "Monday, after Measurement publishes the blended view",
+     "inputs": "Blended CAC, payback and pLTV by country and channel; beat calendar; pacing",
+     "handoffs": "Allocator proposes, Orchestrator checks ledger and guardrails, approved plan goes to the three platform writers",
+     "output": "Signed weekly budget plan",
+     "gate": "Head of Growth approves every reallocation"
+    },
+    {
+     "name": "Beat planning",
+     "trigger": "21 days before each calendar beat",
+     "inputs": "Calendar entry, last comparable beat's results, offers and creative in stock",
+     "handoffs": "Brief fans out to Creative, Shop, Lifecycle, Discovery, Creators and the paid teams",
+     "output": "One beat brief with owners and dates",
+     "gate": "Human team leads confirm scope"
+    },
+    {
+     "name": "Change arbitration",
+     "trigger": "Any write proposal from any team",
+     "inputs": "Proposal, ledger history, entity locks",
+     "handoffs": "Approve, queue or reject back to the proposing lead",
+     "output": "Ledger entry and decision",
+     "gate": "Human approval above set thresholds"
+    }
+   ],
+   "kpis": "Blended first-purchase CAC and payback by country; share of new buyers reaching a third purchase; duplicate or conflicting actions; human override and rollback rate; cost per completed task; incidents (cap breaches, policy rejections)"
+  },
+  {
+   "n": 2,
+   "name": "Measurement and Data Truth",
+   "mission": "Build one shared view of spend, purchases and customer value",
+   "works_with": "Feeds every team",
+   "agents": [
+    {
+     "name": "Measurement Lead",
+     "job": "Plans the team's work and publishes the weekly blended view to Growth Command",
+     "inputs": "Team outputs, Command questions",
+     "output": "Weekly blended view release note"
+    },
+    {
+     "name": "Event Taxonomy Steward",
+     "job": "Keeps one event and UTM naming standard across web, app and WhatsApp",
+     "inputs": "Event logs, tracking plan, campaign URLs",
+     "output": "Event and UTM standard with defect list"
+    },
+    {
+     "name": "MMP Integrity Monitor",
+     "job": "Checks install and in-app event flow, link health and app-ID mappings daily",
+     "inputs": "MMP dashboard and raw data, deep links",
+     "output": "Daily MMP health report"
+    },
+    {
+     "name": "Server-Side Signal Agent",
+     "job": "Verifies web purchases reach Meta, Google and TikTok server-side with value, currency and dedup IDs",
+     "inputs": "Server event logs, platform diagnostics",
+     "output": "Signal scorecard per platform and country"
+    },
+    {
+     "name": "Identity Stitcher",
+     "job": "Links Shop account, app user and WhatsApp number into one customer record",
+     "inputs": "Shop accounts, app IDs, WhatsApp opt-ins",
+     "output": "Stitched customer table and match rate"
+    },
+    {
+     "name": "FX Normaliser",
+     "job": "Converts naira, rand, shilling, cedi, pound and dirham purchase values to one reporting currency",
+     "inputs": "Order values, dated FX rates",
+     "output": "Normalised revenue table"
+    },
+    {
+     "name": "Blended ROAS Modeller",
+     "job": "Computes CAC, payback and contribution margin after payment fees by country, channel and title",
+     "inputs": "Spend, orders, fees, FX table",
+     "output": "CAC, payback and margin tables"
+    },
+    {
+     "name": "pLTV Forecaster",
+     "job": "Predicts customer value from early purchase behaviour for value bidding",
+     "inputs": "Purchase history, cohort tables",
+     "output": "pLTV score per customer and cohort"
+    },
+    {
+     "name": "Incrementality Designer",
+     "job": "Designs and reads geo holdout tests by country or region",
+     "inputs": "Orders by region, spend plan",
+     "output": "Test design and lift estimate with confidence range"
+    },
+    {
+     "name": "Media Mix Analyst",
+     "job": "Maintains a mix model as a sanity check once spend history allows",
+     "inputs": "Weekly spend and revenue history",
+     "output": "Channel contribution estimate"
+    },
+    {
+     "name": "Anomaly Detector",
+     "job": "Flags spend, conversion and payment-success breaks within hours",
+     "inputs": "Hourly spend, order and payment feeds",
+     "output": "Alert with likely cause and owner"
+    },
+    {
+     "name": "Platform Reconciler",
+     "job": "Compares platform-reported results against warehouse truth and reports the gap",
+     "inputs": "Ads platform reports, warehouse orders",
+     "output": "Reconciliation table by platform and country"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Daily signal health",
+     "trigger": "06:00 daily",
+     "inputs": "Event logs, platform diagnostics, MMP data",
+     "handoffs": "Faults go to the owning platform team and to Shop engineering",
+     "output": "Signal scorecard per platform and country",
+     "gate": "Data owner signs off schema changes"
+    },
+    {
+     "name": "Blended view build",
+     "trigger": "Weekly, and on demand",
+     "inputs": "Spend, attributed purchases, FX, fees, pLTV",
+     "handoffs": "Published to Command and all team leads by reference",
+     "output": "CAC, payback and repeat tables",
+     "gate": "Finance confirms margin inputs monthly"
+    },
+    {
+     "name": "Incrementality test",
+     "trigger": "Experiment Registrar schedules it",
+     "inputs": "Test design, holdout geography, spend plan",
+     "handoffs": "Paid teams hold out the region; results go back to the Budget Allocator",
+     "output": "Lift estimate with confidence range",
+     "gate": "Head of Growth approves holdouts"
+    }
+   ],
+   "kpis": "Share of web purchases received server-side with value and currency; identity match rate between Shop and app; gap between platform-reported and warehouse-attributed purchases; completed lift tests per quarter"
+  },
+  {
+   "n": 3,
+   "name": "Market and Player Intelligence",
+   "mission": "Watch demand, competitors, payment rails and rules",
+   "works_with": "Creative, Shop, Discovery, B2B",
+   "agents": [
+    {
+     "name": "Intelligence Lead",
+     "job": "Sets the research agenda from Command's questions and publishes the weekly brief",
+     "inputs": "Command questions, team findings",
+     "output": "Weekly intelligence brief"
+    },
+    {
+     "name": "Country Market Analyst",
+     "job": "Tracks market size, player counts and spend per player for each core country",
+     "inputs": "Newzoo and Carry1st reports, GSMA data",
+     "output": "Country fact sheet with dated sources"
+    },
+    {
+     "name": "Competitor Shop Watcher",
+     "job": "Monitors Codashop, Eneba, Razer Gold and web-shop vendors for catalogue, price and payment changes",
+     "inputs": "Competitor sites, press releases",
+     "output": "Competitor change log"
+    },
+    {
+     "name": "Price and Bonus Benchmarker",
+     "job": "Compares Carry1st's price and bonus per top-up SKU with rivals and in-app prices",
+     "inputs": "Shop price list, competitor prices, in-app prices",
+     "output": "Price gap table by SKU and country"
+    },
+    {
+     "name": "Payment Rail Scout",
+     "job": "Tracks new wallets, bank rails and card rules per country",
+     "inputs": "Fintech news, provider docs, Pay1st method list",
+     "output": "Payment rail gap list by country"
+    },
+    {
+     "name": "Title Demand Ranker",
+     "job": "Ranks games by top-up demand using Shop sales, search interest and community chatter",
+     "inputs": "Shop sales, search trends, community themes",
+     "output": "Ranked title list per country"
+    },
+    {
+     "name": "Voice of Customer Miner",
+     "job": "Extracts themes from app reviews, support tickets and chat transcripts",
+     "inputs": "Store reviews, support tickets, WhatsApp chats",
+     "output": "Theme report with verbatim quotes"
+    },
+    {
+     "name": "Community Listener",
+     "job": "Summarises sentiment and questions from Discord, the Facebook group and creator comments",
+     "inputs": "Discord, Facebook group, comment exports",
+     "output": "Weekly sentiment summary"
+    },
+    {
+     "name": "Policy and Regulation Watcher",
+     "job": "Tracks store billing rules, ad policies, privacy law and WhatsApp pricing changes",
+     "inputs": "Platform policy pages, regulator notices",
+     "output": "Dated policy change alerts"
+    },
+    {
+     "name": "FX and Macro Watcher",
+     "job": "Alerts on currency moves that require repricing",
+     "inputs": "FX feed, margin floors",
+     "output": "Repricing alert"
+    },
+    {
+     "name": "Insight Librarian",
+     "job": "Stores every finding with date and source so agents cite it by reference",
+     "inputs": "All team findings",
+     "output": "Searchable insight library"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Weekly intelligence brief",
+     "trigger": "Friday",
+     "inputs": "Competitor scans, voice-of-customer themes, demand ranking",
+     "handoffs": "Angles to Creative; price gaps to Shop; rail gaps to B2B",
+     "output": "One dated brief",
+     "gate": "Lead reviews before distribution"
+    },
+    {
+     "name": "Repricing alert",
+     "trigger": "A currency moves beyond a set band",
+     "inputs": "FX feed, current price list, margin floor",
+     "handoffs": "To Shop's Price Refresh Agent through Command",
+     "output": "Repricing recommendation",
+     "gate": "Commercial lead approves prices"
+    },
+    {
+     "name": "New-title assessment",
+     "trigger": "Publisher launch or demand spike",
+     "inputs": "Demand rank, partner status, SKU availability",
+     "handoffs": "To Shop Merchandiser, Discovery and B2B",
+     "output": "Go or wait recommendation",
+     "gate": "Partnerships lead decides"
+    }
+   ],
+   "kpis": "Time from competitor change to brief; share of creative concepts and offers traceable to a logged insight; accuracy of the title demand rank"
+  },
+  {
+   "n": 4,
+   "name": "Creative Studio",
+   "mission": "Ship distinct, localised, on-policy creative every week",
+   "works_with": "Google, Meta, TikTok, Lifecycle, Discovery",
+   "agents": [
+    {
+     "name": "Creative Lead",
+     "job": "Turns beat briefs and insights into a weekly production plan",
+     "inputs": "Beat brief, insight library, creative results",
+     "output": "Weekly production plan"
+    },
+    {
+     "name": "Concept Strategist",
+     "job": "Proposes distinct angles such as local payment proof, delivery speed, price versus in-app and season hype",
+     "inputs": "Insights, winning and losing concepts",
+     "output": "Concept list with hypotheses"
+    },
+    {
+     "name": "Hook and Script Writer",
+     "job": "Writes openers, scripts and ad copy per concept and platform",
+     "inputs": "Approved concepts, platform specs",
+     "output": "Hooks, scripts and copy variants"
+    },
+    {
+     "name": "Localisation Adapter",
+     "job": "Adapts copy and voice for English, Pidgin, Arabic, French and Swahili audiences",
+     "inputs": "Winning copy, language notes",
+     "output": "Localised drafts for native review"
+    },
+    {
+     "name": "Static Producer",
+     "job": "Builds image and carousel variants from approved concepts",
+     "inputs": "Concepts, brand kit, partner asset kits",
+     "output": "Static and carousel files"
+    },
+    {
+     "name": "Video Assembler",
+     "job": "Cuts short vertical videos from gameplay, screen recordings and creator footage",
+     "inputs": "Scripts, gameplay capture, creator clips",
+     "output": "Vertical video cuts"
+    },
+    {
+     "name": "Footage Repurposer",
+     "job": "Mines Africa Cup, Creators College and affiliate content for ad-ready clips",
+     "inputs": "Tournament streams, creator posts with rights",
+     "output": "Clip library with rights status"
+    },
+    {
+     "name": "Similarity Screener",
+     "job": "Rejects near-duplicates before upload so concepts do not cannibalise each other",
+     "inputs": "New assets, live creative library",
+     "output": "Pass or reject list with reasons"
+    },
+    {
+     "name": "Policy and Brand Checker",
+     "job": "Pre-checks every asset against platform policy, partner brand rules and Carry1st guidelines",
+     "inputs": "Assets, platform policies, partner brand rules",
+     "output": "Compliance verdict per asset"
+    },
+    {
+     "name": "Format Packager",
+     "job": "Sizes and bundles assets to each platform's limits and naming standard",
+     "inputs": "Approved assets, platform specs",
+     "output": "Packaged batch per platform and country"
+    },
+    {
+     "name": "Creative Analyst",
+     "job": "Tags assets and joins them to performance by creative ID across platforms",
+     "inputs": "Creative IDs, platform asset reports",
+     "output": "Concept and format ranking"
+    },
+    {
+     "name": "Fatigue Forecaster",
+     "job": "Predicts which live concepts need replacing and when",
+     "inputs": "Asset-level trend data",
+     "output": "Replacement schedule"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Weekly creative sprint",
+     "trigger": "Monday plan, or a beat brief",
+     "inputs": "Insights, last week's creative results, partner asset kits",
+     "handoffs": "Concept, script, production, similarity screen, policy check and packaging, then to the platform teams",
+     "output": "Packaged batches per platform and country",
+     "gate": "Creative director approves concepts; brand sign-off before release"
+    },
+    {
+     "name": "Fatigue replacement",
+     "trigger": "A platform team flags fatigue",
+     "inputs": "Asset-level trends",
+     "handoffs": "Request back to the Concept Strategist; replacement goes to the flagged platform",
+     "output": "Replacement concepts",
+     "gate": "Creative director and brand sign-off"
+    },
+    {
+     "name": "Localisation pass",
+     "trigger": "New market or language",
+     "inputs": "Winning concepts",
+     "handoffs": "Adapter drafts; a native reviewer or creator edits",
+     "output": "Localised variants",
+     "gate": "Native-speaker approval"
+    }
+   ],
+   "kpis": "Distinct concepts shipped per week; time from brief to live test; share of spend on creative under three weeks old; policy rejection rate; win rate of new concepts against the control"
+  },
+  {
+   "n": 5,
+   "name": "Google Ads",
+   "mission": "Run Search, Performance Max, Demand Gen and App campaigns through one writer",
+   "works_with": "Command, Measurement, Creative, Discovery",
+   "agents": [
+    {
+     "name": "Google Lead",
+     "job": "Plans the Google programme and submits proposals to Growth Command",
+     "inputs": "Budget plan, team findings",
+     "output": "Weekly Google plan and proposals"
+    },
+    {
+     "name": "Search and AI Max Builder",
+     "job": "Drafts game-plus-currency search campaigns per country, such as CP, UC and diamonds terms",
+     "inputs": "Keyword list, landing pages, price feed",
+     "output": "Search campaign draft"
+    },
+    {
+     "name": "Keyword and Negative Curator",
+     "job": "Mines search-term reports for new keywords and waste",
+     "inputs": "Search-term report, blended CAC by theme",
+     "output": "Keyword and negative list"
+    },
+    {
+     "name": "Feed and PMax Agent",
+     "job": "Maintains the SKU feed by game, denomination, country and currency and drafts Performance Max asset groups",
+     "inputs": "SKU and price feed, creative batch",
+     "output": "Clean feed and asset group draft"
+    },
+    {
+     "name": "App Campaign Manager",
+     "job": "Drafts install, in-app action and value campaigns for the Shop app",
+     "inputs": "MMP events, budget plan, creative batch",
+     "output": "App campaign draft"
+    },
+    {
+     "name": "Bid Readiness Checker",
+     "job": "Blocks moves to target-based bidding until conversion volume and value data qualify",
+     "inputs": "Conversion counts, value quality checks",
+     "output": "Ready or not-ready verdict"
+    },
+    {
+     "name": "Demand Gen and Shorts Planner",
+     "job": "Drafts video-led Demand Gen and YouTube Shorts activity from Creative Studio batches",
+     "inputs": "Video batch, audience signals",
+     "output": "Demand Gen and Shorts draft"
+    },
+    {
+     "name": "Asset Rotation Agent",
+     "job": "Replaces low-rated assets using asset reports and top-combination data",
+     "inputs": "Asset reports, creative library",
+     "output": "Asset swap proposal"
+    },
+    {
+     "name": "Web to App Agent",
+     "job": "Keeps deep links and app conversion credit working for web campaigns",
+     "inputs": "Deep link tests, app conversion data",
+     "output": "Link health report and fixes"
+    },
+    {
+     "name": "Experiment Runner",
+     "job": "Sets up API-created experiments registered with Command",
+     "inputs": "Test slot, hypothesis, campaign settings",
+     "output": "Experiment spec and result"
+    },
+    {
+     "name": "Pacing Monitor",
+     "job": "Watches budget-limited status and spend against plan",
+     "inputs": "Daily spend, budget plan",
+     "output": "Pacing alert and reallocation request"
+    },
+    {
+     "name": "Google Writer",
+     "job": "Holds the only Google write scope and applies approved changes through a capped API wrapper",
+     "inputs": "Approved proposals, change ledger",
+     "output": "Applied change with ledger entry"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Search waste sweep",
+     "trigger": "Weekly",
+     "inputs": "Search-term report, blended CAC by keyword theme",
+     "handoffs": "Curator proposes; Writer applies after approval",
+     "output": "Negative and keyword changes",
+     "gate": "UA manager approves the batch"
+    },
+    {
+     "name": "Campaign launch",
+     "trigger": "Beat brief or new title",
+     "inputs": "Budget plan, creative batch, feed, eligibility check",
+     "handoffs": "Draft to Command; Writer creates after approval; Measurement confirms events",
+     "output": "Live campaign with ledger entry",
+     "gate": "A human activates spend"
+    },
+    {
+     "name": "Bid strategy change",
+     "trigger": "Readiness check passes",
+     "inputs": "Conversion volume, value quality, comparable results",
+     "handoffs": "Proposal to Command; Writer applies; 7 to 14 day stabilisation lock",
+     "output": "Bid strategy change",
+     "gate": "UA manager approves"
+    }
+   ],
+   "kpis": "Cost per first purchase and payback by country; share of spend on non-converting search terms; impression share on brand-plus-game terms; share of campaigns budget-limited; asset replacement rate"
+  },
+  {
+   "n": 6,
+   "name": "Meta Ads",
+   "mission": "Feed Advantage+ and click-to-WhatsApp campaigns with clean signal",
+   "works_with": "Command, Measurement, Creative, Shop",
+   "agents": [
+    {
+     "name": "Meta Lead",
+     "job": "Plans the Meta programme and submits proposals to Growth Command",
+     "inputs": "Budget plan, team findings",
+     "output": "Weekly Meta plan and proposals"
+    },
+    {
+     "name": "Structure Architect",
+     "job": "Keeps one consolidated campaign per objective and country cluster with the automation levers set",
+     "inputs": "Account structure, conversion volumes",
+     "output": "Structure map and consolidation proposal"
+    },
+    {
+     "name": "Sales Campaign Manager",
+     "job": "Drafts web shop purchase and value-optimised campaigns",
+     "inputs": "Budget plan, pLTV signal, creative batch",
+     "output": "Sales campaign draft"
+    },
+    {
+     "name": "App Campaign Manager",
+     "job": "Drafts Shop app install and in-app purchase campaigns",
+     "inputs": "MMP events, creative batch",
+     "output": "App campaign draft"
+    },
+    {
+     "name": "WhatsApp Ads Manager",
+     "job": "Drafts click-to-WhatsApp campaigns and switches optimisation to purchases once events flow",
+     "inputs": "WhatsApp Shop events, creative batch",
+     "output": "Click-to-WhatsApp draft"
+    },
+    {
+     "name": "Catalog Agent",
+     "job": "Maintains the product catalog for dynamic top-up and voucher ads",
+     "inputs": "SKU and price feed, catalog diagnostics",
+     "output": "Clean catalog and product sets"
+    },
+    {
+     "name": "Creative Slotting Agent",
+     "job": "Places Creative Studio batches into ad sets and retires clustered duplicates",
+     "inputs": "Creative batch, ad-level results",
+     "output": "Slotting plan"
+    },
+    {
+     "name": "Signal Quality Monitor",
+     "job": "Checks event match, deduplication and value completeness with dataset diagnostics",
+     "inputs": "Events Manager diagnostics, server events",
+     "output": "Signal quality report"
+    },
+    {
+     "name": "Audience and Exclusion Agent",
+     "job": "Builds consent-cleared buyer exclusions and re-engagement audiences",
+     "inputs": "Lifecycle segments, consent check result",
+     "output": "Audience file for upload approval"
+    },
+    {
+     "name": "Learning Guard",
+     "job": "Enforces the daily edit lock and minimum conversion volume per ad set",
+     "inputs": "Change ledger, ad set conversion counts",
+     "output": "Edit allow or block verdict"
+    },
+    {
+     "name": "Fatigue Monitor",
+     "job": "Flags falling click-through, rising cost per purchase and rising frequency",
+     "inputs": "Ad-level trends",
+     "output": "Fatigue flag list"
+    },
+    {
+     "name": "Meta Writer",
+     "job": "Holds the only Meta write scope and creates entities paused for human activation",
+     "inputs": "Approved proposals, change ledger",
+     "output": "Paused entity with ledger entry"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Creative refresh",
+     "trigger": "Fatigue flag or weekly batch",
+     "inputs": "Creative batch, asset-level results",
+     "handoffs": "Slotting Agent drafts; Writer creates paused ads; Command logs",
+     "output": "Refreshed ad sets",
+     "gate": "A human activates in Ads Manager"
+    },
+    {
+     "name": "WhatsApp purchase switch",
+     "trigger": "Messaging purchase events reach a stable volume",
+     "inputs": "Event counts from Measurement and the WhatsApp Shop",
+     "handoffs": "Proposal to Command; Writer applies",
+     "output": "Optimisation goal change",
+     "gate": "UA manager approves"
+    },
+    {
+     "name": "Audience upload",
+     "trigger": "New consent-cleared segment",
+     "inputs": "Segment from Lifecycle, consent check result",
+     "handoffs": "Gatekeeper clears; Writer uploads",
+     "output": "Audience in the account",
+     "gate": "Privacy owner approves every upload"
+    }
+   ],
+   "kpis": "Cost per first purchase by country; purchases through messaging per click-to-WhatsApp spend; event match and deduplication rates; distinct concepts live per campaign; edits blocked by the learning lock"
+  },
+  {
+   "n": 7,
+   "name": "TikTok Ads",
+   "mission": "Run Smart+ and Spark Ads in the five eligible African markets",
+   "works_with": "Command, Creative, Creators",
+   "agents": [
+    {
+     "name": "TikTok Lead",
+     "job": "Plans the TikTok programme and submits proposals to Growth Command",
+     "inputs": "Budget plan, team findings",
+     "output": "Weekly TikTok plan and proposals"
+    },
+    {
+     "name": "Country Eligibility Guard",
+     "job": "Blocks any plan for a country not confirmed in the live account's location list",
+     "inputs": "Account location list, budget plan",
+     "output": "Eligible or blocked verdict per country"
+    },
+    {
+     "name": "Smart+ Builder",
+     "job": "Drafts Sales and App Promotion campaigns with the chosen level of automation",
+     "inputs": "Budget plan, creative batch, events check",
+     "output": "Smart+ campaign draft"
+    },
+    {
+     "name": "Asset Group Packager",
+     "job": "Organises creative into asset groups with the right URL and product set per group",
+     "inputs": "Creative batch, landing pages, SKU feed",
+     "output": "Asset group plan"
+    },
+    {
+     "name": "Spark Ads Coordinator",
+     "job": "Requests creator post authorisations and turns organic posts into ads",
+     "inputs": "Cleared creator posts, authorisation codes",
+     "output": "Spark ad ready to launch"
+    },
+    {
+     "name": "Symphony Operator",
+     "job": "Uses platform tools for resizing, dubbing and variants and routes outputs through the policy check",
+     "inputs": "Approved videos, language list",
+     "output": "Resized and dubbed variants"
+    },
+    {
+     "name": "Trend and Hook Scout",
+     "job": "Feeds native trends, sounds and openers to Creative Studio",
+     "inputs": "TikTok trend pages, top gaming posts",
+     "output": "Weekly trend and hook list"
+    },
+    {
+     "name": "Events Pipeline Monitor",
+     "job": "Checks web events and app events arrive against the right app ID",
+     "inputs": "Events API logs, MMP data",
+     "output": "Events completeness report"
+    },
+    {
+     "name": "Placement Controller",
+     "job": "Reviews placement mix, including Pangle, and brand-safety settings",
+     "inputs": "Placement reports, brand-safety settings",
+     "output": "Placement recommendation"
+    },
+    {
+     "name": "Creative Reporter",
+     "job": "Reports by material ID to the shared creative taxonomy",
+     "inputs": "Material-ID results, creative IDs",
+     "output": "Creative ranking for TikTok"
+    },
+    {
+     "name": "TikTok Writer",
+     "job": "Holds the only TikTok write scope and prepares change sets a human applies",
+     "inputs": "Approved proposals, change ledger",
+     "output": "Change set with ledger entry"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Spark pipeline",
+     "trigger": "A creator post passes a view or engagement bar",
+     "inputs": "Post list from the Creators team, authorisation status",
+     "handoffs": "Coordinator requests the code; Packager adds it to an asset group; Writer prepares the change",
+     "output": "Spark ad ready to launch",
+     "gate": "A human launches; creator consent on file"
+    },
+    {
+     "name": "Country launch",
+     "trigger": "The budget plan names a TikTok market",
+     "inputs": "Eligibility table, creative batch, events check",
+     "handoffs": "Guard clears; Builder drafts; Command approves",
+     "output": "Campaign change set",
+     "gate": "A human applies and activates"
+    },
+    {
+     "name": "Weekly creative read",
+     "trigger": "Monday",
+     "inputs": "Material-ID results",
+     "handoffs": "To the Creative Analyst and Fatigue Forecaster",
+     "output": "Creative ranking",
+     "gate": "None (read-only)"
+    }
+   ],
+   "kpis": "Cost per first purchase in the five eligible markets; share of spend on creator-made content; time from creator post to Spark ad; events pipeline completeness"
+  },
+  {
+   "n": 8,
+   "name": "Lifecycle and CRM",
+   "mission": "Move buyers from their first purchase to their third",
+   "works_with": "Shop, Measurement, Creative",
+   "agents": [
+    {
+     "name": "Lifecycle Lead",
+     "job": "Plans journeys against the beat calendar and the third-purchase target",
+     "inputs": "Beat calendar, repeat-rate tables",
+     "output": "Journey roadmap"
+    },
+    {
+     "name": "Segment Builder",
+     "job": "Maintains segments by purchase count, title, country, payment method and points balance",
+     "inputs": "Stitched customer table, order history",
+     "output": "Segment definitions and sizes"
+    },
+    {
+     "name": "Onboarding Agent",
+     "job": "Drives account creation and email verification at first purchase so points can be claimed",
+     "inputs": "First-purchase events, account status",
+     "output": "Onboarding journey draft"
+    },
+    {
+     "name": "Repeat Purchase Nudger",
+     "job": "Times second and third purchase prompts using points balance and usual top-up interval",
+     "inputs": "Purchase intervals, points balances",
+     "output": "Timed nudge plan"
+    },
+    {
+     "name": "Season Reminder Agent",
+     "job": "Schedules top-up reminders for season starts and battle-pass resets",
+     "inputs": "Beat calendar, title segments",
+     "output": "Reminder schedule"
+    },
+    {
+     "name": "Payment Recovery Agent",
+     "job": "Follows up abandoned bank-transfer and mobile-money payments with utility messages",
+     "inputs": "Pending and failed orders, consent status",
+     "output": "Recovery message queue"
+    },
+    {
+     "name": "Win-back Agent",
+     "job": "Re-engages lapsed buyers with points or bonus offers",
+     "inputs": "Lapsed segments, approved offers",
+     "output": "Win-back journey draft"
+    },
+    {
+     "name": "Cross-sell Agent",
+     "job": "Recommends adjacent products such as vouchers after a game top-up",
+     "inputs": "Purchase history, catalogue",
+     "output": "Cross-sell rules and messages"
+    },
+    {
+     "name": "Channel Mix Optimiser",
+     "job": "Chooses push, email, SMS or WhatsApp per user by cost, consent and response",
+     "inputs": "Channel costs, consent, response history",
+     "output": "Channel assignment per segment"
+    },
+    {
+     "name": "Message Writer",
+     "job": "Drafts templates and copy in the brand voice per language",
+     "inputs": "Journey plan, brand voice, offers",
+     "output": "Message templates for approval"
+    },
+    {
+     "name": "Send Governor",
+     "job": "Applies consent checks, frequency caps and quiet hours before any send",
+     "inputs": "Send queue, consent records, cap rules",
+     "output": "Cleared or blocked send list"
+    },
+    {
+     "name": "Lifecycle Analyst",
+     "job": "Measures every journey against a holdout group",
+     "inputs": "Send logs, orders, holdout groups",
+     "output": "Lift and cost report per journey"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "First-to-third purchase journey",
+     "trigger": "First purchase event",
+     "inputs": "Customer record, points balance, title, country",
+     "handoffs": "Onboarding, then Nudger; offers requested from Shop's Offer Designer",
+     "output": "Sequenced messages with a holdout",
+     "gate": "CRM manager approves each new journey and template"
+    },
+    {
+     "name": "Payment recovery",
+     "trigger": "A payment is pending or failed beyond a time limit",
+     "inputs": "Order state, method, consent",
+     "handoffs": "Recovery Agent queues a utility message; unresolved cases go to support",
+     "output": "Recovered orders",
+     "gate": "Template approved once; no per-send gate"
+    },
+    {
+     "name": "Season campaign",
+     "trigger": "Beat brief",
+     "inputs": "Segment sizes, channel costs, creative",
+     "handoffs": "Channel Mix selects; Send Governor clears; Analyst reads",
+     "output": "Campaign with cost and lift report",
+     "gate": "A human approves any paid WhatsApp marketing send"
+    }
+   ],
+   "kpis": "Share of first-time buyers reaching purchase two and three within a set window; recovered payment rate; reactivation rate; messaging cost per incremental purchase; opt-out rate; sends blocked for missing consent"
+  },
+  {
+   "n": 9,
+   "name": "Shop Conversion and Payments",
+   "mission": "Fix the checkout, offers and prices where spend is lost",
+   "works_with": "Lifecycle, paid teams, Intelligence",
+   "agents": [
+    {
+     "name": "Shop Lead",
+     "job": "Prioritises conversion work and coordinates with engineering and commercial owners",
+     "inputs": "Funnel data, incident log, beat calendar",
+     "output": "Ranked conversion backlog"
+    },
+    {
+     "name": "Funnel Analyst",
+     "job": "Measures drop-off from landing to first purchase by country, device and method",
+     "inputs": "Web and app analytics, order data",
+     "output": "Funnel report with biggest leaks"
+    },
+    {
+     "name": "Payment Method Sequencer",
+     "job": "Orders checkout methods per country by success rate and cost",
+     "inputs": "Method success rates, fees",
+     "output": "Method order proposal per country"
+    },
+    {
+     "name": "Payment Success Monitor",
+     "job": "Tracks success and timeout rates per method and provider in near real time",
+     "inputs": "Payment provider feeds",
+     "output": "Success-rate alert and trend"
+    },
+    {
+     "name": "Delivery and ID Monitor",
+     "job": "Watches player-ID validation errors and top-up delivery times",
+     "inputs": "Order logs, publisher delivery status",
+     "output": "Delivery and ID error report"
+    },
+    {
+     "name": "Offer Designer",
+     "job": "Drafts points multipliers, first-purchase bonuses, third-purchase rewards and season bundles within margin floors",
+     "inputs": "Margin by SKU, past offer results, benchmarks",
+     "output": "Offer sheet with margin impact"
+    },
+    {
+     "name": "Price Refresh Agent",
+     "job": "Proposes local-currency price updates when FX or supplier cost moves",
+     "inputs": "FX alerts, supplier costs, price list",
+     "output": "Price change proposal"
+    },
+    {
+     "name": "Merchandiser",
+     "job": "Arranges storefront categories, banners and deals for each beat and country",
+     "inputs": "Beat brief, demand rank, offers",
+     "output": "Storefront layout plan"
+    },
+    {
+     "name": "WhatsApp Shop Operator",
+     "job": "Maintains the chat catalogue and flow and reports chat-to-purchase conversion",
+     "inputs": "WhatsApp catalogue, chat logs",
+     "output": "Flow fixes and conversion report"
+    },
+    {
+     "name": "Loyalty Economist",
+     "job": "Models points cost, liability and effect on repeat rate",
+     "inputs": "Points ledger, repeat-rate cohorts",
+     "output": "Points economics model"
+    },
+    {
+     "name": "Fraud and Abuse Flagger",
+     "job": "Flags suspicious order, promo and affiliate patterns to the risk team",
+     "inputs": "Order, promo and affiliate logs",
+     "output": "Case list for the risk team"
+    },
+    {
+     "name": "Support Triage Agent",
+     "job": "Drafts answers to routine order questions and routes payment disputes to human agents",
+     "inputs": "Support tickets, order lookup, help articles",
+     "output": "Draft replies and escalations"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Payment incident",
+     "trigger": "Success rate for a method drops below its normal band",
+     "inputs": "Method-level success data",
+     "handoffs": "Sequencer proposes demoting the method; paid teams and Lifecycle are told through Command",
+     "output": "Incident note and checkout change proposal",
+     "gate": "Payments owner approves checkout changes"
+    },
+    {
+     "name": "Offer design for a beat",
+     "trigger": "Beat brief",
+     "inputs": "Margin by SKU, past offer results, competitor benchmark",
+     "handoffs": "Offer goes to Lifecycle, Creative and the Merchandiser",
+     "output": "Offer sheet with margin impact",
+     "gate": "Commercial lead approves every offer and price"
+    },
+    {
+     "name": "Funnel test",
+     "trigger": "Experiment Registrar slot",
+     "inputs": "Funnel data, hypothesis",
+     "handoffs": "Variant spec to engineering; result to the Registrar",
+     "output": "Test result",
+     "gate": "Product owner approves release"
+    }
+   ],
+   "kpis": "Landing-to-first-purchase conversion; payment success rate by method and country; delivery time; contribution margin after fees and points; WhatsApp chat-to-purchase rate; share of support contacts resolved without a human, read beside satisfaction on escalated cases"
+  },
+  {
+   "n": 10,
+   "name": "Store and Search Discovery",
+   "mission": "Win app store listings, game-by-country pages and AI answers",
+   "works_with": "Creative, Creators, Shop",
+   "agents": [
+    {
+     "name": "Discovery Lead",
+     "job": "Plans listing, content and visibility work against the beat calendar",
+     "inputs": "Beat calendar, organic results",
+     "output": "Discovery roadmap"
+    },
+    {
+     "name": "Store Listing Builder",
+     "job": "Drafts country custom listings showing local payment methods, prices and esports imagery",
+     "inputs": "Play Console data, creative library",
+     "output": "Custom store listing drafts"
+    },
+    {
+     "name": "Listing Experiment Runner",
+     "job": "Runs store listing tests registered with Command",
+     "inputs": "Test slot, listing variants",
+     "output": "Listing test result"
+    },
+    {
+     "name": "Review Responder",
+     "job": "Drafts replies to app reviews and escalates payment or delivery complaints",
+     "inputs": "New reviews, order lookup, response policy",
+     "output": "Reply drafts and escalations"
+    },
+    {
+     "name": "Promotional Content Scheduler",
+     "job": "Prepares in-store events and offers timed to beats",
+     "inputs": "Beat calendar, offer sheet",
+     "output": "Promotional content submissions"
+    },
+    {
+     "name": "Programmatic Page Builder",
+     "job": "Generates game-by-country-by-payment-method pages with live prices, steps and FAQs",
+     "inputs": "SKU and price feed, payment steps",
+     "output": "Page drafts from an approved template"
+    },
+    {
+     "name": "Keyword Opportunity Agent",
+     "job": "Finds query gaps from search-term data, Search Console and competitor pages",
+     "inputs": "Search Console, Semrush or Ahrefs, search terms",
+     "output": "Keyword gap list by country"
+    },
+    {
+     "name": "Guide Writer",
+     "job": "Drafts game guides, season reviews and esports recaps on a steady cadence",
+     "inputs": "Keyword gaps, event content, insights",
+     "output": "Guide and recap drafts"
+    },
+    {
+     "name": "Site Hygiene Agent",
+     "job": "Finds broken links, placeholder copy, stale events and inconsistent claims across Carry1st sites",
+     "inputs": "Site crawl, claims list",
+     "output": "Defect list with fixes"
+    },
+    {
+     "name": "AI Visibility Tracker",
+     "job": "Runs a prompt set per engine, country and game and logs where Carry1st is cited",
+     "inputs": "Prompt set, answer engine responses",
+     "output": "Citation scorecard per engine"
+    },
+    {
+     "name": "Third-Party Proof Agent",
+     "job": "Builds review-site profiles and tracks press and creator mentions that answer engines cite",
+     "inputs": "Review sites, press and creator mentions",
+     "output": "Proof gap list and outreach drafts"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Review response",
+     "trigger": "New review",
+     "inputs": "Review text, order lookup, response policy",
+     "handoffs": "Routine replies drafted; disputes to Support Triage; themes to Intelligence",
+     "output": "Reply ready to publish",
+     "gate": "A human approves any reply on a payment dispute"
+    },
+    {
+     "name": "Page matrix build",
+     "trigger": "New title, country or method",
+     "inputs": "SKU and price feed, payment steps, partner status",
+     "handoffs": "Page draft to the editor; internal links to guides; Google team told of new landing pages",
+     "output": "Page ready to publish",
+     "gate": "Editor approves templates and spot-checks pages"
+    },
+    {
+     "name": "AI visibility sweep",
+     "trigger": "Monthly",
+     "inputs": "Prompt set, engine responses",
+     "handoffs": "Gaps to the Guide Writer and Third-Party Proof Agent",
+     "output": "Citation scorecard per engine",
+     "gate": "None (read-only)"
+    }
+   ],
+   "kpis": "Store listing conversion by country; app rating and reply rate; non-brand organic sessions and first purchases from organic; ranking coverage of game-plus-currency queries per country; AI citation share per engine; open site defects"
+  },
+  {
+   "n": 11,
+   "name": "Creators, Community and Esports",
+   "mission": "Turn creators, communities and the Africa Cup into Shop demand",
+   "works_with": "TikTok, Creative, Discovery, B2B",
+   "agents": [
+    {
+     "name": "Community Lead",
+     "job": "Plans creator, community and event activity against the beat calendar",
+     "inputs": "Beat calendar, community results",
+     "output": "Community and creator plan"
+    },
+    {
+     "name": "Creator Scout",
+     "job": "Finds and scores micro and mid-size gaming creators per country and title",
+     "inputs": "TikTok, YouTube and Instagram profiles",
+     "output": "Scored creator shortlist"
+    },
+    {
+     "name": "Creator Brief Writer",
+     "job": "Drafts monthly content briefs tied to seasons, offers and tournaments",
+     "inputs": "Beat brief, offers, creative results",
+     "output": "Creator briefs"
+    },
+    {
+     "name": "Affiliate Ops Agent",
+     "job": "Onboards affiliates, issues links, answers dashboard questions and prepares payout files",
+     "inputs": "Affiliate applications, link and sales data",
+     "output": "Onboarding pack and payout file for approval"
+    },
+    {
+     "name": "Affiliate Integrity Checker",
+     "job": "Flags self-referral, coupon leakage and abnormal conversion patterns",
+     "inputs": "Affiliate orders, coupon use",
+     "output": "Integrity case list"
+    },
+    {
+     "name": "Spark Rights Broker",
+     "job": "Collects usage rights and ad authorisations and passes cleared posts to TikTok and Creative",
+     "inputs": "Creator posts, rights requests",
+     "output": "Cleared post list with rights on file"
+    },
+    {
+     "name": "Tournament Ops Agent",
+     "job": "Handles registration queries, schedules, bracket communications and results posts",
+     "inputs": "Registrations, brackets, match results",
+     "output": "Schedules, bracket updates and results drafts"
+    },
+    {
+     "name": "Content Repurposer",
+     "job": "Turns matches, recaps and creator posts into clips, articles and CRM content",
+     "inputs": "Match footage, results, creator posts",
+     "output": "Content pack per stage"
+    },
+    {
+     "name": "Community Moderator",
+     "job": "Drafts answers to routine questions in Discord and groups and escalates abuse or payment issues",
+     "inputs": "Discord and group messages, help articles",
+     "output": "Reply drafts and escalations"
+    },
+    {
+     "name": "Campus Programme Coordinator",
+     "job": "Supports campus leaders with kits, calendars and reporting",
+     "inputs": "Campus leader list, beat calendar",
+     "output": "Campus kits and activity report"
+    },
+    {
+     "name": "Sponsor Pipeline Agent",
+     "job": "Researches and drafts proposals for brand sponsors of events and content",
+     "inputs": "Event reach data, sponsor research",
+     "output": "Sponsor proposals"
+    },
+    {
+     "name": "Community Analyst",
+     "job": "Attributes purchases to creators and events and maps registrations by country",
+     "inputs": "Affiliate sales, registrations with consent",
+     "output": "Creator and event attribution report"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Creator cycle",
+     "trigger": "Monthly, and each beat",
+     "inputs": "Scout list, briefs, offers, affiliate results",
+     "handoffs": "Briefs out; cleared posts to TikTok Spark and Creative; results to Measurement",
+     "output": "Creator content and affiliate sales",
+     "gate": "A human signs creator agreements and approves payouts"
+    },
+    {
+     "name": "Event content pipeline",
+     "trigger": "Each tournament stage",
+     "inputs": "Match footage, results, player stories",
+     "handoffs": "Clips to Creative; recaps to Discovery; highlights to Lifecycle",
+     "output": "Content pack per stage",
+     "gate": "Community manager approves public posts"
+    },
+    {
+     "name": "Registration to market map",
+     "trigger": "After each registration window",
+     "inputs": "Registration data by country, with consent",
+     "handoffs": "Country demand to Intelligence and B2B",
+     "output": "Demand map for payment expansion",
+     "gate": "Privacy owner approves data use"
+    }
+   ],
+   "kpis": "Affiliate-attributed first purchases and repeat rate; active affiliates; cost per creator-driven purchase; content pieces reused by other teams; community response time; sponsor revenue against event cost"
+  },
+  {
+   "n": 12,
+   "name": "B2B Partner Growth",
+   "mission": "Grow the Pay1st, Flow1st and Publishing partner pipeline",
+   "works_with": "Intelligence, Creators, Command",
+   "agents": [
+    {
+     "name": "Partner Lead",
+     "job": "Prioritises target accounts across Pay1st, Flow1st and Publishing",
+     "inputs": "Pipeline, demand rank, partner list",
+     "output": "Ranked target account list"
+    },
+    {
+     "name": "Account Researcher",
+     "job": "Profiles publishers, subscription apps, telcos and wallets against fit criteria",
+     "inputs": "Company sites, store data, press",
+     "output": "Account profiles"
+    },
+    {
+     "name": "Payment Gap Modeller",
+     "job": "Estimates per title and country the payers a partner cannot reach with card-based billing",
+     "inputs": "Card penetration data, title audiences",
+     "output": "Payment gap estimate per account"
+    },
+    {
+     "name": "Flow1st Prospector",
+     "job": "Builds and qualifies reseller targets by region and volume tier",
+     "inputs": "Telco, fintech and marketplace lists",
+     "output": "Qualified reseller list"
+    },
+    {
+     "name": "Outreach Drafter",
+     "job": "Drafts personalised emails and meeting notes for sales staff to send",
+     "inputs": "Account profiles, proof points",
+     "output": "Outreach drafts"
+    },
+    {
+     "name": "Case Study Builder",
+     "job": "Turns anonymised engine results into proof points and decks",
+     "inputs": "Blended results, payment success data",
+     "output": "Case studies and deck slides"
+    },
+    {
+     "name": "Event Pipeline Agent",
+     "job": "Prepares meeting lists and follow-ups for industry conferences",
+     "inputs": "Conference attendee lists, target accounts",
+     "output": "Meeting list and follow-up drafts"
+    },
+    {
+     "name": "Inbound Lead Router",
+     "job": "Scores and routes form submissions from the Pay1st, Shop and Flow1st pages",
+     "inputs": "Form submissions, fit criteria",
+     "output": "Scored lead with owner"
+    },
+    {
+     "name": "Integration Concierge",
+     "job": "Answers documentation questions and tracks partners from Shop listing to gateway upgrade",
+     "inputs": "Integration docs, partner status",
+     "output": "Answer drafts and onboarding tracker"
+    },
+    {
+     "name": "Co-marketing Planner",
+     "job": "Packages esports, creator and paid support into partner launch proposals",
+     "inputs": "Beat calendar, creator and paid plans",
+     "output": "Partner launch proposal"
+    },
+    {
+     "name": "Partner Health Monitor",
+     "job": "Tracks partner volumes and flags expansion or churn risk",
+     "inputs": "Partner volume data",
+     "output": "Partner health report"
+    }
+   ],
+   "workflows": [
+    {
+     "name": "Target account build",
+     "trigger": "Quarterly, or a new-title alert from Intelligence",
+     "inputs": "Demand rank, partner list, payment-gap model",
+     "handoffs": "Researcher and Modeller to the Outreach Drafter",
+     "output": "Account brief and draft outreach",
+     "gate": "Sales lead sends all outreach"
+    },
+    {
+     "name": "Partner launch",
+     "trigger": "Signed partner",
+     "inputs": "SKU list, countries, launch date",
+     "handoffs": "Co-marketing plan to Command, which adds a calendar beat",
+     "output": "Launch plan across teams",
+     "gate": "Partnerships lead and Head of Growth approve"
+    },
+    {
+     "name": "Proof refresh",
+     "trigger": "Monthly",
+     "inputs": "Blended results, payment success by method",
+     "handoffs": "Case Study Builder to Discovery for site updates",
+     "output": "Updated proof points",
+     "gate": "Legal and partner approval before publishing"
+    }
+   ],
+   "kpis": "Qualified pipeline by product; lead response time; pilot-to-gateway conversion; partner volume growth; proof points published"
+  }
+ ]
+}

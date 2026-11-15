@@ -25,6 +25,7 @@
 | [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
 | [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
 | [AvantStay Agents](avantstay-agents/) | A performance marketing team for a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
+| [Carry1st Agents](carry1st-agents/) | One growth engine for an African games commerce company: growth command, measurement, intelligence, creative, Google, Meta and TikTok ads, lifecycle, shop conversion, discovery, creators and B2B. Independent project, not affiliated with Carry1st | 139 agents in 12 teams + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -161,6 +162,13 @@ Goal → orchestrator + JEV → target → enrich (Clay) → signals (Common Roo
 
 Data in → Signal and Measurement first → guest, member, homeowner, buyer, hotel and corporate teams → creative and reporting → one approval queue. Each team has its own workflow GIF.
 [Read more and install →](avantstay-agents/)
+
+## Carry1st Agents
+
+![Carry1st agents workflow](carry1st-agents/carry1st-agents-workflow.gif)
+
+Data in → Growth Command and Measurement first → intelligence and creative → Google, Meta and TikTok with one writer each → lifecycle, shop, discovery, creators and B2B → one approval queue. Each of the 12 teams has its own workflow GIF.
+[Read more and install →](carry1st-agents/)
 
 ## How they fit together
 
