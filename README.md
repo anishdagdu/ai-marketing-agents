@@ -12,6 +12,7 @@ Five sets of Claude Code agents for marketing teams, in one repo: **paid ads**, 
 | [Content Agents](content-agents/) | Social media content calendar built from your own and your competitors' sentiment, scheduled through Postiz | 5 agents |
 | [Klaviyo 1PD Agents](klaviyo-1pd-agents/) | High-converting email and SMS from first-party data: data audit, segments, revenue flows, campaigns and a weekly performance loop | 5 agents + 1 workflow |
 | [Shopify Agents](shopify-agents/) | An AI team for the whole Shopify store: setup, debugging, catalog, inventory, conversion, organic and paid traffic, email, tracking, profit, support and retention | 15 agents + 1 workflow |
+| [Carry1st Agents](carry1st-agents/) | One growth engine for an African games commerce company: growth command, measurement, intelligence, creative, Google, Meta and TikTok ads, lifecycle, shop conversion, discovery, creators and B2B. Independent project, not affiliated with Carry1st | 139 agents in 12 teams + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -54,6 +55,13 @@ First-party data audit → segments (you approve) → revenue flows (drafts) →
 
 Orchestrator finds the biggest revenue leak → fix the store → convert → bring traffic → bring them back → measure and protect profit, every week.
 [Read more and install →](shopify-agents/)
+
+## Carry1st Agents
+
+![Carry1st agents workflow](carry1st-agents/carry1st-agents-workflow.gif)
+
+Data in → Growth Command and Measurement first → intelligence and creative → Google, Meta and TikTok with one writer each → lifecycle, shop, discovery, creators and B2B → one approval queue. Each of the 12 teams has its own workflow GIF.
+[Read more and install →](carry1st-agents/)
 
 ## How they fit together
 
