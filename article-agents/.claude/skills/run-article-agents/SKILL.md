@@ -24,7 +24,7 @@ Each failure prints a `FAIL <file>: <reason>` line and the script exits 1.
 ## Install for real
 
 ```bash
-./install.sh
+bash install.sh
 ```
 
 This copies into `~/.claude/agents/` and `~/.claude/skills/`. Start a new Claude Code session, then say "run the article workflow on <topic>".
