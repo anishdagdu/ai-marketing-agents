@@ -35,7 +35,7 @@ The [`article-creation-workflow`](workflow/article-creation-workflow/SKILL.md) s
 ## Install
 
 ```bash
-./install.sh
+bash install.sh
 ```
 
 Then, in a new Claude Code session, say **"run the article workflow on <topic>"**. Or ask for one step, like "write a brief for <keyword>" or "fact-check this draft".
