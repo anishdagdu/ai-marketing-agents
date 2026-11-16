@@ -159,6 +159,20 @@ App Store search → orchestrator + JEV → measure → discover → win the sea
 Goal → orchestrator + JEV → target → enrich (Clay) → signals (Common Room) → score → engage, with replies re-scoring every week.
 [Read more and install →](prospecting-signals-agents/)
 
+## AvantStay Agents
+
+![AvantStay agents workflow](avantstay-agents/avantstay-agents-workflow.gif)
+
+Data in → Signal and Measurement first → guest, member, homeowner, buyer, hotel and corporate teams → creative and reporting → one approval queue. Each team has its own workflow GIF.
+[Read more and install →](avantstay-agents/)
+
+## Carry1st Agents
+
+![Carry1st agents workflow](carry1st-agents/carry1st-agents-workflow.gif)
+
+Data in → Growth Command and Measurement first → intelligence and creative → Google, Meta and TikTok with one writer each → lifecycle, shop, discovery, creators and B2B → one approval queue. Each of the 12 teams has its own workflow GIF.
+[Read more and install →](carry1st-agents/)
+
 ## Article Agents
 
 ![Article agents workflow](article-agents/article-agents-workflow.gif)
