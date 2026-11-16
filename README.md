@@ -1,8 +1,13 @@
 # AI Marketing Agents
 
-18 sets of AI agents for marketing teams, in one repo: **paid ads**, **search visibility**, **tracking health**, **social content**, **email/SMS from first-party data**, **AI UGC video ads**, **website speed and site health audits**, **CRM with responsible-gaming guardrails**, **whole-store Shopify operations**, **HubSpot CRM, sales and marketing with Shopify, Stripe and Slack**, **Finnish-language ads and content calendars**, **Amazon Ads setup and optimization**, **mobile app measurement with AppsFlyer, Adjust and other MMPs**, **programmatic buying on CM360, DV360 and The Trade Desk with a JEV model router** **B2B pipeline from LinkedIn Ads**, **behaviour analytics with Microsoft Clarity and Hotjar** and **prospecting and buying signals with Clay, Common Room and Apollo**.
+19 sets of Claude Code agents for marketing teams, in one repo. Each set covers one channel or job, comes with an install script and a workflow GIF, and can run on its own or hand work to the others.
 
-> **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes or send emails. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
+- **Paid media:** Meta, Google and TikTok (AI Paid Traffic), LinkedIn Ads, Amazon Ads, Apple Ads, and programmatic buying on CM360, DV360 and The Trade Desk
+- **Search and content:** SEO, AEO and GEO (AI Search Everywhere), researched SEO articles, social content calendars, AI UGC video ads, and Finnish-language ads and content
+- **Tracking and analytics:** GTM tag health, website speed and site audits, behaviour analytics with Microsoft Clarity and Hotjar, and mobile app measurement with AppsFlyer, Adjust and other MMPs
+- **CRM, email and commerce:** Klaviyo email/SMS from first-party data, CRM with responsible-gaming guardrails, HubSpot, whole-store Shopify, and prospecting and buying signals with Clay, Common Room and Apollo
+
+> **AI recommends. You approve.** None of these agents launch campaigns, change budgets, edit pages, publish GTM changes, send emails or publish articles. The content agents schedule posts only after you approve, the Klaviyo agents save flows and campaigns as drafts, the article agents save posts to your CMS as drafts, and the UGC agents never click Generate on Higgsfield without your OK. They write plans and reports; a human signs off on every change.
 
 | Project | What it does | Agents |
 |---|---|---|
@@ -24,8 +29,6 @@
 | [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
 | [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
 | [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
-| [AvantStay Agents](avantstay-agents/) | A performance marketing team for a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
-| [Carry1st Agents](carry1st-agents/) | One growth engine for an African games commerce company: growth command, measurement, intelligence, creative, Google, Meta and TikTok ads, lifecycle, shop conversion, discovery, creators and B2B. Independent project, not affiliated with Carry1st | 139 agents in 12 teams + 1 workflow |
 | [Article Agents](article-agents/) | Researched, fact-checked, SEO-ready articles: topic and brief, cited research, outline you approve, draft in your voice, an editor gate that sends weak drafts back, then meta, schema and a CMS draft in HubSpot or Wix | 6 agents + 1 workflow |
 
 ## AI Paid Traffic
@@ -126,9 +129,6 @@ Orchestrator finds the biggest measurement gap → measure → signals → prote
 Orchestrator → JEV model router (standard · medium · deep) → measure first → plan → buy on DV360 and TTD → optimise → prove with CM360 dedup and lift tests, every week. New items are built paused; you launch and change budgets.
 [Read more and install →](programmatic-ads-agents/)
 
-## Orchestrator + JEV in every set
-Every set now has a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (standard), **Sonnet** (medium) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary.
-
 ## LinkedIn Ads Agents
 
 ![LinkedIn Ads agents workflow](linkedin-ads-agents/linkedin-ads-workflow.gif)
@@ -157,26 +157,16 @@ App Store search → orchestrator + JEV → measure → discover → win the sea
 Goal → orchestrator + JEV → target → enrich (Clay) → signals (Common Room) → score → engage, with replies re-scoring every week.
 [Read more and install →](prospecting-signals-agents/)
 
-## AvantStay Agents
-
-![AvantStay agents workflow](avantstay-agents/avantstay-agents-workflow.gif)
-
-Data in → Signal and Measurement first → guest, member, homeowner, buyer, hotel and corporate teams → creative and reporting → one approval queue. Each team has its own workflow GIF.
-[Read more and install →](avantstay-agents/)
-
-## Carry1st Agents
-
-![Carry1st agents workflow](carry1st-agents/carry1st-agents-workflow.gif)
-
-Data in → Growth Command and Measurement first → intelligence and creative → Google, Meta and TikTok with one writer each → lifecycle, shop, discovery, creators and B2B → one approval queue. Each of the 12 teams has its own workflow GIF.
-[Read more and install →](carry1st-agents/)
-
 ## Article Agents
 
 ![Article agents workflow](article-agents/article-agents-workflow.gif)
 
 Topic → brief → cited research → outline you approve → draft → editor gate (under 80 goes back to the writer) → SEO and a CMS draft you publish.
 [Read more and install →](article-agents/)
+
+## Orchestrator + JEV
+
+Most sets have a lead **orchestrator** and a **JEV model router** (`<prefix>-jev-router`). The orchestrator finds the biggest problem and briefs the specialists; JEV scores each task 0-2 on money at stake, ambiguity, reasoning depth, blast radius and novelty, then runs it on **Haiku** (standard), **Sonnet** (medium) or **Opus** (deep). It starts low, escalates only on evidence, reuses outputs from the last 7 days, caps deep work at 3 tasks per run, and logs every decision to `outputs/jev-routing-log.csv`. In Website Audit Agents, `run.py` is the orchestrator and `agents/jev_router.py` picks the model for the Claude summary. Smaller, linear sets such as Article Agents are run step by step by their workflow skill instead.
 
 ## How they fit together
 
