@@ -26,6 +26,7 @@
 | [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
 | [AvantStay Agents](avantstay-agents/) | A performance marketing team for a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
 | [Carry1st Agents](carry1st-agents/) | One growth engine for an African games commerce company: growth command, measurement, intelligence, creative, Google, Meta and TikTok ads, lifecycle, shop conversion, discovery, creators and B2B. Independent project, not affiliated with Carry1st | 139 agents in 12 teams + 1 workflow |
+| [Article Agents](article-agents/) | Researched, fact-checked, SEO-ready articles: topic and brief, cited research, outline you approve, draft in your voice, an editor gate that sends weak drafts back, then meta, schema and a CMS draft in HubSpot or Wix | 6 agents + 1 workflow |
 
 ## AI Paid Traffic
 
@@ -170,9 +171,18 @@ Data in → Signal and Measurement first → guest, member, homeowner, buyer, ho
 Data in → Growth Command and Measurement first → intelligence and creative → Google, Meta and TikTok with one writer each → lifecycle, shop, discovery, creators and B2B → one approval queue. Each of the 12 teams has its own workflow GIF.
 [Read more and install →](carry1st-agents/)
 
+## Article Agents
+
+![Article agents workflow](article-agents/article-agents-workflow.gif)
+
+Topic → brief → cited research → outline you approve → draft → editor gate (under 80 goes back to the writer) → SEO and a CMS draft you publish.
+[Read more and install →](article-agents/)
+
 ## How they fit together
 
 - **Apple Ads:** the Apple Ads agents check installs against the MMP Agents, hand cross-channel budgets to AI Paid Traffic and App Store page behaviour to the Behaviour Analytics Agents.
+
+- **Articles:** the article agents take keyword targets from AI Search Everywhere, save drafts through the HubSpot agents' blog tools, and hand finished articles to the Content Agents for social posts.
 
 - **Prospecting and signals:** the Clay, Common Room and Apollo agents hand clean, consented contacts to the HubSpot agents, in-market accounts to LinkedIn Ads for retargeting, and pricing-page visitors to the Behaviour Analytics Agents. JEV spends Clay credits only on high-fit accounts.
 
@@ -215,6 +225,7 @@ Then follow the install steps in each project's README.
 - Amazon Ads Agents need Amazon Ads report exports (bulk sheet, Search Term, Targeting, Placement); Windsor.ai is optional
 - MMP Agents need AppsFlyer or Adjust exports or API access (or the Windsor.ai connector); the AppsFlyer MCP server is optional
 - Prospecting & Signals Agents need Clay, Common Room or Apollo (exports, API/MCP access or a signed-in dashboard); HubSpot or Salesforce is optional
+- Article Agents work with built-in web search; Ahrefs or Semrush (keyword data) and HubSpot or Wix (CMS drafts) are optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
