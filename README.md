@@ -1,6 +1,6 @@
 # AI Marketing Agents
 
-19 sets of Claude Code agents for marketing teams, in one repo. Each set covers one channel or job, comes with an install script and a workflow GIF, and can run on its own or hand work to the others.
+21 sets of Claude Code agents for marketing teams, in one repo. Each set covers one channel or job, comes with an install script and a workflow GIF, and can run on its own or hand work to the others.
 
 - **Paid media:** Meta, Google and TikTok (AI Paid Traffic), LinkedIn Ads, Amazon Ads, Apple Ads, and programmatic buying on CM360, DV360 and The Trade Desk
 - **Search and content:** SEO, AEO and GEO (AI Search Everywhere), researched SEO articles, social content calendars, AI UGC video ads, and Finnish-language ads and content
