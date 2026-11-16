@@ -1,5 +1,5 @@
 {
- "date": "2026-11-09",
+ "date": "2026-11-16",
  "mode": "weekly",
  "site": "https://example.com",
  "agents": [
@@ -15,7 +15,7 @@
    ],
    "actions": [],
    "owner": "Engineering",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   },
   {
    "id": 2,
@@ -29,7 +29,7 @@
    ],
    "actions": [],
    "owner": "Engineering + Growth",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   },
   {
    "id": 3,
@@ -43,7 +43,7 @@
    ],
    "actions": [],
    "owner": "Engineering",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   },
   {
    "id": 4,
@@ -57,7 +57,7 @@
    ],
    "actions": [],
    "owner": "Marketing Ops",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   },
   {
    "id": 5,
@@ -71,7 +71,7 @@
    ],
    "actions": [],
    "owner": "Design + Engineering",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   },
   {
    "id": 10,
@@ -85,7 +85,7 @@
    ],
    "actions": [],
    "owner": "Marketing Ops",
-   "date": "2026-11-09"
+   "date": "2026-11-16"
   }
  ]
 }
