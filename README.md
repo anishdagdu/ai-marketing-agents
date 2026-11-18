@@ -1,8 +1,8 @@
 # AI Marketing Agents
 
-21 sets of Claude Code agents for marketing teams, in one repo. Each set covers one channel or job, comes with an install script and a workflow GIF, and can run on its own or hand work to the others.
+22 sets of Claude Code agents for marketing teams, in one repo. Each set covers one channel or job, comes with an install script and a workflow GIF, and can run on its own or hand work to the others.
 
-- **Paid media:** Meta, Google and TikTok (AI Paid Traffic), LinkedIn Ads, Amazon Ads, Apple Ads, and programmatic buying on CM360, DV360 and The Trade Desk
+- **Paid media:** Meta, Google and TikTok (AI Paid Traffic), LinkedIn Ads, Amazon Ads, Apple Ads, Microsoft Ads (Bing, Copilot and the Audience Network), and programmatic buying on CM360, DV360 and The Trade Desk
 - **Search and content:** SEO, AEO and GEO (AI Search Everywhere), researched SEO articles, social content calendars, AI UGC video ads, and Finnish-language ads and content
 - **Tracking and analytics:** GTM tag health, website speed and site audits, behaviour analytics with Microsoft Clarity and Hotjar, and mobile app measurement with AppsFlyer, Adjust and other MMPs
 - **CRM, email and commerce:** Klaviyo email/SMS from first-party data, CRM with responsible-gaming guardrails, HubSpot, whole-store Shopify, and prospecting and buying signals with Clay, Common Room and Apollo
@@ -28,6 +28,7 @@
 | [LinkedIn Ads Agents](linkedin-ads-agents/) | An AI team for B2B pipeline on LinkedIn: account setup, Insight Tag and CAPI, ICP and ABM lists, audiences, copy, Thought Leader Ads, Lead Gen Forms, campaign builds, bidding, creative fatigue and CRM pipeline reporting | 15 agents + 1 workflow |
 | [Behaviour Analytics Agents](behavior-analytics-agents/) | An AI team for Microsoft Clarity and Hotjar: install and privacy, heatmaps, session replays, rage and dead clicks, JS errors, surveys, feedback, interviews, funnels and a ranked CRO fix list, with the JEV model router | 12 agents + 1 workflow |
 | [Apple Ads Agents](apple-ads-agents/) | An AI team for ads on the App Store, Apple News and Apple Maps: attribution, account structure, keywords, Search Match mining, brand defence in both ad slots, competitor keywords, custom product pages, placements, bids, brand lift tests and new countries, with the JEV model router | 14 agents + 1 workflow |
+| [Microsoft Ads Agents](microsoft-ads-agents/) | An AI team for Bing, Copilot and the Microsoft Audience Network: Google Import and UET, cheaper search clicks with controls Google removed, LinkedIn profile targeting for B2B, ads in Copilot, native and remarketing on MSN, Outlook and Edge, Shopping and Performance Max, and Microsoft vs Google lift reads, with the JEV model router | 8 agents + JEV + 1 workflow |
 | [Prospecting & Signals Agents](prospecting-signals-agents/) | An AI team for Clay, Common Room and Apollo: ICP and lookalikes, target lists, buying committees, email waterfall and verification, enrichment, AI account research, intent, community signals, trigger alerts, fit × intent scoring and draft outreach, with the JEV router for models and data credits | 14 agents + 1 workflow |
 | [AvantStay Agents](avantstay-agents/) | A performance marketing team for a vacation rental company: measurement, guest demand, members, homeowners, buyers, hotels, corporate and creative ops. Independent project, not affiliated with AvantStay | 76 agents in 8 teams + 1 workflow |
 | [Carry1st Agents](carry1st-agents/) | One growth engine for an African games commerce company: growth command, measurement, intelligence, creative, Google, Meta and TikTok ads, lifecycle, shop conversion, discovery, creators and B2B. Independent project, not affiliated with Carry1st | 139 agents in 12 teams + 1 workflow |
@@ -152,6 +153,13 @@ Live page → orchestrator → capture → observe what (Clarity) → ask why (H
 App Store search → orchestrator + JEV → measure → discover → win the search (App Store, Apple News, Apple Maps) → optimise + prove, every week.
 [Read more and install →](apple-ads-agents/)
 
+## Microsoft Ads Agents
+
+![Microsoft Ads agents workflow](microsoft-ads-agents/microsoft-ads-workflow.gif)
+
+Bing search → orchestrator + JEV → import + measure → win search (LinkedIn targeting for B2B) → expand reach (Copilot, Audience Network, Shopping) → optimise + prove, every week.
+[Read more and install →](microsoft-ads-agents/)
+
 ## Prospecting & Signals Agents
 
 ![Prospecting and signals agents workflow](prospecting-signals-agents/prospecting-signals-workflow.gif)
@@ -187,6 +195,8 @@ Most sets have a lead **orchestrator** and a **JEV model router** (`<prefix>-jev
 ## How they fit together
 
 - **Apple Ads:** the Apple Ads agents check installs against the MMP Agents, hand cross-channel budgets to AI Paid Traffic and App Store page behaviour to the Behaviour Analytics Agents.
+
+- **Microsoft Ads:** the Microsoft Ads agents import what already works from Google in AI Paid Traffic, read landing pages with Microsoft Clarity alongside the Behaviour Analytics Agents, send B2B leads through the HubSpot agents and share LinkedIn targeting lessons with the LinkedIn Ads agents.
 
 - **Articles:** the article agents take keyword targets from AI Search Everywhere, save drafts through the HubSpot agents' blog tools, and hand finished articles to the Content Agents for social posts.
 
@@ -232,6 +242,7 @@ Then follow the install steps in each project's README.
 - MMP Agents need AppsFlyer or Adjust exports or API access (or the Windsor.ai connector); the AppsFlyer MCP server is optional
 - Prospecting & Signals Agents need Clay, Common Room or Apollo (exports, API/MCP access or a signed-in dashboard); HubSpot or Salesforce is optional
 - Article Agents work with built-in web search; Ahrefs or Semrush (keyword data) and HubSpot or Wix (CMS drafts) are optional
+- Microsoft Ads Agents need Microsoft Advertising exports, API read access or a signed-in dashboard; Google Ads exports, a CRM and Microsoft Merchant Center are optional
 - Website Audit Agents need a free PageSpeed Insights API key; Ahrefs Webmaster Tools exports, a Claude API key and a Slack webhook are optional
 
 ## License
